@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1Entertainment — Bài viết</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-journal-richtext me-2"></i>
+                M1Entertainment
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="articles.html">Bài viết</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Danh mục
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="articles.html?cat=cong-nghe">Công nghệ</a></li>
+                            <li><a class="dropdown-item" href="articles.html?cat=lap-trinh">Lập trình</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="articles.html?cat=khac">Khác</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control form-control-sm me-2 bg-secondary border-0 text-white" type="search"
+                        placeholder="Tìm kiếm..." aria-label="Search">
+                    <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
+                </form>
+                <div class="ms-3 d-flex gap-2">
+                    <a href="../auth/login.html" class="btn btn-sm btn-outline-light">Đăng nhập</a>
+                    <a href="../auth/register.html" class="btn btn-sm btn-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <div class="bg-dark text-white py-5">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-2">
+                    <li class="breadcrumb-item"><a href="index.html" class="text-light">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-white-50" aria-current="page">Bài viết</li>
+                </ol>
+            </nav>
+            <h1 class="fw-bold mb-1">Tất cả bài viết</h1>
+            <p class="text-white-50 mb-0">Khám phá kho nội dung phong phú từ cộng đồng M1Entertainment</p>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+        <div class="container py-5">
+            <div class="row g-4">
+
+                <!-- ===== CỘT CHÍNH (8/12) ===== -->
+                <div class="col-lg-8">
+
+                    <!-- Bộ lọc & sắp xếp -->
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-primary btn-sm">Tất cả</button>
+                            <button class="btn btn-outline-secondary btn-sm">Lập trình</button>
+                            <button class="btn btn-outline-secondary btn-sm">Công nghệ</button>
+                            <button class="btn btn-outline-secondary btn-sm">Thiết kế</button>
+                            <button class="btn btn-outline-secondary btn-sm">Cuộc sống</button>
+                            <button class="btn btn-outline-secondary btn-sm">Bảo mật</button>
+                        </div>
+                        <select class="form-select form-select-sm w-auto">
+                            <option>Mới nhất</option>
+                            <option>Cũ nhất</option>
+                            <option>Đọc nhiều nhất</option>
+                            <option>Yêu thích nhất</option>
+                        </select>
+                    </div>
+
+                    <!-- Danh sách bài viết (3 cột) -->
+                    <div class="row g-3" id="articleList">
+
+                        <!-- Bài viết 1 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-primary d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-newspaper"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Nổi bật</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            Xu hướng công nghệ 2026: AI, Web3 và tương lai lập trình
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Năm 2026 chứng kiến sự bùng nổ của trí tuệ nhân tạo...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>20/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>1.2k</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 2 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-code-slash"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">Lập trình</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            Học Bootstrap 5 từ A đến Z cho người mới bắt đầu
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Bootstrap 5 mang lại nhiều cải tiến so với phiên bản trước...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>18/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>876</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 3 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-warning d-flex align-items-center justify-content-center text-dark fs-2">
+                                    <i class="bi bi-lightning-charge"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-warning text-dark mb-2">Công nghệ</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            Tăng tốc website với các kỹ thuật tối ưu hiệu suất hiện đại
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Hiệu suất trang web ảnh hưởng trực tiếp đến trải nghiệm người dùng...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>15/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>654</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 4 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-info d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-palette"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-info text-dark mb-2">Thiết kế</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            10 nguyên tắc thiết kế UI/UX không thể bỏ qua năm 2026
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Thiết kế UI/UX tốt không chỉ đẹp mắt mà còn phải trực quan...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>12/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>980</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 5 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-secondary d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-journal-text"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-secondary mb-2">Cuộc sống</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            Bí quyết cân bằng giữa công việc lập trình và cuộc sống
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Làm thế nào để duy trì năng suất làm việc mà không bị kiệt sức...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>10/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>421</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 6 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-danger d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-shield-check"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-danger mb-2">Bảo mật</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            Bảo mật ứng dụng web: Những lỗ hổng phổ biến cần tránh
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">XSS, SQL Injection, CSRF — các loại tấn công này vẫn còn rất phổ biến...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>08/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>534</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 7 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm d-flex align-items-center justify-content-center text-white fs-2" style="background-color:#6f42c1;">
+                                    <i class="bi bi-database"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge mb-2" style="background-color:#6f42c1;">Database</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            So sánh SQL và NoSQL: Chọn cơ sở dữ liệu phù hợp
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Mỗi loại cơ sở dữ liệu có ưu và nhược điểm riêng...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>05/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>278</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 8 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-dark d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-git"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-dark mb-2">DevOps</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            Git nâng cao: Rebase, Cherry-pick và quản lý branch hiệu quả
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Làm chủ Git giúp bạn làm việc nhóm chuyên nghiệp hơn...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>02/03/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>345</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bài viết 9 -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 shadow-sm article-card">
+                                <div class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white fs-2">
+                                    <i class="bi bi-braces"></i>
+                                </div>
+                                <div class="card-body">
+                                    <span class="badge bg-success mb-2">Lập trình</span>
+                                    <h6 class="card-title fw-bold">
+                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
+                                            JavaScript ES2025: Những tính năng mới đáng chú ý nhất
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small">Năm 2025 JavaScript tiếp tục phát triển mạnh với nhiều tính năng mới...</p>
+                                </div>
+                                <div class="card-footer bg-transparent border-0 small text-muted">
+                                    <i class="bi bi-calendar3 me-1"></i>28/02/2026
+                                    <span class="float-end"><i class="bi bi-eye me-1"></i>712</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /#articleList -->
+
+                    <!-- Phân trang -->
+                    <nav class="mt-5" aria-label="Phân trang bài viết">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#"><i class="bi bi-chevron-left"></i></a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                        <p class="text-center text-muted small mt-2">Trang 1 / 5 — Tổng 45 bài viết</p>
+                    </nav>
+                </div><!-- /col-lg-8 -->
+
+                <!-- ===== SIDEBAR (4/12) ===== -->
+                <div class="col-lg-4">
+                    <!-- Tìm kiếm -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-search me-2 text-primary"></i>Tìm kiếm</h6>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Nhập từ khóa...">
+                                <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danh mục -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-grid me-2 text-primary"></i>Danh mục</h6>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
+                                    <a href="articles.html?cat=lap-trinh" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Lập trình</a>
+                                    <span class="badge bg-primary rounded-pill">18</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
+                                    <a href="articles.html?cat=cong-nghe" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Công nghệ</a>
+                                    <span class="badge bg-primary rounded-pill">12</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
+                                    <a href="articles.html?cat=thiet-ke" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Thiết kế</a>
+                                    <span class="badge bg-primary rounded-pill">9</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
+                                    <a href="articles.html?cat=cuoc-song" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Cuộc sống</a>
+                                    <span class="badge bg-primary rounded-pill">7</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
+                                    <a href="articles.html?cat=bao-mat" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Bảo mật</a>
+                                    <span class="badge bg-primary rounded-pill">5</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
+                                    <a href="articles.html?cat=devops" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>DevOps</a>
+                                    <span class="badge bg-primary rounded-pill">4</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-tags me-2 text-primary"></i>Tags</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Bootstrap</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#HTML</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#CSS</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#JavaScript</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#UI/UX</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Database</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Security</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#AI</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Git</a>
+                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#DevOps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bài viết đọc nhiều -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-fire me-2 text-danger"></i>Đọc nhiều nhất</h6>
+                            <ol class="list-unstyled mb-0">
+                                <li class="d-flex gap-3 mb-3 pb-3 border-bottom">
+                                    <span class="fs-3 fw-bold text-muted lh-1">01</span>
+                                    <div>
+                                        <a href="article-detail.html" class="text-decoration-none text-dark small fw-semibold article-title">Học Bootstrap 5 từ A đến Z cho người mới bắt đầu</a>
+                                        <div class="text-muted" style="font-size:.75rem;"><i class="bi bi-eye me-1"></i>4.5k lượt xem</div>
+                                    </div>
+                                </li>
+                                <li class="d-flex gap-3 mb-3 pb-3 border-bottom">
+                                    <span class="fs-3 fw-bold text-muted lh-1">02</span>
+                                    <div>
+                                        <a href="article-detail.html" class="text-decoration-none text-dark small fw-semibold article-title">Bí quyết cân bằng giữa công việc lập trình và cuộc sống</a>
+                                        <div class="text-muted" style="font-size:.75rem;"><i class="bi bi-eye me-1"></i>3.1k lượt xem</div>
+                                    </div>
+                                </li>
+                                <li class="d-flex gap-3">
+                                    <span class="fs-3 fw-bold text-muted lh-1">03</span>
+                                    <div>
+                                        <a href="article-detail.html" class="text-decoration-none text-dark small fw-semibold article-title">10 nguyên tắc thiết kế UI/UX không thể bỏ qua năm 2026</a>
+                                        <div class="text-muted" style="font-size:.75rem;"><i class="bi bi-eye me-1"></i>2.8k lượt xem</div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /col-lg-4 -->
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand mb-2">M1Entertainment</div>
+                    <p class="small">Nền tảng quản lý blog cá nhân đơn giản, hiện đại. Chia sẻ ý tưởng và kết nối với cộng đồng.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" title="Twitter/X"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" title="GitHub"><i class="bi bi-github fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="text-white fw-semibold mb-3">Liên kết</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html">Trang chủ</a></li>
+                        <li class="mb-2"><a href="articles.html">Bài viết</a></li>
+                        <li class="mb-2"><a href="about.html">Giới thiệu</a></li>
+                        <li class="mb-2"><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="text-white fw-semibold mb-3">Danh mục</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="articles.html?cat=cong-nghe">Công nghệ</a></li>
+                        <li class="mb-2"><a href="articles.html?cat=lap-trinh">Lập trình</a></li>
+                        <li class="mb-2"><a href="articles.html?cat=thiet-ke">Thiết kế</a></li>
+                        <li class="mb-2"><a href="articles.html?cat=cuoc-song">Cuộc sống</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="text-white fw-semibold mb-3">Liên hệ</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="bi bi-envelope me-1"></i>contact@m1entertainment.vn</li>
+                        <li class="mb-2"><i class="bi bi-geo-alt me-1"></i>Hà Nội, Việt Nam</li>
+                    </ul>
+                    <h6 class="text-white fw-semibold mt-3 mb-2">Đăng ký nhận tin</h6>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control form-control-sm bg-secondary border-0 text-white" placeholder="Email của bạn">
+                        <button class="btn btn-primary btn-sm px-3" type="submit">Gửi</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="footer-divider my-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+                <span>&copy; 2026 M1Entertainment. Tất cả quyền được bảo lưu.</span>
+                <div class="d-flex gap-3 mt-2 mt-md-0">
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1Entertainment — Liên hệ</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-journal-richtext me-2"></i>
+                M1Entertainment
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="articles.html">Bài viết</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Danh mục
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="articles.html?cat=cong-nghe">Công nghệ</a></li>
+                            <li><a class="dropdown-item" href="articles.html?cat=lap-trinh">Lập trình</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="articles.html?cat=khac">Khác</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control form-control-sm me-2 bg-secondary border-0 text-white" type="search"
+                        placeholder="Tìm kiếm..." aria-label="Search">
+                    <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
+                </form>
+                <div class="ms-3 d-flex gap-2">
+                    <a href="../auth/login.html" class="btn btn-sm btn-outline-light">Đăng nhập</a>
+                    <a href="../auth/register.html" class="btn btn-sm btn-primary">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE HERO ===== -->
+    <div class="bg-dark text-white py-5">
+        <div class="container text-center py-3">
+            <i class="bi bi-envelope-fill display-4 mb-3 d-block text-primary"></i>
+            <h1 class="fw-bold mb-2">Liên hệ với chúng tôi</h1>
+            <p class="text-white-50 mb-0 col-md-6 mx-auto">Chúng tôi luôn sẵn sàng lắng nghe ý kiến, đề xuất hoặc câu hỏi của bạn.</p>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+        <div class="container py-5">
+            <div class="row g-5">
+
+                <!-- ===== FORM LIÊN HỆ (7/12) ===== -->
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4">Gửi tin nhắn cho chúng tôi</h4>
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <form>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <label for="contactName" class="form-label fw-semibold">Họ và tên <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="contactName" placeholder="Nhập họ và tên" required>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label for="contactEmail" class="form-label fw-semibold">Email <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control" id="contactEmail" placeholder="Nhập địa chỉ email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="contactSubject" class="form-label fw-semibold">Chủ đề</label>
+                                        <select class="form-select" id="contactSubject">
+                                            <option selected>Chọn chủ đề...</option>
+                                            <option>Góp ý bài viết</option>
+                                            <option>Hợp tác viết bài</option>
+                                            <option>Báo cáo lỗi</option>
+                                            <option>Quảng cáo / Tài trợ</option>
+                                            <option>Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="contactMessage" class="form-label fw-semibold">Nội dung <span class="text-danger">*</span></label>
+                                        <textarea class="form-control" id="contactMessage" rows="6" placeholder="Nhập nội dung tin nhắn..." required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="contactAgree" required>
+                                            <label class="form-check-label small text-muted" for="contactAgree">
+                                                Tôi đồng ý với <a href="#" class="text-primary">chính sách bảo mật</a> và <a href="#" class="text-primary">điều khoản sử dụng</a>.
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary px-5">
+                                            <i class="bi bi-send me-2"></i>Gửi tin nhắn
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== THÔNG TIN LIÊN HỆ (5/12) ===== -->
+                <div class="col-lg-5">
+                    <h4 class="fw-bold mb-4">Thông tin liên hệ</h4>
+
+                    <!-- Địa chỉ -->
+                    <div class="card border-0 shadow-sm mb-3">
+                        <div class="card-body d-flex gap-3 align-items-start">
+                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:48px;height:48px;font-size:1.2rem;">
+                                <i class="bi bi-geo-alt-fill"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Địa chỉ</h6>
+                                <p class="text-muted small mb-0">123 Đường Cầu Giấy,<br>Cầu Giấy, Hà Nội, Việt Nam</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="card border-0 shadow-sm mb-3">
+                        <div class="card-body d-flex gap-3 align-items-start">
+                            <div class="rounded-circle bg-success d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:48px;height:48px;font-size:1.2rem;">
+                                <i class="bi bi-envelope-fill"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Email</h6>
+                                <p class="text-muted small mb-0">contact@m1entertainment.vn<br>support@m1entertainment.vn</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Điện thoại -->
+                    <div class="card border-0 shadow-sm mb-3">
+                        <div class="card-body d-flex gap-3 align-items-start">
+                            <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center text-dark flex-shrink-0" style="width:48px;height:48px;font-size:1.2rem;">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Điện thoại</h6>
+                                <p class="text-muted small mb-0">+84 (0) 24 1234 5678<br>Thứ Hai – Thứ Sáu, 8:00–17:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mạng xã hội -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3">Theo dõi chúng tôi</h6>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="btn btn-outline-primary btn-sm" title="Facebook">
+                                    <i class="bi bi-facebook me-1"></i>Facebook
+                                </a>
+                                <a href="#" class="btn btn-outline-dark btn-sm" title="Twitter/X">
+                                    <i class="bi bi-twitter-x me-1"></i>X
+                                </a>
+                                <a href="#" class="btn btn-outline-dark btn-sm" title="GitHub">
+                                    <i class="bi bi-github me-1"></i>GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Giờ làm việc -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-clock me-2 text-primary"></i>Giờ làm việc</h6>
+                            <ul class="list-unstyled small mb-0">
+                                <li class="d-flex justify-content-between py-1 border-bottom">
+                                    <span class="text-muted">Thứ Hai – Thứ Sáu</span>
+                                    <span class="fw-semibold">8:00 – 17:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-1 border-bottom">
+                                    <span class="text-muted">Thứ Bảy</span>
+                                    <span class="fw-semibold">8:00 – 12:00</span>
+                                </li>
+                                <li class="d-flex justify-content-between py-1">
+                                    <span class="text-muted">Chủ Nhật</span>
+                                    <span class="text-danger fw-semibold">Nghỉ</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.row -->
+
+            <!-- Câu hỏi thường gặp -->
+            <div class="mt-5 pt-5 border-top">
+                <div class="text-center mb-5">
+                    <span class="badge bg-primary mb-2">FAQ</span>
+                    <h3 class="fw-bold">Câu hỏi thường gặp</h3>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                                        Làm thế nào để trở thành tác giả trên M1Entertainment?
+                                    </button>
+                                </h2>
+                                <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Bạn có thể đăng ký tài khoản và gửi bài viết thử thách qua form liên hệ. Đội ngũ biên tập sẽ xem xét và phản hồi trong vòng 3–5 ngày làm việc.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0 shadow-sm mb-3 rounded-3 overflow-hidden">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                        M1Entertainment có nhận quảng cáo không?
+                                    </button>
+                                </h2>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Có. Chúng tôi chấp nhận quảng cáo từ các thương hiệu và sản phẩm liên quan đến công nghệ. Vui lòng liên hệ qua email để biết thêm chi tiết về gói quảng cáo.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0 shadow-sm rounded-3 overflow-hidden">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                        Tôi có thể chia sẻ lại bài viết từ M1Entertainment không?
+                                    </button>
+                                </h2>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body text-muted">
+                                        Bạn có thể chia sẻ lại với điều kiện ghi rõ nguồn và link về bài viết gốc. Sao chép toàn bộ nội dung mà không có sự cho phép là vi phạm bản quyền.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.container -->
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand mb-2">M1Entertainment</div>
+                    <p class="small">Nền tảng quản lý blog cá nhân đơn giản, hiện đại. Chia sẻ ý tưởng và kết nối với cộng đồng.</p>
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="#" title="Facebook"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" title="Twitter/X"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="#" title="GitHub"><i class="bi bi-github fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="text-white fw-semibold mb-3">Liên kết</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="index.html">Trang chủ</a></li>
+                        <li class="mb-2"><a href="articles.html">Bài viết</a></li>
+                        <li class="mb-2"><a href="about.html">Giới thiệu</a></li>
+                        <li class="mb-2"><a href="contact.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h6 class="text-white fw-semibold mb-3">Danh mục</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="articles.html?cat=cong-nghe">Công nghệ</a></li>
+                        <li class="mb-2"><a href="articles.html?cat=lap-trinh">Lập trình</a></li>
+                        <li class="mb-2"><a href="articles.html?cat=thiet-ke">Thiết kế</a></li>
+                        <li class="mb-2"><a href="articles.html?cat=cuoc-song">Cuộc sống</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="text-white fw-semibold mb-3">Liên hệ</h6>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="bi bi-envelope me-1"></i>contact@m1entertainment.vn</li>
+                        <li class="mb-2"><i class="bi bi-geo-alt me-1"></i>Hà Nội, Việt Nam</li>
+                    </ul>
+                    <h6 class="text-white fw-semibold mt-3 mb-2">Đăng ký nhận tin</h6>
+                    <form class="d-flex gap-2">
+                        <input type="email" class="form-control form-control-sm bg-secondary border-0 text-white" placeholder="Email của bạn">
+                        <button class="btn btn-primary btn-sm px-3" type="submit">Gửi</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="footer-divider my-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+                <span>&copy; 2026 M1Entertainment. Tất cả quyền được bảo lưu.</span>
+                <div class="d-flex gap-3 mt-2 mt-md-0">
+                    <a href="#">Chính sách bảo mật</a>
+                    <a href="#">Điều khoản sử dụng</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
