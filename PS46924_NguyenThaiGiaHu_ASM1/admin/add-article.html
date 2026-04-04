@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -10,95 +10,12 @@
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 
-<body class="admin-wrapper">
+<body class="admin-wrapper" data-page="add-article">
 
-    <!-- ===== TOPBAR ===== -->
-    <header class="admin-topbar d-flex align-items-center px-3 shadow-sm">
-        <div class="d-flex align-items-center gap-3 flex-grow-1">
-            <button class="btn btn-sm btn-outline-secondary d-lg-none" id="sidebarToggle">
-                <i class="bi bi-list fs-5"></i>
-            </button>
-            <a class="fw-bold text-dark text-decoration-none fs-5" href="dashboard.html">
-                <i class="bi bi-journal-richtext text-primary me-2"></i>Admin Panel
-            </a>
-        </div>
-        <div class="d-flex align-items-center gap-3">
-            <div class="position-relative">
-                <button class="btn btn-sm btn-outline-secondary position-relative">
-                    <i class="bi bi-bell fs-6"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.6rem;">5</span>
-                </button>
-            </div>
-            <a href="../public/index.html" class="btn btn-sm btn-outline-primary" target="_blank">
-                <i class="bi bi-box-arrow-up-right me-1"></i>Xem trang
-            </a>
-            <div class="dropdown">
-                <button class="btn btn-sm d-flex align-items-center gap-2 border-0 p-0" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white" style="width:34px;height:34px;">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <span class="d-none d-md-inline small fw-semibold">Admin</span>
-                    <i class="bi bi-chevron-down small text-muted"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow">
-                    <li><h6 class="dropdown-header">Nguyễn Văn A</h6></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Cài đặt</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="../auth/login.html"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    <header class="admin-topbar d-flex align-items-center px-3 shadow-sm" id="adminTopbar"></header>
 
     <div class="d-flex flex-grow-1">
-
-        <!-- ===== SIDEBAR ===== -->
-        <nav class="admin-sidebar d-flex flex-column" id="adminSidebar">
-            <div class="sidebar-brand">
-                <i class="bi bi-speedometer2 me-2 text-primary"></i>M1 Admin
-            </div>
-            <div class="py-2 flex-grow-1">
-                <div class="nav-section-label">Tổng quan</div>
-                <a href="dashboard.html" class="nav-link">
-                    <i class="bi bi-grid-1x2-fill"></i>Dashboard
-                </a>
-                <div class="nav-section-label">Nội dung</div>
-                <a href="manage-articles.html" class="nav-link">
-                    <i class="bi bi-file-earmark-text"></i>Quản lý bài viết
-                </a>
-                <a href="add-article.html" class="nav-link active">
-                    <i class="bi bi-plus-circle"></i>Thêm bài viết
-                </a>
-                <a href="manage-categories.html" class="nav-link">
-                    <i class="bi bi-tags"></i>Danh mục
-                </a>
-                <a href="manage-comments.html" class="nav-link">
-                    <i class="bi bi-chat-dots"></i>Bình luận
-                    <span class="badge bg-warning text-dark ms-auto">12</span>
-                </a>
-                <div class="nav-section-label">Người dùng</div>
-                <a href="manage-users.html" class="nav-link">
-                    <i class="bi bi-people"></i>Người dùng
-                </a>
-                <div class="nav-section-label">Hệ thống</div>
-                <a href="settings.html" class="nav-link">
-                    <i class="bi bi-gear"></i>Cài đặt
-                </a>
-            </div>
-            <div class="p-3 border-top" style="border-color:rgba(255,255,255,.08) !important;">
-                <div class="d-flex align-items-center gap-2">
-                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:36px;height:36px;">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <div class="text-white small fw-semibold text-truncate">Nguyễn Văn A</div>
-                        <div class="text-muted" style="font-size:.72rem;">Administrator</div>
-                    </div>
-                    <a href="../auth/login.html" class="ms-auto text-muted" title="Đăng xuất"><i class="bi bi-box-arrow-right"></i></a>
-                </div>
-            </div>
-        </nav>
+        <nav class="admin-sidebar d-flex flex-column" id="adminSidebar"></nav>
 
         <!-- ===== MAIN CONTENT ===== -->
         <main class="admin-content">
@@ -193,7 +110,7 @@
                                     </div>
                                 </div>
                                 <!-- Content area -->
-                                <textarea class="editor-area" id="articleContent" rows="16"
+                                <textarea class="editor-area" id="articleContent" rows="16" cols="135"
                                     placeholder="Bắt đầu viết nội dung bài viết của bạn ở đây...&#10;&#10;Có thể sử dụng Markdown hoặc HTML cơ bản."></textarea>
                             </div>
                         </div>
@@ -239,35 +156,6 @@
                                     </button>
                                 </div>
                                 <small class="text-muted mt-1 d-block">Tối đa 10 tags, cách nhau bằng dấu phẩy.</small>
-                            </div>
-                        </div>
-
-                        <!-- SEO -->
-                        <div class="card border-0 shadow-sm mb-4">
-                            <div class="card-header bg-white border-bottom d-flex justify-content-between align-items-center">
-                                <h6 class="fw-semibold mb-0"><i class="bi bi-google me-2 text-primary"></i>SEO & Meta</h6>
-                                <button type="button" class="btn btn-sm btn-link text-muted p-0" id="toggleSeo">
-                                    <i class="bi bi-chevron-down"></i>
-                                </button>
-                            </div>
-                            <div class="card-body" id="seoContent">
-                                <div class="mb-3">
-                                    <label class="form-label small fw-semibold">Meta Title</label>
-                                    <input type="text" class="form-control form-control-sm" placeholder="Tiêu đề SEO (tối đa 60 ký tự)">
-                                    <div class="d-flex justify-content-end mt-1"><small class="text-muted">0/60</small></div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label small fw-semibold">Meta Description</label>
-                                    <textarea class="form-control form-control-sm" rows="2" placeholder="Mô tả SEO (tối đa 160 ký tự)"></textarea>
-                                    <div class="d-flex justify-content-end mt-1"><small class="text-muted">0/160</small></div>
-                                </div>
-                                <!-- Xem trước SERP -->
-                                <div class="rounded border p-3" style="background:#f8f9fa;">
-                                    <div class="small text-muted mb-1 fw-semibold">Xem trước trên Google:</div>
-                                    <div class="text-primary" style="font-size:1rem;">Tiêu đề bài viết — M1Entertainment</div>
-                                    <div class="text-success" style="font-size:.78rem;">m1entertainment.vn › bai-viet › ten-bai-viet</div>
-                                    <div class="text-muted" style="font-size:.82rem;">Mô tả ngắn sẽ hiển thị ở đây khi bài viết xuất hiện trên kết quả Google Search.</div>
-                                </div>
                             </div>
                         </div>
 
@@ -421,13 +309,6 @@
                                 <h6 class="fw-semibold mb-0"><i class="bi bi-sliders me-2 text-primary"></i>Cài đặt bổ sung</h6>
                             </div>
                             <div class="card-body">
-                                <div class="mb-3">
-                                    <label class="form-label small fw-semibold">Thời gian đọc ước tính</label>
-                                    <div class="input-group input-group-sm">
-                                        <input type="number" class="form-control" min="1" max="60" value="5">
-                                        <span class="input-group-text">phút</span>
-                                    </div>
-                                </div>
                                 <div class="mb-1">
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="allowComments" checked>
@@ -456,114 +337,6 @@
     </div>
 
     <script src="../../js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Toggle sidebar
-        document.getElementById('sidebarToggle')?.addEventListener('click', function () {
-            document.getElementById('adminSidebar').classList.toggle('show');
-        });
-
-        // Auto-generate slug from title
-        document.getElementById('articleTitle')?.addEventListener('input', function () {
-            const slug = this.value
-                .toLowerCase()
-                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-                .replace(/đ/g, 'd').replace(/Đ/g, 'D')
-                .replace(/[^a-z0-9\s-]/g, '')
-                .trim().replace(/\s+/g, '-');
-            document.getElementById('slugPreview').textContent = slug || 'ten-bai-viet-se-hien-o-day';
-        });
-
-        // Excerpt counter
-        document.getElementById('articleExcerpt')?.addEventListener('input', function () {
-            const count = Math.min(this.value.length, 200);
-            document.getElementById('excerptCount').textContent = count;
-            if (this.value.length > 200) this.value = this.value.slice(0, 200);
-        });
-
-        // Show scheduled datetime when "Hẹn giờ đăng" is selected
-        document.getElementById('articleStatus')?.addEventListener('change', function () {
-            const row = document.getElementById('scheduledRow');
-            row?.classList.toggle('d-none', this.value !== 'scheduled');
-        });
-
-        // Thumbnail upload preview
-        document.getElementById('thumbInput')?.addEventListener('change', function () {
-            if (this.files?.length) {
-                document.getElementById('thumbPlaceholder').classList.add('d-none');
-                document.getElementById('thumbPreview').classList.remove('d-none');
-            }
-        });
-        document.getElementById('removeThumb')?.addEventListener('click', function () {
-            document.getElementById('thumbPlaceholder').classList.remove('d-none');
-            document.getElementById('thumbPreview').classList.add('d-none');
-            document.getElementById('thumbInput').value = '';
-        });
-
-        // Tag remove buttons (existing tags)
-        document.querySelectorAll('#tagList .btn-close').forEach(btn => {
-            btn.addEventListener('click', function () {
-                this.closest('.badge').remove();
-            });
-        });
-
-        // Add tag
-        function addTag(value) {
-            const text = value.replace(/^#/, '').trim().toLowerCase().replace(/\s+/g, '-');
-            if (!text) return;
-            const badge = document.createElement('span');
-            badge.className = 'badge bg-light text-dark border d-flex align-items-center gap-1 py-2 px-3';
-            badge.innerHTML = `#${text}<button type="button" class="btn-close btn-close-sm ms-1" style="font-size:.5rem;" aria-label="Xóa tag"></button>`;
-            badge.querySelector('.btn-close').addEventListener('click', () => badge.remove());
-            document.getElementById('tagList').appendChild(badge);
-        }
-
-        document.getElementById('addTagBtn')?.addEventListener('click', function () {
-            const input = document.getElementById('tagInput');
-            addTag(input.value);
-            input.value = '';
-        });
-
-        document.getElementById('tagInput')?.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ',') {
-                e.preventDefault();
-                addTag(this.value.replace(',', ''));
-                this.value = '';
-            }
-        });
-
-        // Form submit (validate)
-        document.getElementById('articleForm')?.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (!this.checkValidity()) {
-                this.classList.add('was-validated');
-                return;
-            }
-            // In a real app: serialize and POST to API
-            window.location.href = 'manage-articles.html';
-        });
-
-        // Save draft
-        [document.getElementById('saveDraftBtn'), document.getElementById('saveDraftBtn2')].forEach(btn => {
-            btn?.addEventListener('click', function () {
-                document.getElementById('articleStatus').value = 'draft';
-                // In a real app: auto-save
-                const toast = document.createElement('div');
-                toast.className = 'position-fixed bottom-0 end-0 m-3 alert alert-success shadow py-2 px-3 small';
-                toast.innerHTML = '<i class="bi bi-check-circle me-2"></i>Đã lưu nháp!';
-                document.body.appendChild(toast);
-                setTimeout(() => toast.remove(), 2000);
-            });
-        });
-
-        // Toggle SEO section
-        document.getElementById('toggleSeo')?.addEventListener('click', function () {
-            const content = document.getElementById('seoContent');
-            const icon = this.querySelector('i');
-            content.classList.toggle('d-none');
-            icon.classList.toggle('bi-chevron-down');
-            icon.classList.toggle('bi-chevron-up');
-        });
-    </script>
-</body>
+    <script src="../js/admin-layout.js"></script>
 
 </html>

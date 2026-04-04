@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -10,57 +10,9 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body data-page="articles">
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <i class="bi bi-journal-richtext me-2"></i>
-                M1Entertainment
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarMain">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="articles.html">Bài viết</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Danh mục
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="articles.html?cat=cong-nghe">Công nghệ</a></li>
-                            <li><a class="dropdown-item" href="articles.html?cat=lap-trinh">Lập trình</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="articles.html?cat=khac">Khác</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Liên hệ</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control form-control-sm me-2 bg-secondary border-0 text-white" type="search"
-                        placeholder="Tìm kiếm..." aria-label="Search">
-                    <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
-                </form>
-                <div class="ms-3 d-flex gap-2">
-                    <a href="../auth/login.html" class="btn btn-sm btn-outline-light">Đăng nhập</a>
-                    <a href="../auth/register.html" class="btn btn-sm btn-primary">Đăng ký</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow" id="publicNav"></nav>
 
     <!-- ===== PAGE HEADER ===== -->
     <div class="bg-dark text-white py-5">
@@ -105,200 +57,87 @@
                     <!-- Danh sách bài viết (3 cột) -->
                     <div class="row g-3" id="articleList">
 
-                        <!-- Bài viết 1 -->
+                        <!-- Card 1 -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-primary d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-newspaper"></i>
+                            <div class="card h-100 border-0 shadow-sm bg-dark article-card">
+                                <div class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white">
+                                    <img src="../imgs/T13lllT.png" alt="Bootstrap 5" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <span class="badge bg-danger mb-2">Nổi bật</span>
+                                    <span class="badge bg-danger mb-2">Hot</span>
                                     <h6 class="card-title fw-bold">
                                         <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            Xu hướng công nghệ 2026: AI, Web3 và tương lai lập trình
+                                            Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần liên tiếp
                                         </a>
                                     </h6>
-                                    <p class="card-text text-muted small">Năm 2026 chứng kiến sự bùng nổ của trí tuệ nhân tạo...</p>
+                                    <p class="card-text text-muted small">Tại Chung Kết Thế Giới (CKTG) 2025, việc T1 vô địch một lần nữa khẳng định vị thế bất diệt của mình. Đội tuyển huyền thoại đến từ Hàn Quốc không chỉ bảo vệ thành công ngôi vương mà còn lập nên kỳ tích ba lần vô địch liên tiếp từ năm 2023 đến 2025. Đây là minh chứng sống động cho sức mạnh bền bỉ, bản lĩnh thép và tinh thần không ngừng chinh phục của T1, biến họ thành biểu tượng vĩ đại nhất lịch sử eSports.</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>20/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>1.2k</span>
+                                    <i class="bi bi-calendar3 me-1"></i>11/10/2025
+                                    <span class="float-end"><i class="bi bi-heart me-1"></i>234</span>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Bài viết 2 -->
+                        <!-- Card 2 -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-code-slash"></i>
+                            <div class="card h-100 border-0 shadow-sm bg-dark article-card">
+                                <div class="article-thumb-sm bg-warning d-flex align-items-center justify-content-center text-dark">
+                                    <img src="../imgs/G23_0GenG.png" alt="G2 vs Gen.G" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <span class="badge bg-success mb-2">Lập trình</span>
+                                    <span class="badge bg-warning text-dark mb-2">Shock</span>
                                     <h6 class="card-title fw-bold">
                                         <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            Học Bootstrap 5 từ A đến Z cho người mới bắt đầu
+                                            G2 sweeps Gen.G 3-0
                                         </a>
                                     </h6>
-                                    <p class="card-text text-muted small">Bootstrap 5 mang lại nhiều cải tiến so với phiên bản trước...</p>
+                                    <p class="card-text text-muted small">G2 Esports is back. They’re more back than ever before. The legendary team of Europe, known for international performances of years past, had been relegated to dominating the LEC, and the LEC alone, for several years. But today, the low expectations for Western LoL fans have been completely flipped upside down.</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>18/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>876</span>
+                                    <i class="bi bi-calendar3 me-1"></i>21/03/2026
+                                    <span class="float-end"><i class="bi bi-heart me-1"></i>189</span>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Bài viết 3 -->
+                        <!-- Card 3 -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-warning d-flex align-items-center justify-content-center text-dark fs-2">
-                                    <i class="bi bi-lightning-charge"></i>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge bg-warning text-dark mb-2">Công nghệ</span>
-                                    <h6 class="card-title fw-bold">
-                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            Tăng tốc website với các kỹ thuật tối ưu hiệu suất hiện đại
-                                        </a>
-                                    </h6>
-                                    <p class="card-text text-muted small">Hiệu suất trang web ảnh hưởng trực tiếp đến trải nghiệm người dùng...</p>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>15/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>654</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bài viết 4 -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
+                            <div class="card h-100 border-0 shadow-sm bg-dark article-card">
                                 <div class="article-thumb-sm bg-info d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-palette"></i>
+                                    <img src="../imgs/GumaLeaveT1.png" alt="Guma Leave T1" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <span class="badge bg-info text-dark mb-2">Thiết kế</span>
+                                    <span class="badge bg-danger text-dark mb-2">Hot</span>
                                     <h6 class="card-title fw-bold">
                                         <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            10 nguyên tắc thiết kế UI/UX không thể bỏ qua năm 2026
+                                            Gumayusi rời T1, cú chuyển nhượng có thể làm rung chuyển LCK
                                         </a>
                                     </h6>
-                                    <p class="card-text text-muted small">Thiết kế UI/UX tốt không chỉ đẹp mắt mà còn phải trực quan...</p>
+                                    <p class="card-text text-muted small">Sự chia tay của Gumayusi tương tự như việc Choi “Zeus” Woo-je ra đi năm ngoái và đây chắc chắn không chỉ là một sự thay đổi nhân sự bình thường. Đây là khoảnh khắc khép lại một kỷ nguyên vàng son của T1, đồng thời đánh dấu sự tan vỡ của bộ đôi ăn ý Gumayusi – Ryu “Keria” Min-seok, khiến fan hâm mộ lẫn cộng đồng eSports phải tiếc nuối.</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>12/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>980</span>
+                                    <i class="bi bi-calendar3 me-1"></i>18/11/2025
+                                    <span class="float-end"><i class="bi bi-heart me-1"></i>312</span>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Bài viết 5 -->
+                        <!-- Card 4 -->
                         <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-secondary d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-journal-text"></i>
+                            <div class="card h-100 border-0 shadow-sm bg-dark article-card">
+                                <div class="article-thumb-sm bg-secondary d-flex align-items-center justify-content-center text-white">
+                                    <img src="../imgs/VoDichFirstStand2026.png" alt="Vo Dich First Stand 2026" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <span class="badge bg-secondary mb-2">Cuộc sống</span>
+                                    <span class="badge bg-info mb-2">News</span>
                                     <h6 class="card-title fw-bold">
                                         <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            Bí quyết cân bằng giữa công việc lập trình và cuộc sống
+                                            Chung kết First Stand 2026: G2 gục ngã đầy cay đắng, BLG lần đầu xưng vương
                                         </a>
                                     </h6>
-                                    <p class="card-text text-muted small">Làm thế nào để duy trì năng suất làm việc mà không bị kiệt sức...</p>
+                                    <p class="card-text text-muted small">Sau những lần lỡ hẹn tại Worlds 2023 và MSI 2024, BLG đã vượt qua áp lực để giành danh hiệu lớn đầu tiên. Kết quả này có ý nghĩa quan trọng không chỉ với đội tuyển mà còn với khu vực LPL, trong bối cảnh họ từng bị đặt dấu hỏi về vị thế trước sự cạnh tranh từ LCK.</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>10/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>421</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bài viết 6 -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-danger d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-shield-check"></i>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge bg-danger mb-2">Bảo mật</span>
-                                    <h6 class="card-title fw-bold">
-                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            Bảo mật ứng dụng web: Những lỗ hổng phổ biến cần tránh
-                                        </a>
-                                    </h6>
-                                    <p class="card-text text-muted small">XSS, SQL Injection, CSRF — các loại tấn công này vẫn còn rất phổ biến...</p>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>08/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>534</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bài viết 7 -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm d-flex align-items-center justify-content-center text-white fs-2" style="background-color:#6f42c1;">
-                                    <i class="bi bi-database"></i>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge mb-2" style="background-color:#6f42c1;">Database</span>
-                                    <h6 class="card-title fw-bold">
-                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            So sánh SQL và NoSQL: Chọn cơ sở dữ liệu phù hợp
-                                        </a>
-                                    </h6>
-                                    <p class="card-text text-muted small">Mỗi loại cơ sở dữ liệu có ưu và nhược điểm riêng...</p>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>05/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>278</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bài viết 8 -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-dark d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-git"></i>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge bg-dark mb-2">DevOps</span>
-                                    <h6 class="card-title fw-bold">
-                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            Git nâng cao: Rebase, Cherry-pick và quản lý branch hiệu quả
-                                        </a>
-                                    </h6>
-                                    <p class="card-text text-muted small">Làm chủ Git giúp bạn làm việc nhóm chuyên nghiệp hơn...</p>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>02/03/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>345</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bài viết 9 -->
-                        <div class="col-md-6 col-lg-4">
-                            <div class="card h-100 border-0 shadow-sm article-card">
-                                <div class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white fs-2">
-                                    <i class="bi bi-braces"></i>
-                                </div>
-                                <div class="card-body">
-                                    <span class="badge bg-success mb-2">Lập trình</span>
-                                    <h6 class="card-title fw-bold">
-                                        <a href="article-detail.html" class="text-decoration-none text-dark article-title">
-                                            JavaScript ES2025: Những tính năng mới đáng chú ý nhất
-                                        </a>
-                                    </h6>
-                                    <p class="card-text text-muted small">Năm 2025 JavaScript tiếp tục phát triển mạnh với nhiều tính năng mới...</p>
-                                </div>
-                                <div class="card-footer bg-transparent border-0 small text-muted">
-                                    <i class="bi bi-calendar3 me-1"></i>28/02/2026
-                                    <span class="float-end"><i class="bi bi-eye me-1"></i>712</span>
+                                    <i class="bi bi-calendar3 me-1"></i>23/03/2026
+                                    <span class="float-end"><i class="bi bi-heart me-1"></i>421</span>
                                 </div>
                             </div>
                         </div>
@@ -326,45 +165,34 @@
 
                 <!-- ===== SIDEBAR (4/12) ===== -->
                 <div class="col-lg-4">
-                    <!-- Tìm kiếm -->
-                    <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-body">
-                            <h6 class="fw-bold mb-3"><i class="bi bi-search me-2 text-primary"></i>Tìm kiếm</h6>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Nhập từ khóa...">
-                                <button class="btn btn-primary"><i class="bi bi-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Danh mục -->
                     <div class="card border-0 shadow-sm mb-4">
-                        <div class="card-body">
-                            <h6 class="fw-bold mb-3"><i class="bi bi-grid me-2 text-primary"></i>Danh mục</h6>
+                        <div class="card-body ">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-grid me-2" style="color:#ffb300;"></i>Danh mục</h6>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                    <a href="articles.html?cat=lap-trinh" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Lập trình</a>
-                                    <span class="badge bg-primary rounded-pill">18</span>
+                                    <a href="articles.html?cat=lap-trinh" class="text-decoration-none" style="color:#ffb300;"><i class="bi bi-chevron-right small me-1" style="color:#ffb300;"></i>Lập trình</a>
+                                    <span class="badge rounded-pill" style="background:#ffb300;color:#181818;font-weight:600;">18</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                    <a href="articles.html?cat=cong-nghe" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Công nghệ</a>
-                                    <span class="badge bg-primary rounded-pill">12</span>
+                                    <a href="articles.html?cat=cong-nghe" class="text-decoration-none" style="color:#ffb300;"><i class="bi bi-chevron-right small me-1" style="color:#ffb300;"></i>Công nghệ</a>
+                                    <span class="badge rounded-pill" style="background:#ffb300;color:#181818;font-weight:600;">12</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                    <a href="articles.html?cat=thiet-ke" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Thiết kế</a>
-                                    <span class="badge bg-primary rounded-pill">9</span>
+                                    <a href="articles.html?cat=thiet-ke" class="text-decoration-none" style="color:#ffb300;"><i class="bi bi-chevron-right small me-1" style="color:#ffb300;"></i>Thiết kế</a>
+                                    <span class="badge rounded-pill" style="background:#ffb300;color:#181818;font-weight:600;">9</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                    <a href="articles.html?cat=cuoc-song" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Cuộc sống</a>
-                                    <span class="badge bg-primary rounded-pill">7</span>
+                                    <a href="articles.html?cat=cuoc-song" class="text-decoration-none" style="color:#ffb300;"><i class="bi bi-chevron-right small me-1" style="color:#ffb300;"></i>Cuộc sống</a>
+                                    <span class="badge rounded-pill" style="background:#ffb300;color:#181818;font-weight:600;">7</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                    <a href="articles.html?cat=bao-mat" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>Bảo mật</a>
-                                    <span class="badge bg-primary rounded-pill">5</span>
+                                    <a href="articles.html?cat=bao-mat" class="text-decoration-none" style="color:#ffb300;"><i class="bi bi-chevron-right small me-1" style="color:#ffb300;"></i>Bảo mật</a>
+                                    <span class="badge rounded-pill" style="background:#ffb300;color:#181818;font-weight:600;">5</span>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                    <a href="articles.html?cat=devops" class="text-decoration-none text-dark"><i class="bi bi-chevron-right small text-primary me-1"></i>DevOps</a>
-                                    <span class="badge bg-primary rounded-pill">4</span>
+                                    <a href="articles.html?cat=devops" class="text-decoration-none" style="color:#ffb300;"><i class="bi bi-chevron-right small me-1" style="color:#ffb300;"></i>DevOps</a>
+                                    <span class="badge rounded-pill" style="background:#ffb300;color:#181818;font-weight:600;">4</span>
                                 </li>
                             </ul>
                         </div>
@@ -373,18 +201,18 @@
                     <!-- Tags -->
                     <div class="card border-0 shadow-sm mb-4">
                         <div class="card-body">
-                            <h6 class="fw-bold mb-3"><i class="bi bi-tags me-2 text-primary"></i>Tags</h6>
+                            <h6 class="fw-bold mb-3"><i class="bi bi-tags me-2" style="color:#ffb300;"></i>Thẻ nổi bật</h6>
                             <div class="d-flex flex-wrap gap-2">
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Bootstrap</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#HTML</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#CSS</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#JavaScript</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#UI/UX</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Database</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Security</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#AI</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#Git</a>
-                                <a href="#" class="badge bg-light text-dark border text-decoration-none">#DevOps</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#Bootstrap</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#HTML</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#CSS</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#JavaScript</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#UI/UX</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#Database</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#Bảo mật</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#AI</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#Git</a>
+                                <a href="#" class="badge border text-decoration-none" style="background:#ffb300;color:#181818;font-weight:600;">#DevOps</a>
                             </div>
                         </div>
                     </div>
@@ -392,27 +220,27 @@
                     <!-- Bài viết đọc nhiều -->
                     <div class="card border-0 shadow-sm">
                         <div class="card-body">
-                            <h6 class="fw-bold mb-3"><i class="bi bi-fire me-2 text-danger"></i>Đọc nhiều nhất</h6>
+                            <h6 class="fw-bold mb-3"><i class="bi bi-fire me-2" style="color:#ffb300;"></i>Bài viết nổi bật</h6>
                             <ol class="list-unstyled mb-0">
                                 <li class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                                    <span class="fs-3 fw-bold text-muted lh-1">01</span>
+                                    <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">01</span>
                                     <div>
-                                        <a href="article-detail.html" class="text-decoration-none text-dark small fw-semibold article-title">Học Bootstrap 5 từ A đến Z cho người mới bắt đầu</a>
-                                        <div class="text-muted" style="font-size:.75rem;"><i class="bi bi-eye me-1"></i>4.5k lượt xem</div>
+                                        <a href="article-detail.html" class="text-decoration-none fw-semibold article-title" style="color:#ffb300;">Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần liên tiếp</a>
+                                        <div style="font-size:.75rem;color:#f5f5f5;"><i class="bi bi-heart me-1" style="color:#ffb300;"></i>234 lượt thích</div>
                                     </div>
                                 </li>
                                 <li class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                                    <span class="fs-3 fw-bold text-muted lh-1">02</span>
+                                    <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">02</span>
                                     <div>
-                                        <a href="article-detail.html" class="text-decoration-none text-dark small fw-semibold article-title">Bí quyết cân bằng giữa công việc lập trình và cuộc sống</a>
-                                        <div class="text-muted" style="font-size:.75rem;"><i class="bi bi-eye me-1"></i>3.1k lượt xem</div>
+                                        <a href="article-detail.html" class="text-decoration-none fw-semibold article-title" style="color:#ffb300;">G2 sweeps Gen.G 3-0</a>
+                                        <div style="font-size:.75rem;color:#f5f5f5;"><i class="bi bi-heart me-1" style="color:#ffb300;"></i>189 lượt thích</div>
                                     </div>
                                 </li>
                                 <li class="d-flex gap-3">
-                                    <span class="fs-3 fw-bold text-muted lh-1">03</span>
+                                    <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">03</span>
                                     <div>
-                                        <a href="article-detail.html" class="text-decoration-none text-dark small fw-semibold article-title">10 nguyên tắc thiết kế UI/UX không thể bỏ qua năm 2026</a>
-                                        <div class="text-muted" style="font-size:.75rem;"><i class="bi bi-eye me-1"></i>2.8k lượt xem</div>
+                                        <a href="article-detail.html" class="text-decoration-none fw-semibold article-title" style="color:#ffb300;">Gumayusi rời T1, cú chuyển nhượng có thể làm rung chuyển LCK</a>
+                                        <div style="font-size:.75rem;color:#f5f5f5;"><i class="bi bi-heart me-1" style="color:#ffb300;"></i>312 lượt thích</div>
                                     </div>
                                 </li>
                             </ol>
@@ -424,62 +252,10 @@
         </div><!-- /.container -->
     </main>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="py-5">
-        <div class="container">
-            <div class="row gy-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-brand mb-2">M1Entertainment</div>
-                    <p class="small">Nền tảng quản lý blog cá nhân đơn giản, hiện đại. Chia sẻ ý tưởng và kết nối với cộng đồng.</p>
-                    <div class="d-flex gap-3 mt-3">
-                        <a href="#" title="Facebook"><i class="bi bi-facebook fs-5"></i></a>
-                        <a href="#" title="Twitter/X"><i class="bi bi-twitter-x fs-5"></i></a>
-                        <a href="#" title="GitHub"><i class="bi bi-github fs-5"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-6">
-                    <h6 class="text-white fw-semibold mb-3">Liên kết</h6>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="index.html">Trang chủ</a></li>
-                        <li class="mb-2"><a href="articles.html">Bài viết</a></li>
-                        <li class="mb-2"><a href="about.html">Giới thiệu</a></li>
-                        <li class="mb-2"><a href="contact.html">Liên hệ</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6 col-6">
-                    <h6 class="text-white fw-semibold mb-3">Danh mục</h6>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><a href="articles.html?cat=cong-nghe">Công nghệ</a></li>
-                        <li class="mb-2"><a href="articles.html?cat=lap-trinh">Lập trình</a></li>
-                        <li class="mb-2"><a href="articles.html?cat=thiet-ke">Thiết kế</a></li>
-                        <li class="mb-2"><a href="articles.html?cat=cuoc-song">Cuộc sống</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h6 class="text-white fw-semibold mb-3">Liên hệ</h6>
-                    <ul class="list-unstyled small">
-                        <li class="mb-2"><i class="bi bi-envelope me-1"></i>contact@m1entertainment.vn</li>
-                        <li class="mb-2"><i class="bi bi-geo-alt me-1"></i>Hà Nội, Việt Nam</li>
-                    </ul>
-                    <h6 class="text-white fw-semibold mt-3 mb-2">Đăng ký nhận tin</h6>
-                    <form class="d-flex gap-2">
-                        <input type="email" class="form-control form-control-sm bg-secondary border-0 text-white" placeholder="Email của bạn">
-                        <button class="btn btn-primary btn-sm px-3" type="submit">Gửi</button>
-                    </form>
-                </div>
-            </div>
-            <hr class="footer-divider my-4">
-            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
-                <span>&copy; 2026 M1Entertainment. Tất cả quyền được bảo lưu.</span>
-                <div class="d-flex gap-3 mt-2 mt-md-0">
-                    <a href="#">Chính sách bảo mật</a>
-                    <a href="#">Điều khoản sử dụng</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer class="py-5" id="publicFooter"></footer>
 
     <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/public-layout.js"></script>
 </body>
 
 </html>

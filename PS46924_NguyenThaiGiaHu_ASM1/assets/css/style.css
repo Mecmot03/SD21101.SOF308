@@ -1,0 +1,195 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #181818;
+    color: #f5f5f5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'AntonLocal', sans-serif;
+    color: red;
+    text-shadow: 1px 1px 4px #000, 0 2px 8px #000a;
+}
+
+
+.card-text, .carousel-caption p, .lead, .text-muted, .small {
+    color: #f5f5f5 !important;
+    text-shadow: 1px 1px 4px #000a;
+}
+
+a, .text-decoration-none {
+    transition: color 0.2s;
+}
+a:hover, .text-decoration-none:hover {
+    color: #fff;
+}
+
+
+/* Navbar */
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    color: #ffb300 !important;
+}
+
+/* Carousel */
+.carousel-item {
+    height: 620px;
+}
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.carousel-item .carousel-bg {
+    width: 100%;
+    height: 100%;
+    color: #ffb300;
+}
+.carousel-caption {
+    left: 5%;
+    right: 40%;
+    text-align: left;
+}
+.carousel-caption h2 {
+    color: #fff;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.carousel-caption p {
+   font-size: 2rem;
+    font-weight: 500;
+    color: #f0f0f0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+
+/* Main */
+main {
+    flex: 1;
+    padding: 60px 0;
+}
+
+.article-thumb-sm img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+    color: #adb5bd;
+}
+        background: #181818;
+footer a {
+    color: #adb5bd;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #fff;
+}
+footer .footer-brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+}
+@font-face {
+  font-family: 'AntonLocal'; /* Bạn có thể đặt tên tùy ý */
+    src: url('../fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Giúp hiển thị chữ bằng font mặc định trước khi font Anton tải xong */
+}
+
+/* Tạo một class dùng chung để dễ áp dụng */
+.font-lol {
+  font-family: 'AntonLocal';
+  text-transform: uppercase;
+  color: red;
+}
+
+/* Articles */
+.article-card {
+    transition: transform .2s, box-shadow .2s;
+}
+.article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
+}
+
+.article-title{
+    color:red;
+}
+
+.article-title:hover {
+        color: orange;
+}
+.article-thumb {
+        border-color: #ffb300;
+    min-height: 200px;
+}
+.article-thumb-sm { 
+    height: 140px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Purple badge/background (Database category) */
+.bg-purple { background-color: #6f42c1 !important; }
+
+/* Extra-small text */
+.text-xxs { font-size: .72rem; }
+
+        color: #ffb300 !important;
+.avatar-wrapper {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+.avatar-wrapper img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.15);
+}
+.avatar-edit-btn {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+        color: #ffb300;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+        background-color: #232323;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-stat {
+    border-right: 1px solid #dee2e6;
+}
+.profile-stat:last-child {
+    border-right: none;
+}
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+}
+.nav-tabs .nav-link.active {
+    font-weight: 600;
+    color: #0d6efd;
+}
+.article-row:hover {
+    background-color: #f8f9fa;
+}

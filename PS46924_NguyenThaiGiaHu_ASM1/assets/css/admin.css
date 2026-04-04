@@ -166,3 +166,21 @@
         padding: 1.25rem;
     }
 }
+
+/* ===== UTILITY CLASSES ===== */
+
+/* Avatar sizes (replaces inline width/height styles) */
+.avatar-sm { width: 34px; height: 34px; }
+.avatar-md { width: 36px; height: 36px; }
+
+/* Extra-small text (replaces style="font-size:.72rem;") */
+.text-xxs { font-size: .72rem; }
+
+/* Article thumbnail in table (replaces inline width/height) */
+.article-thumb-table { width: 56px; height: 40px; }
+
+/* Purple badge/background (Database category) */
+.bg-purple { background-color: #6f42c1 !important; }
+
+/* Sidebar footer border */
+.admin-sidebar .sidebar-footer { border-top: 1px solid rgba(255,255,255,.08); }

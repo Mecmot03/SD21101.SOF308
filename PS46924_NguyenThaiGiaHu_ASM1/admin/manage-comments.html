@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1Entertainment Admin — Quản lý bình luận</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body class="admin-wrapper" data-page="manage-comments">
+
+    <header class="admin-topbar d-flex align-items-center px-3 shadow-sm" id="adminTopbar"></header>
+
+    <div class="d-flex flex-grow-1">
+        <nav class="admin-sidebar d-flex flex-column" id="adminSidebar"></nav>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="admin-content">
+
+            <!-- Page header -->
+            <div class="admin-page-header d-flex flex-wrap justify-content-between align-items-start gap-2">
+                <div>
+                    <h4>Quản lý bình luận</h4>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0 small">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Bình luận</li>
+                        </ol>
+                    </nav>
+                </div>
+                <span class="badge bg-warning text-dark fs-6 d-flex align-items-center gap-1">
+                    <i class="bi bi-hourglass-split"></i>12 chờ duyệt
+                </span>
+            </div>
+
+            <!-- ===== STAT CARDS ===== -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-xl-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stat-icon bg-primary bg-opacity-10 text-primary"><i class="bi bi-chat-dots"></i></div>
+                            <div>
+                                <div class="text-muted small">Tổng bình luận</div>
+                                <div class="fs-4 fw-bold lh-1">348</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stat-icon bg-warning bg-opacity-10 text-warning"><i class="bi bi-hourglass-split"></i></div>
+                            <div>
+                                <div class="text-muted small">Chờ duyệt</div>
+                                <div class="fs-4 fw-bold lh-1">12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stat-icon bg-success bg-opacity-10 text-success"><i class="bi bi-check-circle"></i></div>
+                            <div>
+                                <div class="text-muted small">Đã duyệt</div>
+                                <div class="fs-4 fw-bold lh-1">324</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body d-flex align-items-center gap-3">
+                            <div class="stat-icon bg-danger bg-opacity-10 text-danger"><i class="bi bi-slash-circle"></i></div>
+                            <div>
+                                <div class="text-muted small">Spam / Từ chối</div>
+                                <div class="fs-4 fw-bold lh-1">12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== FILTER BAR ===== -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body py-3">
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-4">
+                            <label class="form-label small mb-1 fw-semibold text-muted">Tìm kiếm</label>
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-text border-end-0 bg-white"><i class="bi bi-search text-muted"></i></span>
+                                <input type="text" class="form-control border-start-0" placeholder="Nội dung hoặc tên người dùng...">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small mb-1 fw-semibold text-muted">Trạng thái</label>
+                            <select class="form-select form-select-sm">
+                                <option value="">Tất cả</option>
+                                <option>Chờ duyệt</option>
+                                <option>Đã duyệt</option>
+                                <option>Spam</option>
+                                <option>Từ chối</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small mb-1 fw-semibold text-muted">Bài viết</label>
+                            <select class="form-select form-select-sm">
+                                <option value="">Tất cả bài viết</option>
+                                <option>Xu hướng công nghệ 2026</option>
+                                <option>Học Bootstrap 5 từ A đến Z</option>
+                                <option>10 nguyên tắc UI/UX 2026</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 d-flex gap-2">
+                            <button class="btn btn-primary btn-sm flex-fill"><i class="bi bi-funnel me-1"></i>Lọc</button>
+                            <button class="btn btn-outline-secondary btn-sm" title="Đặt lại"><i class="bi bi-arrow-counterclockwise"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== BULK ACTIONS ===== -->
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <select class="form-select form-select-sm w-auto">
+                        <option>Hành động hàng loạt</option>
+                        <option>Duyệt tất cả</option>
+                        <option>Từ chối tất cả</option>
+                        <option>Xóa tất cả</option>
+                    </select>
+                    <button class="btn btn-sm btn-outline-secondary">Áp dụng</button>
+                    <span class="text-muted small">Đã chọn: <strong>0</strong></span>
+                </div>
+                <div class="text-muted small">Hiển thị <strong>1–10</strong> trong tổng số <strong>348</strong> bình luận</div>
+            </div>
+
+            <!-- ===== TABLE ===== -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table admin-table mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4" style="width:40px;"><input class="form-check-input" type="checkbox" id="checkAll"></th>
+                                    <th style="width:50px;">#</th>
+                                    <th>Người bình luận</th>
+                                    <th>Nội dung</th>
+                                    <th>Bài viết</th>
+                                    <th>Trạng thái</th>
+                                    <th>Ngày</th>
+                                    <th class="text-center">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr class="table-warning">
+                                    <td class="ps-4"><input class="form-check-input" type="checkbox"></td>
+                                    <td class="text-muted small">001</td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:30px;height:30px;font-size:.75rem;">NA</div>
+                                            <div>
+                                                <div class="small fw-semibold">Nguyễn Văn A</div>
+                                                <div class="text-muted text-xxs">nguyenvana@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="small text-truncate d-block" style="max-width:200px;">Bài viết rất hay và bổ ích! Cảm ơn tác giả đã chia sẻ.</span></td>
+                                    <td><a href="../public/article-detail.html" class="small text-truncate d-block text-decoration-none text-primary" style="max-width:160px;">Xu hướng công nghệ 2026</a></td>
+                                    <td><span class="badge bg-warning text-dark">Chờ duyệt</span></td>
+                                    <td class="text-muted small">27/03/2026</td>
+                                    <td>
+                                        <div class="d-flex gap-1 justify-content-center">
+                                            <button class="btn btn-sm btn-outline-success py-0 px-2" title="Duyệt"><i class="bi bi-check-lg"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary py-0 px-2" title="Xem" data-bs-toggle="modal" data-bs-target="#viewCommentModal"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger py-0 px-2" title="Từ chối/Xóa" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="table-warning">
+                                    <td class="ps-4"><input class="form-check-input" type="checkbox"></td>
+                                    <td class="text-muted small">002</td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="rounded-circle bg-success d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:30px;height:30px;font-size:.75rem;">TB</div>
+                                            <div>
+                                                <div class="small fw-semibold">Trần Thị B</div>
+                                                <div class="text-muted text-xxs">tranthib@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="small text-truncate d-block" style="max-width:200px;">Cho mình hỏi thêm về phần cài đặt môi trường được không?</span></td>
+                                    <td><a href="../public/article-detail.html" class="small text-truncate d-block text-decoration-none text-primary" style="max-width:160px;">Học Bootstrap 5 từ A đến Z</a></td>
+                                    <td><span class="badge bg-warning text-dark">Chờ duyệt</span></td>
+                                    <td class="text-muted small">26/03/2026</td>
+                                    <td>
+                                        <div class="d-flex gap-1 justify-content-center">
+                                            <button class="btn btn-sm btn-outline-success py-0 px-2" title="Duyệt"><i class="bi bi-check-lg"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary py-0 px-2" title="Xem" data-bs-toggle="modal" data-bs-target="#viewCommentModal"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger py-0 px-2" title="Từ chối/Xóa" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr>
+                                    <td class="ps-4"><input class="form-check-input" type="checkbox"></td>
+                                    <td class="text-muted small">003</td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center text-dark flex-shrink-0" style="width:30px;height:30px;font-size:.75rem;">LC</div>
+                                            <div>
+                                                <div class="small fw-semibold">Lê Minh C</div>
+                                                <div class="text-muted text-xxs">leminhc@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="small text-truncate d-block" style="max-width:200px;">Mình đang học và thấy bài này giải thích rõ ràng lắm!</span></td>
+                                    <td><a href="../public/article-detail.html" class="small text-truncate d-block text-decoration-none text-primary" style="max-width:160px;">10 nguyên tắc UI/UX 2026</a></td>
+                                    <td><span class="badge bg-success">Đã duyệt</span></td>
+                                    <td class="text-muted small">25/03/2026</td>
+                                    <td>
+                                        <div class="d-flex gap-1 justify-content-center">
+                                            <button class="btn btn-sm btn-outline-secondary py-0 px-2" title="Xem" data-bs-toggle="modal" data-bs-target="#viewCommentModal"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger py-0 px-2" title="Xóa" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr>
+                                    <td class="ps-4"><input class="form-check-input" type="checkbox"></td>
+                                    <td class="text-muted small">004</td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="rounded-circle bg-info d-flex align-items-center justify-content-center text-dark flex-shrink-0" style="width:30px;height:30px;font-size:.75rem;">PD</div>
+                                            <div>
+                                                <div class="small fw-semibold">Phạm Đức D</div>
+                                                <div class="text-muted text-xxs">phamducd@email.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="small text-truncate d-block" style="max-width:200px;">Tuyệt vời, đúng thứ mình cần tìm!</span></td>
+                                    <td><a href="../public/article-detail.html" class="small text-truncate d-block text-decoration-none text-primary" style="max-width:160px;">Xu hướng công nghệ 2026</a></td>
+                                    <td><span class="badge bg-success">Đã duyệt</span></td>
+                                    <td class="text-muted small">24/03/2026</td>
+                                    <td>
+                                        <div class="d-flex gap-1 justify-content-center">
+                                            <button class="btn btn-sm btn-outline-secondary py-0 px-2" title="Xem" data-bs-toggle="modal" data-bs-target="#viewCommentModal"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-danger py-0 px-2" title="Xóa" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Row 5 - spam -->
+                                <tr class="table-danger bg-opacity-25">
+                                    <td class="ps-4"><input class="form-check-input" type="checkbox"></td>
+                                    <td class="text-muted small">005</td>
+                                    <td>
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="rounded-circle bg-danger d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:30px;height:30px;font-size:.75rem;">??</div>
+                                            <div>
+                                                <div class="small fw-semibold">Unknown User</div>
+                                                <div class="text-muted text-xxs">spam@noreply.com</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="small text-truncate d-block text-danger" style="max-width:200px;">Click vào đây để nhận ưu đãi!! [spam link]</span></td>
+                                    <td><a href="../public/article-detail.html" class="small text-truncate d-block text-decoration-none text-primary" style="max-width:160px;">Học Bootstrap 5 từ A đến Z</a></td>
+                                    <td><span class="badge bg-danger">Spam</span></td>
+                                    <td class="text-muted small">23/03/2026</td>
+                                    <td>
+                                        <div class="d-flex gap-1 justify-content-center">
+                                            <button class="btn btn-sm btn-outline-danger py-0 px-2" title="Xóa vĩnh viễn" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== PAGINATION ===== -->
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-2 text-muted small">
+                    Hiển thị
+                    <select class="form-select form-select-sm w-auto">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                    dòng mỗi trang
+                </div>
+                <nav>
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">»</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ===== VIEW COMMENT MODAL ===== -->
+    <div class="modal fade" id="viewCommentModal" tabindex="-1" aria-labelledby="viewCommentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow">
+                <div class="modal-header">
+                    <h6 class="modal-title fw-bold" id="viewCommentModalLabel">
+                        <i class="bi bi-chat-dots me-2 text-primary"></i>Chi tiết bình luận
+                    </h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:36px;height:36px;">NA</div>
+                        <div>
+                            <div class="fw-semibold small">Nguyễn Văn A</div>
+                            <div class="text-muted text-xxs">nguyenvana@email.com · 27/03/2026</div>
+                        </div>
+                        <span class="badge bg-warning text-dark ms-auto">Chờ duyệt</span>
+                    </div>
+                    <div class="bg-light rounded p-3 small mb-3">
+                        Bài viết rất hay và bổ ích! Cảm ơn tác giả đã chia sẻ những kiến thức hữu ích như vậy.
+                    </div>
+                    <div class="small text-muted">
+                        <i class="bi bi-file-earmark-text me-1"></i>
+                        Bài viết: <a href="../public/article-detail.html" class="text-decoration-none">Xu hướng công nghệ 2026</a>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm"><i class="bi bi-slash-circle me-1"></i>Từ chối</button>
+                    <button type="button" class="btn btn-success btn-sm"><i class="bi bi-check-lg me-1"></i>Duyệt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DELETE MODAL ===== -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow">
+                <div class="modal-header border-0 pb-0">
+                    <h6 class="modal-title fw-bold" id="deleteModalLabel">
+                        <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>Xác nhận xóa bình luận
+                    </h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-0 text-muted">Bạn có chắc muốn xóa bình luận này không? Hành động này <strong class="text-danger">không thể hoàn tác</strong>.</p>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal"><i class="bi bi-x me-1"></i>Hủy</button>
+                    <button type="button" class="btn btn-danger btn-sm"><i class="bi bi-trash me-1"></i>Xóa bình luận</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin-layout.js"></script>
+</body>
+
+</html>

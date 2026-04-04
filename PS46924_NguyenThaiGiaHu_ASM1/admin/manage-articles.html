@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 
 <head>
@@ -10,95 +10,12 @@
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 
-<body class="admin-wrapper">
+<body class="admin-wrapper" data-page="manage-articles">
 
-    <!-- ===== TOPBAR ===== -->
-    <header class="admin-topbar d-flex align-items-center px-3 shadow-sm">
-        <div class="d-flex align-items-center gap-3 flex-grow-1">
-            <button class="btn btn-sm btn-outline-secondary d-lg-none" id="sidebarToggle">
-                <i class="bi bi-list fs-5"></i>
-            </button>
-            <a class="fw-bold text-dark text-decoration-none fs-5" href="dashboard.html">
-                <i class="bi bi-journal-richtext text-primary me-2"></i>Admin Panel
-            </a>
-        </div>
-        <div class="d-flex align-items-center gap-3">
-            <div class="position-relative">
-                <button class="btn btn-sm btn-outline-secondary position-relative">
-                    <i class="bi bi-bell fs-6"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:.6rem;">5</span>
-                </button>
-            </div>
-            <a href="../public/index.html" class="btn btn-sm btn-outline-primary" target="_blank">
-                <i class="bi bi-box-arrow-up-right me-1"></i>Xem trang
-            </a>
-            <div class="dropdown">
-                <button class="btn btn-sm d-flex align-items-center gap-2 border-0 p-0" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white" style="width:34px;height:34px;">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <span class="d-none d-md-inline small fw-semibold">Admin</span>
-                    <i class="bi bi-chevron-down small text-muted"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end shadow">
-                    <li><h6 class="dropdown-header">Nguyễn Văn A</h6></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Cài đặt</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="../auth/login.html"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
-                </ul>
-            </div>
-        </div>
-    </header>
+    <header class="admin-topbar d-flex align-items-center px-3 shadow-sm" id="adminTopbar"></header>
 
     <div class="d-flex flex-grow-1">
-
-        <!-- ===== SIDEBAR ===== -->
-        <nav class="admin-sidebar d-flex flex-column" id="adminSidebar">
-            <div class="sidebar-brand">
-                <i class="bi bi-speedometer2 me-2 text-primary"></i>M1 Admin
-            </div>
-            <div class="py-2 flex-grow-1">
-                <div class="nav-section-label">Tổng quan</div>
-                <a href="dashboard.html" class="nav-link">
-                    <i class="bi bi-grid-1x2-fill"></i>Dashboard
-                </a>
-                <div class="nav-section-label">Nội dung</div>
-                <a href="manage-articles.html" class="nav-link active">
-                    <i class="bi bi-file-earmark-text"></i>Quản lý bài viết
-                </a>
-                <a href="add-article.html" class="nav-link">
-                    <i class="bi bi-plus-circle"></i>Thêm bài viết
-                </a>
-                <a href="manage-categories.html" class="nav-link">
-                    <i class="bi bi-tags"></i>Danh mục
-                </a>
-                <a href="manage-comments.html" class="nav-link">
-                    <i class="bi bi-chat-dots"></i>Bình luận
-                    <span class="badge bg-warning text-dark ms-auto">12</span>
-                </a>
-                <div class="nav-section-label">Người dùng</div>
-                <a href="manage-users.html" class="nav-link">
-                    <i class="bi bi-people"></i>Người dùng
-                </a>
-                <div class="nav-section-label">Hệ thống</div>
-                <a href="settings.html" class="nav-link">
-                    <i class="bi bi-gear"></i>Cài đặt
-                </a>
-            </div>
-            <div class="p-3 border-top" style="border-color:rgba(255,255,255,.08) !important;">
-                <div class="d-flex align-items-center gap-2">
-                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width:36px;height:36px;">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <div class="text-white small fw-semibold text-truncate">Nguyễn Văn A</div>
-                        <div class="text-muted" style="font-size:.72rem;">Administrator</div>
-                    </div>
-                    <a href="../auth/login.html" class="ms-auto text-muted" title="Đăng xuất"><i class="bi bi-box-arrow-right"></i></a>
-                </div>
-            </div>
-        </nav>
+        <nav class="admin-sidebar d-flex flex-column" id="adminSidebar"></nav>
 
         <!-- ===== MAIN CONTENT ===== -->
         <main class="admin-content">
@@ -221,10 +138,10 @@
                                     <td class="text-muted small">001</td>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
-                                            <div class="rounded flex-shrink-0" style="width:56px;height:40px;background:linear-gradient(135deg,#0d6efd,#6f42c1);"></div>
+                                            <div class="rounded article-thumb-table" style="background:linear-gradient(135deg,#0d6efd,#6f42c1);"></div>
                                             <div>
                                                 <div class="fw-semibold small">Xu hướng công nghệ 2026</div>
-                                                <div class="text-muted small" style="font-size:.72rem;">Những gì sẽ thay đổi thế giới trong năm tới...</div>
+                                                <div class="text-muted text-xxs">Những gì sẽ thay đổi thế giới trong năm tới...</div>
                                             </div>
                                         </div>
                                     </td>
@@ -253,10 +170,10 @@
                                     <td class="text-muted small">002</td>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
-                                            <div class="rounded flex-shrink-0" style="width:56px;height:40px;background:linear-gradient(135deg,#198754,#0d6efd);"></div>
+                                            <div class="rounded article-thumb-table" style="background:linear-gradient(135deg,#198754,#0d6efd);"></div>
                                             <div>
                                                 <div class="fw-semibold small">Học Bootstrap 5 từ A đến Z</div>
-                                                <div class="text-muted small" style="font-size:.72rem;">Hướng dẫn đầy đủ cho người mới bắt đầu...</div>
+                                                <div class="text-muted text-xxs">Hướng dẫn đầy đủ cho người mới bắt đầu...</div>
                                             </div>
                                         </div>
                                     </td>
@@ -285,10 +202,10 @@
                                     <td class="text-muted small">003</td>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
-                                            <div class="rounded flex-shrink-0" style="width:56px;height:40px;background:linear-gradient(135deg,#0dcaf0,#6f42c1);"></div>
+                                            <div class="rounded article-thumb-table" style="background:linear-gradient(135deg,#0dcaf0,#6f42c1);"></div>
                                             <div>
                                                 <div class="fw-semibold small">10 nguyên tắc UI/UX 2026</div>
-                                                <div class="text-muted small" style="font-size:.72rem;">Thiết kế trải nghiệm người dùng hiện đại...</div>
+                                                <div class="text-muted text-xxs">Thiết kế trải nghiệm người dùng hiện đại...</div>
                                             </div>
                                         </div>
                                     </td>
@@ -317,10 +234,10 @@
                                     <td class="text-muted small">004</td>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
-                                            <div class="rounded flex-shrink-0" style="width:56px;height:40px;background:linear-gradient(135deg,#dc3545,#fd7e14);"></div>
+                                            <div class="rounded article-thumb-table" style="background:linear-gradient(135deg,#dc3545,#fd7e14);"></div>
                                             <div>
                                                 <div class="fw-semibold small">Bảo mật ứng dụng web — OWASP Top 10</div>
-                                                <div class="text-muted small" style="font-size:.72rem;">Phòng chống các lỗ hổng phổ biến nhất...</div>
+                                                <div class="text-muted text-xxs">Phòng chống các lỗ hổng phổ biến nhất...</div>
                                             </div>
                                         </div>
                                     </td>
@@ -349,14 +266,14 @@
                                     <td class="text-muted small">005</td>
                                     <td>
                                         <div class="d-flex align-items-center gap-3">
-                                            <div class="rounded flex-shrink-0" style="width:56px;height:40px;background:linear-gradient(135deg,#6f42c1,#0d6efd);"></div>
+                                            <div class="rounded article-thumb-table" style="background:linear-gradient(135deg,#6f42c1,#0d6efd);"></div>
                                             <div>
                                                 <div class="fw-semibold small">So sánh SQL và NoSQL</div>
-                                                <div class="text-muted small" style="font-size:.72rem;">Khi nào dùng Relational hay Document DB?...</div>
+                                                <div class="text-muted text-xxs">Khi nào dùng Relational hay Document DB?...</div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td><span class="badge" style="background:#6f42c1;">Database</span></td>
+                                    <td><span class="badge bg-purple">Database</span></td>
                                     <td><span class="small">Nguyễn Văn A</span></td>
                                     <td><span class="badge bg-danger">Ẩn</span></td>
                                     <td class="text-end small fw-semibold">1.4k</td>
@@ -434,34 +351,7 @@
     </div>
 
     <script src="../../js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Toggle sidebar
-        document.getElementById('sidebarToggle')?.addEventListener('click', function () {
-            document.getElementById('adminSidebar').classList.toggle('show');
-        });
-
-        // Check all rows
-        document.getElementById('checkAll')?.addEventListener('change', function () {
-            document.querySelectorAll('.row-check').forEach(cb => cb.checked = this.checked);
-            updateSelectedCount();
-        });
-        document.querySelectorAll('.row-check').forEach(cb => cb.addEventListener('change', updateSelectedCount));
-
-        function updateSelectedCount() {
-            const count = document.querySelectorAll('.row-check:checked').length;
-            document.querySelector('[data-selected-count]') ?.textContent = count;
-        }
-
-        // Delete modal — track which ID to delete
-        let deleteTargetId = null;
-        document.getElementById('deleteModal')?.addEventListener('show.bs.modal', function (e) {
-            deleteTargetId = e.relatedTarget?.dataset.id;
-        });
-        document.getElementById('confirmDelete')?.addEventListener('click', function () {
-            // In a real app, send delete request here
-            bootstrap.Modal.getInstance(document.getElementById('deleteModal'))?.hide();
-        });
-    </script>
+    <script src="../js/admin-layout.js"></script>
 </body>
 
 </html>
