@@ -1,50 +1,83 @@
 <template>
     <div class="container mt-3">
-    <form @submit.prevent="submitForm" class="col-sm-4 ">
-        <h3>Thêm học sinh</h3>
-        <div class="mb-3 mt-3">
-            <label for="name">Họ tên:</label>
-            <input type="text" class="form-control" v-model="student.name" id="name" required />
+        <div class="row g-3">
+            <form class="col-sm-6">
+                <h3>Thêm học sinh</h3>
+
+                <div class="mb-3 mt-3">
+                    <label for="name">Họ tên:</label>
+                    <input type="text" class="form-control" v-model="student.name" id="name" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="score">Điểm:</label>
+                    <input type="number" max="10" min="0" class="form-control" v-model="student.score" id="score"
+                        required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="dob">Ngày sinh:</label>
+                    <input type="date" class="form-control" v-model="student.dob" id="dob" required />
+                </div>
+
+                <button type="button" class="btn btn-success" @click="submitForm">
+                    {{ isEditing ? 'Cập nhật' : 'Thêm' }}
+                </button>
+            </form>
+            <div class="col-sm-6">
+                <form class="p-3 border rounded bg-white">
+                    <h3>Form demo v-model (Two-way)</h3>
+
+                    <div class="mb-3 mt-3">
+                        <label>Họ tên (mirror):</label>
+                        <input type="text" class="form-control" v-model="student.name" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Điểm (mirror):</label>
+                        <input type="number" class="form-control" v-model="student.score" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Ngày sinh (mirror):</label>
+                        <input type="date" class="form-control" v-model="student.dob" />
+                    </div>
+
+                    <div class="alert alert-info mb-0">
+                        <strong>Realtime preview:</strong><br />
+                        Tên: {{ student.name || '(trống)' }}<br />
+                        Điểm: {{ student.score ?? '(trống)' }}<br />
+                        Ngày sinh: {{ student.dob || '(trống)' }}
+                    </div>
+
+                </form>
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label for="score">Điểm:</label>
-            <input type="number" max="10" min="0" class="form-control" v-model="student.score" id="score" required />
-        </div>
-
-        <div class="mb-3">
-            <label for="dob">Ngày sinh:</label>
-            <input type="date" class="form-control" v-model="student.dob" id="dob" required />
-        </div>
-
-        <button type="submit" class="btn btn-success">{{ isEditing ? 'Cập nhật' : 'Thêm' }}</button>
-    </form>
-
-    <h3>Danh sách học sinh</h3>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Họ và tên</th>
-                <th>Điểm</th>
-                <th>Ngày sinh</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="(stu, index) in students" :key="index">
-                <td>{{ stu.name }}</td>
-                <td>{{ stu.score }}</td>
-                <td>{{ stu.dob }}</td>
-                <td>
-                    <button class="btn btn-warning" @click="editStudent(index)">Sửa</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" @click="deleteStudent(index)">Xóa</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <h3>Danh sách học sinh</h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Họ và tên</th>
+                    <th>Điểm</th>
+                    <th>Ngày sinh</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(stu, index) in students" :key="index">
+                    <td>{{ stu.name }}</td>
+                    <td>{{ stu.score }}</td>
+                    <td>{{ stu.dob }}</td>
+                    <td>
+                        <button class="btn btn-warning" @click="editStudent(index)">Sửa</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" @click="deleteStudent(index)">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -100,6 +133,4 @@ function resetForm() {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
