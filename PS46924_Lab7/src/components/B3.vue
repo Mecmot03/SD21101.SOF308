@@ -13,16 +13,19 @@
             <div class="mb-2">
                 <label>Email:</label>
                 <input type="email" class="form-control" v-model="email" placeholder="Nhập email">
+                <p v-if="emailError" style="color: red;">{{ emailError }}</p>
             </div>
 
             <div class="mb-2">
                 <label>Mật khẩu:</label>
                 <input type="password" class="form-control" v-model="matKhau" placeholder="Nhập mật khẩu">
+                <p v-if="matKhauError" style="color: red;">{{ matKhauError }}</p>
             </div>
 
             <div class="mb-2">
                 <label>Ngày sinh:</label>
                 <input type="date" class="form-control" v-model="ngaySinh">
+                <p v-if="ngaySinhError" style="color: red;">{{ ngaySinhError }}</p>
             </div>
 
             <div class="mb-2">
@@ -32,6 +35,7 @@
                     <input type="radio" v-model="gioiTinh" value="Nữ" class="ms-2"> Nữ
                     <input type="radio" v-model="gioiTinh" value="Khác" class="ms-2"> Khác
                 </div>
+                <p v-if="gioiTinhError" style="color: red;">{{ gioiTinhError }}</p>
             </div>
 
             <div class="mb-3">
@@ -60,7 +64,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 
 const isRegistered = ref(false);
 
@@ -79,14 +83,17 @@ const gioiTinhError = ref('');
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const result = reactive({});
-
 const dangKy = () => {
-    const hoTenError = ref('');
-    const emailError = ref('');
-    const matKhauError = ref('');
-    const ngaySinhError = ref('');
-    const gioiTinhError = ref('');
+    if (isRegistered.value) {
+        isRegistered.value = false;
+        return;
+    }
+
+    hoTenError.value = '';
+    emailError.value = '';
+    matKhauError.value = '';
+    ngaySinhError.value = '';
+    gioiTinhError.value = '';
 
     if (!hoTen.value.trim()) {
         hoTenError.value = 'Vui lòng nhập họ tên';
@@ -100,7 +107,7 @@ const dangKy = () => {
         ngaySinhError.value = 'Vui lòng chọn ngày sinh';
     }
 
-    if (gioiTinh.value === '') {
+    if (!gioiTinh.value) {
         gioiTinhError.value = 'Vui lòng chọn giới tính';
     }
 
