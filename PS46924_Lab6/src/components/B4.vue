@@ -27,22 +27,6 @@
             <div class="col-sm-6">
                 <form class="p-3 border rounded bg-white">
                     <h3>Form demo v-model (Two-way)</h3>
-
-                    <div class="mb-3 mt-3">
-                        <label>Họ tên (mirror):</label>
-                        <input type="text" class="form-control" v-model="student.name" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label>Điểm (mirror):</label>
-                        <input type="number" class="form-control" v-model="student.score" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label>Ngày sinh (mirror):</label>
-                        <input type="date" class="form-control" v-model="student.dob" />
-                    </div>
-
                     <div class="alert alert-info mb-0">
                         <strong>Realtime preview:</strong><br />
                         Tên: {{ student.name || '(trống)' }}<br />

@@ -1,0 +1,68 @@
+<template>
+    <h3 class="text-center">Bài 2 - Form đăng nhập</h3>
+    <div v-if="!isLoggedIn" class="p-5 col-sm-4">
+        <h3>FORM ĐĂNG NHẬP</h3>
+        <form @submit.prevent="login">
+            <div class="mb-3 mt-3">
+                <label>Email:</label>
+                <input type="email" class="form-control" v-model="email" placeholder="Nhập email">
+                <p v-if="emailError" style="color: red;">{{ emailError }}</p>
+            </div>
+            <div class="mb-3">
+                <label>Mật khẩu:</label>
+                <input type="password" class="form-control" v-model="password" placeholder="Nhập mật khẩu">
+                <p v-if="passwordError" style="color: red;">{{ passwordError }}</p>
+            </div>
+            <button type="submit" class="btn btn-primary">Đăng nhập</button>
+        </form>
+    </div>
+    <div v-else class="p-5 col-sm-4">
+        <h3>Xin chào, {{ email }}!</h3>
+        <button class="btn btn-secondary" @click="logout">Đăng xuất</button>
+    </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+
+const isLoggedIn = ref(false);
+const email = ref('');
+const password = ref('');
+const emailError = ref('');
+const passwordError = ref('');
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const login = () => {
+    //Reset error messages
+    emailError.value = '';
+    passwordError.value = '';
+
+    // Validate email
+    if (!email.value.trim()) {
+        emailError.value = 'Email không được để trống';
+    } else if (!emailRegex.test(email.value)) {
+        emailError.value = 'Email không hợp lệ';
+    }
+
+    // Validate password
+    if (!password.value.trim()) {
+        passwordError.value = 'Mật khẩu không được để trống';
+    }
+
+    // No errors, Login true
+    if (!emailError.value && !passwordError.value) {
+        isLoggedIn.value = true;
+    }
+};
+
+const logout = () => {
+    isLoggedIn.value = false;
+    email.value = '';
+    password.value = '';
+    emailError.value = '';
+    passwordError.value = '';
+}
+</script>
+
+<style></style>
