@@ -14,7 +14,7 @@
 
         <form @submit.prevent="submitComment">
             <div class="mt-3">
-                <textarea id="commentText" cols="60" v-model="commentText" placeholder="Nhập bình luận của bạn"></textarea>
+                <textarea id="commentText" cols="60" v-on:keydown.enter="submitComment" v-model="commentText" placeholder="Nhập bình luận của bạn"></textarea>
             </div>
 
             <button type="submit" class="btn btn-success">Gửi bình luận</button>

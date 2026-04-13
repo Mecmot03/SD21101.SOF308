@@ -8,12 +8,11 @@ import B4 from './components/B4.vue'
 
 <template>
   <!-- <HelloWorld /> -->
-<!-- 
+
   <B1 />
 
-  <B2 /> -->
-
-  <!-- <B3 /> -->
+  <B2 /> 
+  <B3 />
 
   <B4 />
   <!-- <nav>
