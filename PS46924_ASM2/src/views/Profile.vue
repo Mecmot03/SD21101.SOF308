@@ -1,0 +1,523 @@
+<template>
+    <div>
+        <!-- ===== NAVBAR ===== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <i class="bi bi-journal-richtext me-2"></i>
+                    M1Entertainment
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler -icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarMain">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="articles.html">Bài viết</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Danh mục
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="articles.html?cat=cong-nghe">Công nghệ</a></li>
+                                <li><a class="dropdown-item" href="articles.html?cat=lap-trinh">Lập trình</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="articles.html?cat=khac">Khác</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Liên hệ</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control form-control-sm me-2 bg-secondary border-0 text-white" type="search"
+                            placeholder="Tìm kiếm..." aria-label="Search">
+                        <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
+                    </form>
+                    <!-- Trạng thái đã đăng nhập -->
+                    <div class="ms-3 dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center gap-2 text-white text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://ui-avatars.com/api/?name=Nguyen+Thai+Gia+Hu&background=0d6efd&color=fff&size=32"
+                                class="rounded-circle" width="32" height="32" alt="avatar">
+                            <span class="small fw-semibold">Nguyễn Thái Giả Hủ</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item active" href="profile.html"><i class="bi bi-person me-2"></i>Hồ
+                                    sơ</a></li>
+                            <li><a class="dropdown-item" href="../admin/dashboard.html"><i
+                                        class="bi bi-speedometer2 me-2"></i>Quản trị</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item text-danger" href="../auth/login.html"><i
+                                        class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ===== PAGE HERO ===== -->
+        <div class="bg-dark text-white py-5">
+            <div class="container text-center py-3">
+                <i class="bi bi-person-circle display-4 mb-3 d-block text-primary"></i>
+                <h1 class="fw-bold mb-2">Thông tin cá nhân</h1>
+                <p class="text-white-50 mb-0 col-md-6 mx-auto">Xem và cập nhật thông tin tài khoản, mật khẩu và bài viết
+                    của
+                    bạn.</p>
+            </div>
+        </div>
+
+        <!-- ===== MAIN ===== -->
+        <main>
+            <div class="container py-5">
+                <div class="row g-4">
+
+                    <!-- ===== CỘT TRÁI: Avatar + Thống kê (3/12) ===== -->
+                    <div class="col-lg-3">
+
+                        <!-- Card avatar -->
+                        <div class="card border-0 shadow-sm text-center p-4 mb-3">
+                            <div class="avatar-wrapper mb-3">
+                                <img id="avatarPreview"
+                                    src="https://ui-avatars.com/api/?name=Nguyen+Thai+Gia+Hu&background=0d6efd&color=fff&size=120"
+                                    class="rounded-circle" alt="Ảnh đại diện">
+                                <button class="btn btn-primary avatar-edit-btn" id="avatarEditBtn" title="Thay ảnh">
+                                    <i class="bi bi-camera-fill"></i>
+                                </button>
+                            </div>
+
+                            <input type="file" id="avatarInput" class="d-none" accept="image/*">
+                            <h5 class="fw-bold mb-0">Nguyễn Thái Giả Hủ</h5>
+                            <p class="text-muted small mb-1">@ps46924</p>
+                            <span class="badge bg-primary-subtle text-primary">Tác giả</span>
+                            <hr class="my-3">
+                            <p class="text-muted small mb-0">
+                                <i class="bi bi-calendar3 me-1"></i>Tham gia: <strong>01/2025</strong>
+                            </p>
+                        </div>
+
+                        <!-- Card thống kê -->
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-body p-0">
+                                <div class="row g-0 text-center">
+                                    <div class="col-4 py-3 profile-stat">
+                                        <div class="fw-bold fs-5 text-primary">12</div>
+                                        <div class="text-muted" style="font-size:.72rem;">Bài viết</div>
+                                    </div>
+                                    <div class="col-4 py-3 profile-stat">
+                                        <div class="fw-bold fs-5 text-success">48</div>
+                                        <div class="text-muted" style="font-size:.72rem;">Bình luận</div>
+                                    </div>
+                                    <div class="col-4 py-3">
+                                        <div class="fw-bold fs-5 text-warning">3.2k</div>
+                                        <div class="text-muted" style="font-size:.72rem;">Lượt xem</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Liên kết nhanh -->
+                        <div class="list-group list-group-flush shadow-sm rounded-3 overflow-hidden">
+                            <a href="articles.html" class="list-group-item list-group-item-action small">
+                                <i class="bi bi-journal-text me-2 text-primary"></i>Xem bài viết của tôi
+                            </a>
+                            <a href="../admin/add-article.html" class="list-group-item list-group-item-action small">
+                                <i class="bi bi-plus-circle me-2 text-success"></i>Viết bài mới
+                            </a>
+                            <a href="../auth/login.html"
+                                class="list-group-item list-group-item-action small text-danger">
+                                <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ===== CỘT PHẢI: Tabs chỉnh sửa (9/12) ===== -->
+                    <div class="col-lg-9">
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-header bg-white border-bottom pt-3 px-4">
+                                <ul class="nav nav-tabs card-header-tabs" id="profileTabs">
+                                    <li class="nav-item">
+                                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabInfo">
+                                            <i class="bi bi-person me-1"></i>Thông tin cá nhân
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabPassword">
+                                            <i class="bi bi-shield-lock me-1"></i>Đổi mật khẩu
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabArticles">
+                                            <i class="bi bi-journal-richtext me-1"></i>Bài viết của tôi
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body p-4">
+                                <div class="tab-content">
+
+                                    <!-- ===== TAB 1: Thông tin cá nhân ===== -->
+                                    <div class="tab-pane fade show active" id="tabInfo">
+                                        <h5 class="fw-bold mb-4">Chỉnh sửa thông tin cá nhân</h5>
+                                        <form>
+                                            <!-- Ảnh đại diện (inline trong form) -->
+                                            <div class="mb-4 d-flex align-items-center gap-3">
+                                                <img id="avatarPreviewForm"
+                                                    src="https://ui-avatars.com/api/?name=Nguyen+Thai+Gia+Hu&background=0d6efd&color=fff&size=80"
+                                                    class="rounded-circle" width="80" height="80"
+                                                    style="object-fit:cover;border:3px solid #dee2e6;" alt="avatar">
+                                                <div>
+                                                    <label class="btn btn-outline-primary btn-sm mb-1"
+                                                        for="avatarInputForm">
+                                                        <i class="bi bi-upload me-1"></i>Tải ảnh lên
+                                                    </label>
+                                                    <input type="file" id="avatarInputForm" class="d-none"
+                                                        accept="image/*">
+                                                    <p class="text-muted small mb-0">JPG, PNG, GIF tối đa 2MB</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row g-3">
+                                                <div class="col-sm-6">
+                                                    <label for="profileName" class="form-label fw-semibold">Họ và tên
+                                                        <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="profileName"
+                                                        value="Nguyễn Thái Giả Hủ" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="profileUsername" class="form-label fw-semibold">Tên đăng
+                                                        nhập</label>
+                                                    <input type="text" class="form-control" id="profileUsername"
+                                                        value="ps46924" readonly>
+                                                    <div class="form-text">Tên đăng nhập không thể thay đổi.</div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="profileEmail" class="form-label fw-semibold">Email <span
+                                                            class="text-danger">*</span></label>
+                                                    <input type="email" class="form-control" id="profileEmail"
+                                                        value="ps46924@gmail.com" required>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="profilePhone" class="form-label fw-semibold">Số điện
+                                                        thoại</label>
+                                                    <input type="tel" class="form-control" id="profilePhone"
+                                                        placeholder="Nhập số điện thoại">
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="profileBio" class="form-label fw-semibold">Giới thiệu
+                                                        bản
+                                                        thân</label>
+                                                    <textarea class="form-control" id="profileBio" rows="3"
+                                                        placeholder="Viết vài dòng giới thiệu về bản thân..."></textarea>
+                                                    <div class="form-text"><span id="bioCount">0</span>/200 ký tự</div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="profileWebsite"
+                                                        class="form-label fw-semibold">Website</label>
+                                                    <input type="url" class="form-control" id="profileWebsite"
+                                                        placeholder="https://website-cua-ban.com">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label for="profileLocation" class="form-label fw-semibold">Địa
+                                                        điểm</label>
+                                                    <input type="text" class="form-control" id="profileLocation"
+                                                        placeholder="Hà Nội, Việt Nam">
+                                                </div>
+                                                <div class="col-12 d-flex gap-2 pt-2">
+                                                    <button type="submit" class="btn btn-primary px-4">
+                                                        <i class="bi bi-check-lg me-1"></i>Lưu thay đổi
+                                                    </button>
+                                                    <button type="reset"
+                                                        class="btn btn-outline-secondary px-4">Hủy</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <!-- ===== TAB 2: Đổi mật khẩu ===== -->
+                                    <div class="tab-pane fade" id="tabPassword">
+                                        <h5 class="fw-bold mb-4">Đổi mật khẩu</h5>
+                                        <div class="row justify-content-start">
+                                            <div class="col-md-8">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="currentPassword" class="form-label fw-semibold">Mật
+                                                            khẩu
+                                                            hiện tại <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control"
+                                                                id="currentPassword"
+                                                                placeholder="Nhập mật khẩu hiện tại" required>
+                                                            <button class="btn btn-outline-secondary toggle-pw"
+                                                                type="button" data-target="currentPassword">
+                                                                <i class="bi bi-eye"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="newPassword" class="form-label fw-semibold">Mật khẩu
+                                                            mới
+                                                            <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control" id="newPassword"
+                                                                placeholder="Tối thiểu 8 ký tự" required>
+                                                            <button class="btn btn-outline-secondary toggle-pw"
+                                                                type="button" data-target="newPassword">
+                                                                <i class="bi bi-eye"></i>
+                                                            </button>
+                                                        </div>
+                                                        <!-- Thanh độ mạnh mật khẩu -->
+                                                        <div class="mt-2">
+                                                            <div class="progress" style="height:6px;">
+                                                                <div class="progress-bar bg-danger" id="pwStrengthBar"
+                                                                    style="width:0%"></div>
+                                                            </div>
+                                                            <small id="pwStrengthText" class="text-muted">Nhập mật khẩu
+                                                                để
+                                                                kiểm tra độ mạnh</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label for="confirmPassword" class="form-label fw-semibold">Xác
+                                                            nhận
+                                                            mật khẩu mới <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <input type="password" class="form-control"
+                                                                id="confirmPassword" placeholder="Nhập lại mật khẩu mới"
+                                                                required>
+                                                            <button class="btn btn-outline-secondary toggle-pw"
+                                                                type="button" data-target="confirmPassword">
+                                                                <i class="bi bi-eye"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div id="pwMatchMsg" class="form-text"></div>
+                                                    </div>
+                                                    <div class="alert alert-info small py-2">
+                                                        <i class="bi bi-info-circle me-1"></i>
+                                                        Mật khẩu nên có ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và
+                                                        ký
+                                                        tự đặc biệt.
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary px-4">
+                                                        <i class="bi bi-shield-check me-1"></i>Cập nhật mật khẩu
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== TAB 3: Bài viết của tôi ===== -->
+                                    <div class="tab-pane fade" id="tabArticles">
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <h5 class="fw-bold mb-0">Bài viết của tôi</h5>
+                                            <a href="../admin/add-article.html" class="btn btn-primary btn-sm">
+                                                <i class="bi bi-plus-lg me-1"></i>Viết bài mới
+                                            </a>
+                                        </div>
+
+                                        <!-- Bộ lọc -->
+                                        <div class="d-flex gap-2 mb-3 flex-wrap">
+                                            <button class="btn btn-primary btn-sm">Tất cả (12)</button>
+                                            <button class="btn btn-outline-secondary btn-sm">Đã đăng (9)</button>
+                                            <button class="btn btn-outline-secondary btn-sm">Nháp (2)</button>
+                                            <button class="btn btn-outline-secondary btn-sm">Chờ duyệt (1)</button>
+                                        </div>
+
+                                        <!-- Danh sách bài viết -->
+                                        <div class="table-responsive">
+                                            <table class="table table-hover align-middle mb-0">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Tiêu đề</th>
+                                                        <th>Danh mục</th>
+                                                        <th>Trạng thái</th>
+                                                        <th>Lượt xem</th>
+                                                        <th>Ngày đăng</th>
+                                                        <th class="text-end">Hành động</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="article-row">
+                                                        <td>
+                                                            <a href="article-detail.html"
+                                                                class="fw-semibold text-dark text-decoration-none article-title">
+                                                                Hướng dẫn học Vue 3 từ cơ bản đến nâng cao
+                                                            </a>
+                                                        </td>
+                                                        <td><span class="badge bg-primary-subtle text-primary">Lập
+                                                                trình</span></td>
+                                                        <td><span class="badge bg-success-subtle text-success">Đã
+                                                                đăng</span></td>
+                                                        <td>1.2k</td>
+                                                        <td class="text-muted small">20/03/2026</td>
+                                                        <td class="text-end">
+                                                            <a href="article-detail.html"
+                                                                class="btn btn-sm btn-outline-secondary" title="Xem">
+                                                                <i class="bi bi-eye"></i>
+                                                            </a>
+                                                            <a href="../admin/add-article.html"
+                                                                class="btn btn-sm btn-outline-primary" title="Sửa">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </a>
+                                                            <button class="btn btn-sm btn-outline-danger" title="Xóa"
+                                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="article-row">
+                                                        <td>
+                                                            <a href="article-detail.html"
+                                                                class="fw-semibold text-dark text-decoration-none article-title">
+                                                                10 thủ thuật CSS mà mọi developer nên biết
+                                                            </a>
+                                                        </td>
+                                                        <td><span class="badge bg-info-subtle text-info">Công
+                                                                nghệ</span>
+                                                        </td>
+                                                        <td><span class="badge bg-success-subtle text-success">Đã
+                                                                đăng</span></td>
+                                                        <td>876</td>
+                                                        <td class="text-muted small">15/03/2026</td>
+                                                        <td class="text-end">
+                                                            <a href="article-detail.html"
+                                                                class="btn btn-sm btn-outline-secondary" title="Xem">
+                                                                <i class="bi bi-eye"></i>
+                                                            </a>
+                                                            <a href="../admin/add-article.html"
+                                                                class="btn btn-sm btn-outline-primary" title="Sửa">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </a>
+                                                            <button class="btn btn-sm btn-outline-danger" title="Xóa"
+                                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="article-row">
+                                                        <td>
+                                                            <a href="article-detail.html"
+                                                                class="fw-semibold text-dark text-decoration-none article-title">
+                                                                Giới thiệu về Docker và containerization
+                                                            </a>
+                                                        </td>
+                                                        <td><span class="badge bg-primary-subtle text-primary">Lập
+                                                                trình</span></td>
+                                                        <td><span class="badge bg-success-subtle text-success">Đã
+                                                                đăng</span></td>
+                                                        <td>654</td>
+                                                        <td class="text-muted small">10/03/2026</td>
+                                                        <td class="text-end">
+                                                            <a href="article-detail.html"
+                                                                class="btn btn-sm btn-outline-secondary" title="Xem">
+                                                                <i class="bi bi-eye"></i>
+                                                            </a>
+                                                            <a href="../admin/add-article.html"
+                                                                class="btn btn-sm btn-outline-primary" title="Sửa">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </a>
+                                                            <button class="btn btn-sm btn-outline-danger" title="Xóa"
+                                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="article-row">
+                                                        <td>
+                                                            <span class="fw-semibold text-dark">RESTful API với Node.js
+                                                                và
+                                                                Express</span>
+                                                            <span
+                                                                class="badge bg-warning-subtle text-warning ms-1">Nháp</span>
+                                                        </td>
+                                                        <td><span class="badge bg-primary-subtle text-primary">Lập
+                                                                trình</span></td>
+                                                        <td><span
+                                                                class="badge bg-warning-subtle text-warning">Nháp</span>
+                                                        </td>
+                                                        <td>—</td>
+                                                        <td class="text-muted small">25/03/2026</td>
+                                                        <td class="text-end">
+                                                            <a href="../admin/add-article.html"
+                                                                class="btn btn-sm btn-outline-primary"
+                                                                title="Tiếp tục viết">
+                                                                <i class="bi bi-pencil"></i>
+                                                            </a>
+                                                            <button class="btn btn-sm btn-outline-danger" title="Xóa"
+                                                                data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <!-- Pagination -->
+                                        <nav class="mt-4">
+                                            <ul class="pagination pagination-sm justify-content-center mb-0">
+                                                <li class="page-item disabled"><a class="page-link">«</a></li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                </div><!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div><!-- /.card -->
+                    </div><!-- /.col-lg-9 -->
+
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </main>
+
+        <!-- ===== MODAL XÁC NHẬN XÓA ===== -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title fw-bold" id="deleteModalLabel">
+                            <i class="bi bi-exclamation-triangle text-danger me-2"></i>Xác nhận xóa
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                    </div>
+                    <div class="modal-body text-muted">
+                        Bạn có chắc chắn muốn xóa bài viết này không? Hành động này <strong>không thể hoàn tác</strong>.
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                            <i class="bi bi-trash me-1"></i>Xóa bài viết
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="py-5" id="publicFooter"></footer>
+    </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style></style>

@@ -1,0 +1,58 @@
+/* ===== AUTH PAGES (login.html, register.html) ===== */
+
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Brand panel (cột trái) */
+.auth-brand-panel {
+    min-height: 100%;
+}
+
+/* login: gradient xanh-tím */
+.auth-brand-panel.login-panel {
+    background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+}
+
+/* register: gradient xanh lá-xanh */
+.auth-brand-panel.register-panel {
+    background: linear-gradient(135deg, #198754 0%, #0d6efd 100%);
+}
+
+/* Form card */
+.auth-card {
+    max-width: 440px;
+    width: 100%;
+}
+
+.auth-card.auth-card-wide {
+    max-width: 480px;
+}
+
+/* Divider "hoặc đăng nhập với" */
+.divider-text {
+    position: relative;
+    text-align: center;
+}
+
+.divider-text::before,
+.divider-text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background: #dee2e6;
+}
+
+.divider-text::before { left: 0; }
+.divider-text::after  { right: 0; }
+
+/* Thanh độ mạnh mật khẩu */
+.password-strength .strength-bar {
+    height: 4px;
+    border-radius: 2px;
+    transition: background-color .3s;
+}
