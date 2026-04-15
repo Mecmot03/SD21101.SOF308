@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-4 col-md-6">
-                <h1 class="mb-2">M1Entertainment</h1>
+                <h1 class="mb-2">M1 Entertainment</h1>
                 <p class="small">Nền tảng quản lý blog cá nhân đơn giản, hiện đại. Chia sẻ ý tưởng và kết nối với cộng
                     đồng.</p>
                 <div class="d-flex gap-3 mt-3">

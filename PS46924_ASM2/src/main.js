@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
 import router from './router'
 
@@ -9,4 +8,5 @@ import 'bootstrap-icons/font/bootstrap-icons.css'   // bootstrap icons
 
 import './assets/css/style.css'          
 import './assets/css/admin.css'
+
 createApp(App).use(router).mount('#app')

@@ -70,7 +70,6 @@ a:hover,
 }
 
 .carousel-caption h2 {
-    color: #fff;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: 2px;
@@ -101,7 +100,6 @@ main {
 
 /* Footer */
 footer {
-    background-color: #212529;
     color: #adb5bd;
     background: #181818;
 }
@@ -138,14 +136,53 @@ footer .footer-brand {
     color: red;
 }
 
-/* Articles */
+/* Dark card & form (comment section, etc.) */
+.dark-card {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+.dark-input {
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+    border-color: rgba(255, 255, 255, .15);
+}
+
+.dark-input::placeholder {
+    color: #adb5bd;
+}
+
+.dark-input:focus {
+    background-color: #2a2a2a;
+    color: #f5f5f5;
+    border-color: #dc3545;
+    box-shadow: 0 0 0 .2rem rgba(220, 53, 69, .25);
+}
+
+
 .article-card {
     transition: transform .2s, box-shadow .2s;
+    background-color: #1e1e1e;
+    color: #f5f5f5;
 }
 
 .article-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, .12) !important;
+}
+
+.article-card .card-footer {
+    color: #adb5bd !important;
+    border-top: 1px solid rgba(255, 255, 255, .08) !important;
+}
+
+.sidebar-widget-card {
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+}
+
+.sidebar-widget-card .border-bottom {
+    border-color: rgba(255, 255, 255, .08) !important;
 }
 
 .article-title {
@@ -176,8 +213,6 @@ footer .footer-brand {
 .text-xxs {
     font-size: .72rem;
 }
-
-color: #ffb300 !important;
 
 .avatar-wrapper {
     position: relative;

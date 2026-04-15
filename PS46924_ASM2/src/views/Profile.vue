@@ -1,74 +1,7 @@
 <template>
     <div>
         <!-- ===== NAVBAR ===== -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <i class="bi bi-journal-richtext me-2"></i>
-                    M1Entertainment
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-                    aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler -icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarMain">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="articles.html">Bài viết</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Danh mục
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="articles.html?cat=cong-nghe">Công nghệ</a></li>
-                                <li><a class="dropdown-item" href="articles.html?cat=lap-trinh">Lập trình</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="articles.html?cat=khac">Khác</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Giới thiệu</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Liên hệ</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control form-control-sm me-2 bg-secondary border-0 text-white" type="search"
-                            placeholder="Tìm kiếm..." aria-label="Search">
-                        <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
-                    </form>
-                    <!-- Trạng thái đã đăng nhập -->
-                    <div class="ms-3 dropdown">
-                        <a href="#"
-                            class="d-flex align-items-center gap-2 text-white text-decoration-none dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://ui-avatars.com/api/?name=Nguyen+Thai+Gia+Hu&background=0d6efd&color=fff&size=32"
-                                class="rounded-circle" width="32" height="32" alt="avatar">
-                            <span class="small fw-semibold">Nguyễn Thái Giả Hủ</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item active" href="profile.html"><i class="bi bi-person me-2"></i>Hồ
-                                    sơ</a></li>
-                            <li><a class="dropdown-item" href="../admin/dashboard.html"><i
-                                        class="bi bi-speedometer2 me-2"></i>Quản trị</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-danger" href="../auth/login.html"><i
-                                        class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <PublicNavBar />
 
         <!-- ===== PAGE HERO ===== -->
         <div class="bg-dark text-white py-5">
@@ -132,16 +65,15 @@
 
                         <!-- Liên kết nhanh -->
                         <div class="list-group list-group-flush shadow-sm rounded-3 overflow-hidden">
-                            <a href="articles.html" class="list-group-item list-group-item-action small">
+                            <RouterLink to="/articles" class="list-group-item list-group-item-action small">
                                 <i class="bi bi-journal-text me-2 text-primary"></i>Xem bài viết của tôi
-                            </a>
-                            <a href="../admin/add-article.html" class="list-group-item list-group-item-action small">
+                            </RouterLink>
+                            <RouterLink to="/admin/articles" class="list-group-item list-group-item-action small">
                                 <i class="bi bi-plus-circle me-2 text-success"></i>Viết bài mới
-                            </a>
-                            <a href="../auth/login.html"
-                                class="list-group-item list-group-item-action small text-danger">
+                            </RouterLink>
+                            <RouterLink to="/login" class="list-group-item list-group-item-action small text-danger">
                                 <i class="bi bi-box-arrow-right me-2"></i>Đăng xuất
-                            </a>
+                            </RouterLink>
                         </div>
                     </div>
 
@@ -517,7 +449,7 @@
 </template>
 
 <script setup>
-
+import PublicNavBar from '../components/PublicNavBar.vue'
 </script>
 
 <style></style>

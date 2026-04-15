@@ -5,6 +5,7 @@ import Articles from '../views/Articles.vue'
 import ArticleDetail from '../views/ArticleDetail.vue'
 import Login from '../views/auth/Login.vue'
 import Register from '../views/auth/Register.vue'
+import Profile from '../views/Profile.vue'
 import DashBoard from '../views/admin/DashBoard.vue'
 import ManageArticles from '../views/admin/ManageArticles.vue'
 import ManageCategories from '../views/admin/ManageCategories.vue'
@@ -19,6 +20,7 @@ const router = createRouter({
     { path: '/articles/:id', component: ArticleDetail },
     { path: '/login', component: Login },
     { path: '/register', component: Register },
+    { path: '/profile', component: Profile },
     { path: '/admin', component: DashBoard },
     { path: '/admin/articles', component: ManageArticles },
     { path: '/admin/categories', component: ManageCategories },
@@ -27,4 +29,4 @@ const router = createRouter({
   ]
 })
 
-export default router   
+export default router

@@ -1,342 +1,142 @@
-<template>
+﻿<template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow" id="publicNav"></nav>
+        <PublicNavBar />
 
-        <!-- ===== MAIN ===== -->
-        <main>
+        <main v-if="blog">
             <div class="container py-5">
                 <div class="row g-4">
+                    <div class="col-lg-8">
 
-                    <!-- ===== NỘI DUNG BÀI VIẾT (8/12) ===== -->
+                        <!-- Breadcrumb -->
+                        <nav aria-label="breadcrumb" class="mb-3">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><RouterLink to="/" class="text-decoration-none">Trang chủ</RouterLink></li>
+                                <li class="breadcrumb-item"><RouterLink to="/articles" class="text-decoration-none">Bài viết</RouterLink></li>
+                                <li class="breadcrumb-item active" aria-current="page">Chi tiết</li>
+                            </ol>
+                        </nav>
 
+                        <!-- Badge + Tiêu đề -->
+                        <div class="mb-1">
+                            <span class="badge bg-danger d-inline-block">{{ blog.badge }}</span>
+                        </div>
+                        <h1 class="mb-3">{{ blog.title }}</h1>
 
-                    <!-- Breadcrumb -->
-                    <nav aria-label="breadcrumb" class="mb-3">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang chủ</a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="articles.html" class="text-decoration-none">Bài
-                                    viết</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">Chi tiết bài viết</li>
-                        </ol>
-                    </nav>
+                        <!-- Meta -->
+                        <div class="d-flex flex-wrap align-items-center gap-3 text-muted small mb-4 pb-4 border-bottom">
+                            <span><i class="bi bi-calendar3 me-1"></i>{{ blog.date }}</span>
+                            <span><i class="bi bi-heart me-1"></i>{{ blog.likes }} yêu thích</span>
+                        </div>
 
-                    <!-- Tiêu đề bài viết -->
-                    <div class="mb-1">
-                        <span class="badge bg-danger d-inline-block">News</span>
-                    </div>
-                    <h1 class="fw-bold mb-3">Chung kết First Stand 2026: G2 gục ngã đầy cay đắng, BLG lần đầu xưng vương
-                    </h1>
+                        <!-- Ảnh bìa -->
+                        <div class="mb-4 text-center">
+                            <img :src="blog.image" :alt="blog.title" class="img-fluid rounded shadow">
+                        </div>
 
-                    <!-- Thông tin tác giả & meta -->
-                    <div class="d-flex flex-wrap align-items-center gap-3 text-muted small mb-4 pb-4 border-bottom">
-                        <div class="d-flex align-items-center gap-2">
-                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white"
-                                style="width:36px;height:36px;font-size:.9rem;">
-                                <i class="bi bi-person-fill"></i>
-                            </div>
-                            <div>
-                                <div class="fw-semibold text-dark">Nguyễn Văn A</div>
-                                <div style="font-size:.75rem;">Tác giả</div>
+                        <!-- Nội dung -->
+                        <article class="article-content">
+                            <p class="lead">{{ blog.description }}</p>
+                        </article>
+
+                        <!-- Nút tương tác -->
+                        <div class="d-flex gap-2 mt-4 mb-5">
+                            <button class="btn btn-outline-danger btn-sm"><i class="bi bi-heart me-1"></i>Yêu thích ({{ blog.likes }})</button>
+                            <button class="btn btn-outline-primary btn-sm"><i class="bi bi-share me-1"></i>Chia sẻ</button>
+                            <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-bookmark me-1"></i>Lưu lại</button>
+                        </div>
+
+                        <!-- Bình luận -->
+                        <div class="mb-5">
+                            <h5 class="mb-4"><i class="bi bi-chat-dots me-2"></i>Bình luận</h5>
+                            <div class="card border-0 mb-4 dark-card">
+                                <div class="card-body">
+                                    <h6 class="mb-3">Viết bình luận</h6>
+                                    <div class="mb-3">
+                                        <textarea class="form-control dark-input" rows="3" placeholder="Nhập bình luận của bạn..."></textarea>
+                                    </div>
+                                    <button class="btn btn-danger btn-sm px-4">
+                                        <i class="bi bi-send me-1"></i>Gửi bình luận
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <span><i class="bi bi-calendar3 me-1"></i>23/03/2026</span>
-                        <span><i class="bi bi-clock me-1"></i>8 phút đọc</span>
-                        <span><i class="bi bi-eye me-1"></i>1.2k lượt xem</span>
-                        <span><i class="bi bi-heart me-1"></i>234 yêu thích</span>
-                    </div>
 
-                    <!-- Ảnh bìa -->
-                    <div class="article-thumb-sm bg-warning d-flex align-items-center justify-content-center text-dark">
-                        <div class="w-100 h-100 d-flex align-items-center justify-content-center text-white"
-                            style="font-size:5rem;">
-                            <img src="../imgs/VoDichFirstStand2026.png" alt="Vo Dich First Stand 2026"
-                                class="img-fluid">
-                        </div>
-                    </div>
-
-                    <!-- Nội dung bài viết -->
-                    <article class="article-content">
-                        <p class="lead">Danh hiệu này đánh dấu chức vô địch quốc tế đầu tiên trong lịch sử của BLG, đồng
-                            thời cho thấy sự trở lại đáng chú ý của khu vực LPL trên đấu trường Liên Minh Huyền Thoại
-                            thế
-                            giới. Sau những lần lỡ hẹn tại Worlds 2023 và MSI 2024, BLG đã vượt qua áp lực để giành danh
-                            hiệu lớn đầu tiên. Kết quả này có ý nghĩa quan trọng không chỉ với đội tuyển mà còn với khu
-                            vực
-                            LPL, trong bối cảnh họ từng bị đặt dấu hỏi về vị thế trước sự cạnh tranh từ LCK.</p>
-
-                        <!-- <h3 class="fw-bold mt-4 mb-3">1. Trí tuệ nhân tạo trong phát triển phần mềm</h3> -->
-                        <p>Bước vào mùa giải 2026, BLG có sự chuẩn bị ổn định về lực lượng. Sự trở lại của Xun ở vị trí
-                            đi
-                            rừng giúp đội hình vận hành hiệu quả hơn, đặc biệt trong việc kiểm soát mục tiêu và tạo lợi
-                            thế
-                            từ giai đoạn đầu trận. Ở đường dưới, Viper duy trì phong độ ổn định, đóng vai trò quan trọng
-                            trong các pha giao tranh. Trong khi đó, Knight và Bin tiếp tục là những nhân tố chủ chốt,
-                            mang
-                            lại sự cân bằng trong lối chơi của toàn đội.
-
-                            Ở bên kia chiến tuyến, G2 Esports bước vào trận chung kết với nhiều kỳ vọng nhưng không thể
-                            tạo
-                            nên bất ngờ. Trận thua này khiến đại diện LEC rơi vào nhóm hiếm hoi những đội tuyển từng
-                            thất
-                            bại ở cả ba trận chung kết quốc tế lớn của Liên Minh Huyền Thoại. Với khu vực châu Âu, kịch
-                            bản
-                            tiếc nuối dường như tiếp tục lặp lại mỗi khi chạm trán các đối thủ châu Á ở trận đấu quyết
-                            định.
-
-                            Trận chung kết First Stand 2026 là một trận đấu hấp dẫn về mặt chuyên môn, nhận được nhiều
-                            lời
-                            khen từ giới chuyên môn và người hâm mộ nhờ chất lượng thi đấu cao cùng cách vận hành chiến
-                            thuật chặt chẽ của cả hai đội.</p>
-                        <p>
-                            Ván đấu đầu tiên G2 nhập cuộc đầy tự tin và chủ động triển khai thế trận kiểm soát. Hai đội
-                            giằng co trong phần lớn thời gian, nhưng bước ngoặt đến ở pha tranh chấp Baron khi G2 xử lý
-                            tốt
-                            hơn trong khâu giao tranh và trừng phạt. Tận dụng bùa lợi, đại diện LEC đẩy mạnh sức ép và
-                            kết
-                            thúc ván đấu, vươn lên dẫn trước 1-0.
-
-                            Sang ván đấu thứ hai, BLG nhanh chóng điều chỉnh sau thất bại ở ván mở màn. Đội tuyển LPL
-                            chuyển
-                            trọng tâm xuống khu vực đường dưới, nơi xạ thủ Viper và hỗ trợ ON tạo ra lợi thế rõ rệt.
-                            Kiểm
-                            soát tốt Rồng và các mục tiêu lớn giúp BLG dần áp đảo về tài nguyên. Khi thiết lập được thế
-                            trận, họ không cho G2 cơ hội lật ngược và cân bằng tỷ số 1-1.
-
-                            Bước sang ván ba, thế trận hoàn toàn nghiêng về phía BLG. Từ giai đoạn đi đường, các vị trí
-                            của
-                            BLG đều tạo được lợi thế, đặc biệt là khu vực đường trên và rừng. Khả năng phối hợp trong
-                            giao
-                            tranh giúp họ liên tục thắng các pha combat then chốt. Khoảng cách vàng gia tăng nhanh chóng
-                            khiến G2 không thể chống đỡ. BLG vươn lên dẫn 2-1 sau một ván đấu áp đảo.
-
-                            Ván đấu cuối khép lại loạt trận Bo5, G2 buộc phải đẩy cao nhịp độ trận đấu nhằm tìm kiếm cơ
-                            hội
-                            gỡ hòa. Tuy nhiên, sự nóng vội khiến họ mắc sai lầm trong khâu kiểm soát Baron. BLG trừng
-                            phạt
-                            thành công, giành lợi thế quyết định và nhanh chóng chuyển hóa thành chiến thắng. Chỉ trong
-                            chưa
-                            đầy 30 phút, đại diện LPL khép lại loạt BO5 với tỷ số 3-1.
-
-                            Kết thúc trận chung kết, người đi đường trên bên phía BLG là Bin được vinh danh là FMVP của
-                            giải
-                            đấu. Bin đã thể hiện tốt ở cả giai đoạn đi đường lẫn giao tranh, góp phần quan trọng vào
-                            chiến
-                            thắng chung cuộc của BLG. Thất bại này khiến G2 tiếp tục chưa thể giành danh hiệu ở các trận
-                            chung kết quốc tế. Đại diện LEC một lần nữa ngậm ngùi dừng bước trước đối thủ đến từ châu Á
-                            trong một trận chung kết.
-                        </p>
-                    </article>
-
-                    <!-- Tags bài viết -->
-                    <div class="mt-4 pt-4 border-top">
-                        <span class="text-muted small me-2">Tags:</span>
-                        <a href="#" class="badge bg-light text-dark border text-decoration-none me-1">#FirstStand</a>
-                        <a href="#" class="badge bg-light text-dark border text-decoration-none me-1">#LOL</a>
-                        <a href="#" class="badge bg-light text-dark border text-decoration-none me-1">#BLG</a>
-                        <a href="#" class="badge bg-light text-dark border text-decoration-none me-1">#LPL</a>
-                    </div>
-
-                    <!-- Nút chia sẻ & yêu thích -->
-                    <div class="d-flex gap-2 mt-4 mb-5">
-                        <button class="btn btn-outline-danger btn-sm"><i class="bi bi-heart me-1"></i>Yêu thích
-                            (234)</button>
-                        <button class="btn btn-outline-primary btn-sm"><i class="bi bi-share me-1"></i>Chia sẻ</button>
-                        <button class="btn btn-outline-secondary btn-sm"><i class="bi bi-bookmark me-1"></i>Lưu
-                            lại</button>
-                    </div>
-
-                    <!-- Thông tin tác giả -->
-                    <div class="card border-0 shadow-sm mb-5">
-                        <div class="card-body d-flex gap-4 align-items-center">
-                            <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white flex-shrink-0"
-                                style="width:64px;height:64px;font-size:1.8rem;">
-                                <i class="bi bi-person-fill"></i>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1">Nguyễn Văn A</h6>
-                                <p class="text-muted small mb-2">Kỹ sư phần mềm với 8 năm kinh nghiệm trong lĩnh vực
-                                    phát
-                                    triển web và AI. Đam mê chia sẻ kiến thức với cộng đồng.</p>
-                                <a href="#" class="btn btn-sm btn-outline-primary">Xem tất cả bài viết</a>
+                        <!-- Bài viết liên quan -->
+                        <div>
+                            <h5 class="fw-bold mb-4">Bài viết liên quan</h5>
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
+                                <div class="col" v-for="related in relatedBlogs" :key="related.id">
+                                    <div class="card h-100 border-0 shadow-sm article-card">
+                                        <RouterLink :to="`/articles/${related.id}`" class="text-decoration-none">
+                                            <div class="article-thumb-sm d-flex align-items-center justify-content-center">
+                                                <img :src="related.image" :alt="related.title" class="img-fluid">
+                                            </div>
+                                            <div class="card-body">
+                                                <span class="badge bg-danger mb-2">{{ related.badge }}</span>
+                                                <h6 class="card-title article-title">{{ related.title }}</h6>
+                                            </div>
+                                            <div class="card-footer bg-transparent small">
+                                                <i class="bi bi-calendar3 me-1"></i>{{ related.date }}
+                                                <span class="float-end"><i class="bi bi-heart me-1"></i>{{ related.likes }}</span>
+                                            </div>
+                                        </RouterLink>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Bình luận -->
-                    <div class="mb-5">
-                        <h5 class="fw-bold mb-4"><i class="bi bi-chat-dots me-2"></i>Bình luận (12)</h5>
+                    </div><!-- /col-lg-8 -->
 
-                        <!-- Form bình luận -->
-                        <div class="card border-0 shadow-sm mb-4">
+                    <!-- ===== SIDEBAR ===== -->
+                    <div class="col-lg-4">
+                        <div class="card border-0 shadow-sm mb-4 sidebar-widget-card">
                             <div class="card-body">
-                                <h6 class="fw-semibold mb-3">Viết bình luận</h6>
-                                <div class="mb-3">
-                                    <textarea class="form-control" rows="3"
-                                        placeholder="Nhập bình luận của bạn..."></textarea>
-                                </div>
-                                <button class="btn btn-primary btn-sm px-4">
-                                    <i class="bi bi-send me-1"></i>Gửi bình luận
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Danh sách bình luận -->
-                        <div class="comment-list">
-                            <!-- Bình luận 1 -->
-                            <div class="d-flex gap-3 mb-4">
-                                <div class="rounded-circle bg-success d-flex align-items-center justify-content-center text-white flex-shrink-0"
-                                    style="width:40px;height:40px;">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="bg-light rounded-3 p-3">
-                                        <div class="d-flex justify-content-between align-items-center mb-1">
-                                            <span class="fw-semibold small">Trần Thị B</span>
-                                            <span class="text-muted" style="font-size:.75rem;">21/03/2026</span>
+                                <h6 class="mb-3"><i class="bi bi-fire me-2 text-danger"></i>Bài viết nổi bật</h6>
+                                <ol class="list-unstyled mb-0">
+                                    <li class="d-flex gap-3 mb-3 pb-3 border-bottom" v-for="(b, i) in topBlogs" :key="b.id">
+                                        <span class="fs-3 fw-bold lh-1 text-danger">{{ String(i+1).padStart(2,'0') }}</span>
+                                        <div>
+                                            <RouterLink :to="`/articles/${b.id}`" class="text-decoration-none fw-semibold article-title">{{ b.title }}</RouterLink>
+                                            <div class="text-muted small"><i class="bi bi-heart me-1"></i>{{ b.likes }} lượt thích</div>
                                         </div>
-                                        <p class="mb-0 small">Bài viết rất hay! Tôi hoàn toàn đồng ý với quan điểm về tư
-                                            duy
-                                            hệ thống. Đây là kỹ năng AI chưa thể thay thế được.</p>
-                                    </div>
-                                    <button class="btn btn-link btn-sm text-muted p-0 mt-1"><i
-                                            class="bi bi-reply me-1"></i>Trả lời</button>
-                                </div>
-                            </div>
-                            <!-- Bình luận 2 -->
-                            <div class="d-flex gap-3 mb-4">
-                                <div class="rounded-circle bg-warning d-flex align-items-center justify-content-center text-dark flex-shrink-0"
-                                    style="width:40px;height:40px;">
-                                    <i class="bi bi-person-fill"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="bg-light rounded-3 p-3">
-                                        <div class="d-flex justify-content-between align-items-center mb-1">
-                                            <span class="fw-semibold small">Lê Văn C</span>
-                                            <span class="text-muted" style="font-size:.75rem;">22/03/2026</span>
-                                        </div>
-                                        <p class="mb-0 small">Cảm ơn tác giả. Phần về Web3 khá thú vị, mong có bài
-                                            chuyên
-                                            sâu hơn về DeFi!</p>
-                                    </div>
-                                    <button class="btn btn-link btn-sm text-muted p-0 mt-1"><i
-                                            class="bi bi-reply me-1"></i>Trả lời</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="text-center">
-                            <button class="btn btn-outline-secondary btn-sm">Xem thêm bình luận (10)</button>
-                        </div>
-                    </div>
-
-                    <!-- Bài viết liên quan -->
-                    <div>
-                        <h5 class="fw-bold mb-4">Bài viết liên quan</h5>
-                        <div class="row row-cols-1 row-cols-md-4 g-3">
-                            <div class="col">
-                                <div class="card h-100 border-0 shadow-sm article-card">
-                                    <div
-                                        class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white">
-                                        <img src="../imgs/T13lllT.png" alt="Bootstrap 5" class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-danger mb-2">Hot</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần liên tiếp
-                                            </a>
-                                        </h6>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>11/10/2025
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>234</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 border-0 shadow-sm article-card">
-                                    <div
-                                        class="article-thumb-sm bg-warning d-flex align-items-center justify-content-center text-dark">
-                                        <img src="../imgs/G23_0GenG.png" alt="G2 vs Gen.G" class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-warning text-dark mb-2">Shock</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                G2 sweeps Gen.G 3-0
-                                            </a>
-                                        </h6>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>15/03/2026
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>189</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 border-0 shadow-sm article-card">
-                                    <div
-                                        class="article-thumb-sm bg-info d-flex align-items-center justify-content-center text-white fs-2">
-                                        <img src="../imgs/GumaLeaveT1.png" alt="Guma Leave T1" class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-danger text-dark mb-2">Hot</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                Gumayusi rời T1, cú chuyển nhượng có thể làm rung chuyển LCK
-                                            </a>
-                                        </h6>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>18/11/2025
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>312</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="card h-100 border-0 shadow-sm article-card">
-                                    <div
-                                        class="article-thumb-sm bg-secondary d-flex align-items-center justify-content-center text-white">
-                                        <img src="../imgs/VoDichFirstStand2026.png" alt="Vo Dich First Stand 2026"
-                                            class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-info mb-2">News</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                Chung kết First Stand 2026: G2 gục ngã đầy cay đắng, BLG lần đầu xưng
-                                                vương
-                                            </a>
-                                        </h6>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>23/03/2026
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>421</span>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ol>
                             </div>
                         </div>
                     </div>
-
-
 
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </main>
 
-        <footer class="py-5" id="publicFooter"></footer>
+        <!-- Không tìm thấy bài viết -->
+        <div v-else class="container py-5 text-center">
+            <i class="bi bi-exclamation-circle fs-1 text-muted d-block mb-3"></i>
+            <h4>Không tìm thấy bài viết</h4>
+            <RouterLink to="/articles" class="btn btn-primary mt-3">Quay lại danh sách</RouterLink>
+        </div>
 
+        <PublicFooter />
     </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import PublicNavBar from '../components/PublicNavBar.vue'
+import PublicFooter from '../components/PublicFooter.vue'
+import { blogs } from '../data/Blog'
 
+const route = useRoute()
+const blog = computed(() => blogs.find(b => b.id === Number(route.params.id)))
+const relatedBlogs = computed(() => {
+    const current = blog.value
+    if (!current) return []
+    const sameCategory = blogs.filter(b => b.id !== current.id && b.category === current.category)
+    const others = blogs.filter(b => b.id !== current.id && b.category !== current.category)
+    return [...sameCategory, ...others].slice(0, 3)
+})
+const topBlogs = computed(() => [...blogs].sort((a, b) => b.likes - a.likes).slice(0, 3))
 </script>
 
 <style></style>

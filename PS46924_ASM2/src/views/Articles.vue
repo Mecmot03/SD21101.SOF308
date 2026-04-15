@@ -1,4 +1,4 @@
-<template>
+﻿<template>
     <div>
         <PublicNavBar />
 
@@ -7,7 +7,7 @@
             <div class="container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-2">
-                        <li class="breadcrumb-item"><a href="index.html" class="text-light">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><RouterLink to="/" class="text-light">Trang chủ</RouterLink></li>
                         <li class="breadcrumb-item active text-white-50" aria-current="page">Bài viết</li>
                     </ol>
                 </nav>
@@ -42,122 +42,27 @@
                             </select>
                         </div>
 
-                        <!-- Danh sách bài viết (3 cột) -->
-                        <div class="row g-3" id="articleList">
-
-                            <!-- Card 1 -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card h-100 border-0 shadow-sm bg-dark article-card">
-                                    <div
-                                        class="article-thumb-sm bg-success d-flex align-items-center justify-content-center text-white">
-                                        <img src="../imgs/T13lllT.png" alt="Bootstrap 5" class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-danger mb-2">Hot</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần liên tiếp
-                                            </a>
-                                        </h6>
-                                        <p class="card-text text-muted small">Tại Chung Kết Thế Giới (CKTG) 2025, việc
-                                            T1 vô địch một lần nữa khẳng định vị thế bất diệt của mình. Đội tuyển huyền
-                                            thoại đến từ Hàn Quốc không chỉ bảo vệ thành công ngôi vương mà còn lập nên
-                                            kỳ tích ba lần vô địch liên tiếp từ năm 2023 đến 2025. Đây là minh chứng
-                                            sống động cho sức mạnh bền bỉ, bản lĩnh thép và tinh thần không ngừng chinh
-                                            phục của T1, biến họ thành biểu tượng vĩ đại nhất lịch sử eSports.</p>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>11/10/2025
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>234</span>
-                                    </div>
+                        <!-- Danh sách bài viết -->
+                        <div class="row g-3">
+                            <div class="col-md-6 col-lg-4" v-for="blog in blogs" :key="blog.id">
+                                <div class="card h-100 border-0 bg-dark article-card">
+                                    <RouterLink :to="`/articles/${blog.id}`" class="text-decoration-none">
+                                        <div class="article-thumb-sm d-flex align-items-center justify-content-center">
+                                            <img :src="blog.image" :alt="blog.title" class="img-fluid">
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="badge bg-danger mb-2">{{ blog.badge }}</span>
+                                            <h6 class="card-title fw-bold text-white article-title">{{ blog.title }}</h6>
+                                            <p class="card-text text-white-50 small">{{ blog.description }}</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent border-0 small text-white-50">
+                                            <i class="bi bi-calendar3 me-1"></i>{{ blog.date }}
+                                            <span class="float-end"><i class="bi bi-heart me-1"></i>{{ blog.likes }}</span>
+                                        </div>
+                                    </RouterLink>
                                 </div>
                             </div>
-                            <!-- Card 2 -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card h-100 border-0 shadow-sm bg-dark article-card">
-                                    <div
-                                        class="article-thumb-sm bg-warning d-flex align-items-center justify-content-center text-dark">
-                                        <img src="../imgs/G23_0GenG.png" alt="G2 vs Gen.G" class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-warning text-dark mb-2">Shock</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                G2 sweeps Gen.G 3-0
-                                            </a>
-                                        </h6>
-                                        <p class="card-text text-muted small">G2 Esports is back. They’re more back than
-                                            ever before. The legendary team of Europe, known for international
-                                            performances of years past, had been relegated to dominating the LEC, and
-                                            the LEC alone, for several years. But today, the low expectations for
-                                            Western LoL fans have been completely flipped upside down.</p>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>21/03/2026
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>189</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 3 -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card h-100 border-0 shadow-sm bg-dark article-card">
-                                    <div
-                                        class="article-thumb-sm bg-info d-flex align-items-center justify-content-center text-white fs-2">
-                                        <img src="../imgs/GumaLeaveT1.png" alt="Guma Leave T1" class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-danger text-dark mb-2">Hot</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                Gumayusi rời T1, cú chuyển nhượng có thể làm rung chuyển LCK
-                                            </a>
-                                        </h6>
-                                        <p class="card-text text-muted small">Sự chia tay của Gumayusi tương tự như việc
-                                            Choi “Zeus” Woo-je ra đi năm ngoái và đây chắc chắn không chỉ là một sự thay
-                                            đổi nhân sự bình thường. Đây là khoảnh khắc khép lại một kỷ nguyên vàng son
-                                            của T1, đồng thời đánh dấu sự tan vỡ của bộ đôi ăn ý Gumayusi – Ryu “Keria”
-                                            Min-seok, khiến fan hâm mộ lẫn cộng đồng eSports phải tiếc nuối.</p>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>18/11/2025
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>312</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card 4 -->
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card h-100 border-0 shadow-sm bg-dark article-card">
-                                    <div
-                                        class="article-thumb-sm bg-secondary d-flex align-items-center justify-content-center text-white">
-                                        <img src="../imgs/VoDichFirstStand2026.png" alt="Vo Dich First Stand 2026"
-                                            class="img-fluid">
-                                    </div>
-                                    <div class="card-body">
-                                        <span class="badge bg-info mb-2">News</span>
-                                        <h6 class="card-title fw-bold">
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none text-dark article-title">
-                                                Chung kết First Stand 2026: G2 gục ngã đầy cay đắng, BLG lần đầu xưng
-                                                vương
-                                            </a>
-                                        </h6>
-                                        <p class="card-text text-muted small">Sau những lần lỡ hẹn tại Worlds 2023 và
-                                            MSI 2024, BLG đã vượt qua áp lực để giành danh hiệu lớn đầu tiên. Kết quả
-                                            này có ý nghĩa quan trọng không chỉ với đội tuyển mà còn với khu vực LPL,
-                                            trong bối cảnh họ từng bị đặt dấu hỏi về vị thế trước sự cạnh tranh từ LCK.
-                                        </p>
-                                    </div>
-                                    <div class="card-footer bg-transparent border-0 small text-muted">
-                                        <i class="bi bi-calendar3 me-1"></i>23/03/2026
-                                        <span class="float-end"><i class="bi bi-heart me-1"></i>421</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div><!-- /#articleList -->
+                        </div>
 
                         <!-- Phân trang -->
                         <nav class="mt-5" aria-label="Phân trang bài viết">
@@ -168,142 +73,27 @@
                                 <li class="page-item active"><a class="page-link" href="#">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                                 <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                <li class="page-item"><a class="page-link" href="#">5</a></li>
                                 <li class="page-item">
                                     <a class="page-link" href="#"><i class="bi bi-chevron-right"></i></a>
                                 </li>
                             </ul>
-                            <p class="text-center text-muted small mt-2">Trang 1 / 5 — Tổng 45 bài viết</p>
+                            <p class="text-center text-muted small mt-2">Trang 1 / 1 — Tổng {{ blogs.length }} bài viết</p>
                         </nav>
                     </div><!-- /col-lg-8 -->
 
                     <!-- ===== SIDEBAR (4/12) ===== -->
                     <div class="col-lg-4">
-                        <!-- Danh mục -->
-                        <div class="card border-0 shadow-sm mb-4">
-                            <div class="card-body ">
-                                <h6 class="fw-bold mb-3"><i class="bi bi-grid me-2" style="color:#ffb300;"></i>Danh mục
-                                </h6>
-                                <ul class="list-group list-group-flush">
-                                    <li
-                                        class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                        <a href="articles.html?cat=lap-trinh" class="text-decoration-none"
-                                            style="color:#ffb300;"><i class="bi bi-chevron-right small me-1"
-                                                style="color:#ffb300;"></i>Lập trình</a>
-                                        <span class="badge rounded-pill"
-                                            style="background:#ffb300;color:#181818;font-weight:600;">18</span>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                        <a href="articles.html?cat=cong-nghe" class="text-decoration-none"
-                                            style="color:#ffb300;"><i class="bi bi-chevron-right small me-1"
-                                                style="color:#ffb300;"></i>Công nghệ</a>
-                                        <span class="badge rounded-pill"
-                                            style="background:#ffb300;color:#181818;font-weight:600;">12</span>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                        <a href="articles.html?cat=thiet-ke" class="text-decoration-none"
-                                            style="color:#ffb300;"><i class="bi bi-chevron-right small me-1"
-                                                style="color:#ffb300;"></i>Thiết kế</a>
-                                        <span class="badge rounded-pill"
-                                            style="background:#ffb300;color:#181818;font-weight:600;">9</span>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                        <a href="articles.html?cat=cuoc-song" class="text-decoration-none"
-                                            style="color:#ffb300;"><i class="bi bi-chevron-right small me-1"
-                                                style="color:#ffb300;"></i>Cuộc sống</a>
-                                        <span class="badge rounded-pill"
-                                            style="background:#ffb300;color:#181818;font-weight:600;">7</span>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                        <a href="articles.html?cat=bao-mat" class="text-decoration-none"
-                                            style="color:#ffb300;"><i class="bi bi-chevron-right small me-1"
-                                                style="color:#ffb300;"></i>Bảo mật</a>
-                                        <span class="badge rounded-pill"
-                                            style="background:#ffb300;color:#181818;font-weight:600;">5</span>
-                                    </li>
-                                    <li
-                                        class="list-group-item d-flex justify-content-between align-items-center px-0 border-0 py-2">
-                                        <a href="articles.html?cat=devops" class="text-decoration-none"
-                                            style="color:#ffb300;"><i class="bi bi-chevron-right small me-1"
-                                                style="color:#ffb300;"></i>DevOps</a>
-                                        <span class="badge rounded-pill"
-                                            style="background:#ffb300;color:#181818;font-weight:600;">4</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <!-- Tags -->
-                        <div class="card border-0 shadow-sm mb-4">
+                        <!-- Bài viết nổi bật -->
+                        <div class="card border-0">
                             <div class="card-body">
-                                <h6 class="fw-bold mb-3"><i class="bi bi-tags me-2" style="color:#ffb300;"></i>Thẻ nổi
-                                    bật</h6>
-                                <div class="d-flex flex-wrap gap-2">
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#Bootstrap</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#HTML</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#CSS</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#JavaScript</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#UI/UX</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#Database</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#Bảo mật</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#AI</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#Git</a>
-                                    <a href="#" class="badge border text-decoration-none"
-                                        style="background:#ffb300;color:#181818;font-weight:600;">#DevOps</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Bài viết đọc nhiều -->
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-3"><i class="bi bi-fire me-2" style="color:#ffb300;"></i>Bài viết
-                                    nổi bật</h6>
+                                <h6 class="mb-3"><i class="bi bi-fire me-2" style="color:#ffb300;"></i>Bài viết nổi bật</h6>
                                 <ol class="list-unstyled mb-0">
-                                    <li class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                                        <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">01</span>
+                                    <li class="d-flex gap-3 mb-3 pb-3 border-bottom" v-for="(blog, index) in [...blogs].sort((a,b) => b.likes - a.likes).slice(0,3)" :key="blog.id">
+                                        <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">{{ String(index+1).padStart(2,'0') }}</span>
                                         <div>
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none fw-semibold article-title"
-                                                style="color:#ffb300;">Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần
-                                                liên tiếp</a>
-                                            <div style="font-size:.75rem;color:#f5f5f5;"><i class="bi bi-heart me-1"
-                                                    style="color:#ffb300;"></i>234 lượt thích</div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                                        <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">02</span>
-                                        <div>
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none fw-semibold article-title"
-                                                style="color:#ffb300;">G2 sweeps Gen.G 3-0</a>
-                                            <div style="font-size:.75rem;color:#f5f5f5;"><i class="bi bi-heart me-1"
-                                                    style="color:#ffb300;"></i>189 lượt thích</div>
-                                        </div>
-                                    </li>
-                                    <li class="d-flex gap-3">
-                                        <span class="fs-3 fw-bold lh-1" style="color:#ffb300;">03</span>
-                                        <div>
-                                            <a href="article-detail.html"
-                                                class="text-decoration-none fw-semibold article-title"
-                                                style="color:#ffb300;">Gumayusi rời T1, cú chuyển nhượng có thể làm rung
-                                                chuyển LCK</a>
-                                            <div style="font-size:.75rem;color:#f5f5f5;"><i class="bi bi-heart me-1"
-                                                    style="color:#ffb300;"></i>312 lượt thích</div>
+                                            <RouterLink :to="`/articles/${blog.id}`" class="text-decoration-none fw-semibold article-title" style="color:#ffb300;">{{ blog.title }}</RouterLink>
+                                            <div style="font-size:.75rem;color:#aaa;"><i class="bi bi-heart me-1" style="color:#ffb300;"></i>{{ blog.likes }} lượt thích</div>
                                         </div>
                                     </li>
                                 </ol>
@@ -320,8 +110,9 @@
 </template>
 
 <script setup>
-import PublicNavBar from '../components/PublicNavBar.vue';
-import PublicFooter from '../components/PublicFooter.vue';
+import PublicNavBar from '../components/PublicNavBar.vue'
+import PublicFooter from '../components/PublicFooter.vue'
+import { blogs } from '../data/Blog'
 </script>
 
 <style></style>

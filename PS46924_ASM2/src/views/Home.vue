@@ -55,7 +55,7 @@
 
                     <!-- ===== DANH SÁCH BÀI VIẾT ===== -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h4 class="fw-bold mb-0">Bài viết mới nhất</h4>
+                        <h4 class="mb-0 font-lol">Bài viết mới nhất</h4>
                     </div>
                     <!-- Lưới bài viết - scroll ngang -->
                     <div class="position-relative px-4">
@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="card-body">
                                             <span class="badge bg-danger mb-2">{{ blog.badge }}</span>
-                                            <h6 class="card-title fw-bold">{{ blog.title }}</h6>
+                                            <h6 class="card-title font-lol">{{ blog.title }}</h6>
                                             <p class="card-text small">{{ blog.description }}</p>
                                         </div>
                                         <div class="card-footer bg-transparent border-0 small text-white-50">

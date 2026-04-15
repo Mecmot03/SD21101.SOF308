@@ -1,9 +1,11 @@
 <template>
     <div>
-        <header class="admin-topbar d-flex align-items-center px-3 shadow-sm" id="adminTopbar"></header>
+        <AdminTopBar />
 
         <div class="d-flex flex-grow-1">
-            <nav class="admin-sidebar d-flex flex-column" id="adminSidebar"></nav>
+            <nav class="admin-sidebar d-flex flex-column">
+                <AdminSideBar />
+            </nav>
 
             <!-- ===== MAIN CONTENT ===== -->
             <main class="admin-content">
@@ -410,7 +412,8 @@
 </template>
 
 <script setup>
-
+import AdminTopBar from '../../components/AdminTopBar.vue'
+import AdminSideBar from '../../components/AdminSideBar.vue'
 </script>
 
 <style></style>

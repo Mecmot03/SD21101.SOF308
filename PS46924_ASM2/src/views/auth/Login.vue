@@ -1,16 +1,16 @@
 <template>
-    <div>
+    <div class="auth-wrapper">
         <!-- ===== NAVBAR ===== -->
         <nav class="navbar navbar-dark bg-dark shadow">
             <div class="container">
-                <a class="navbar-brand" href="../public/index.html">
+                <RouterLink class="navbar-brand" to="/">
                     <i class="bi bi-journal-richtext me-2"></i>
                     M1Entertainment
-                </a>
+                </RouterLink>
                 <div class="d-flex gap-2">
-                    <a href="../public/index.html" class="btn btn-sm btn-outline-light">
+                    <RouterLink to="/" class="btn btn-sm btn-outline-light">
                         <i class="bi bi-house me-1"></i>Trang chủ
-                    </a>
+                    </RouterLink>
                 </div>
             </div>
         </nav>
@@ -24,9 +24,9 @@
                     <div
                         class="col-lg-6 d-none d-lg-flex auth-brand-panel login-panel align-items-center justify-content-center text-white p-5">
                         <div class="text-center">
-                            <i class="bi bi-journal-richtext" style="font-size:5rem;"></i>
-                            <h2 class="fw-bold mt-4 mb-3">M1Entertainment</h2>
-                            <p class="text-white-75 mb-5" style="font-size:1.1rem;opacity:.85;">
+                            <i class="bi bi-journal-richtext" style="font-size:5rem"></i>
+                            <h2 class="fw-bold mt-4 mb-3 font-lol">M1 Entertainment</h2>
+                            <p class="text-white-75 mb-5" style="font-size:1.1rem; opacity:.85;">
                                 Nền tảng blog chia sẻ kiến thức công nghệ, lập trình và cuộc sống — dành cho cộng đồng
                                 Việt Nam.
                             </p>
@@ -54,70 +54,57 @@
                     </div>
 
                     <!-- ===== PANEL PHẢI — Form đăng nhập ===== -->
-                    <div class="col-lg-6 d-flex align-items-center justify-content-center bg-light py-5 px-3">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center py-5 px-3 auth-form-panel">
                         <div class="auth-card">
 
                             <!-- Header -->
                             <div class="text-center mb-4">
                                 <div class="d-lg-none mb-3">
-                                    <i class="bi bi-journal-richtext text-primary" style="font-size:2.5rem;"></i>
+                                    <i class="bi bi-journal-richtext text-danger" style="font-size:2.5rem;"></i>
                                 </div>
-                                <h3 class="fw-bold mb-1">Chào mừng trở lại!</h3>
-                                <p class="text-muted">Đăng nhập để tiếp tục hành trình của bạn.</p>
+                                <h3 class="fw-bold mb-1 text-white">Chào mừng trở lại!</h3>
+                                <p class="text-secondary">Đăng nhập để tiếp tục hành trình của bạn.</p>
                             </div>
 
-                            <!-- Thông báo lỗi (ẩn mặc định) -->
-                            <div class="alert alert-danger d-flex align-items-center gap-2 d-none" role="alert"
-                                id="loginError">
+
+                            <!-- Thông báo lỗi -->
+                            <div class="alert alert-danger d-flex align-items-center gap-2" role="alert"
+                                v-show="showError">
                                 <i class="bi bi-exclamation-triangle-fill flex-shrink-0"></i>
-                                <div>Email hoặc mật khẩu không đúng. Vui lòng thử lại.</div>
+                                <div>Email/tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.</div>
                             </div>
 
                             <!-- Form -->
-                            <div class="card border-0 shadow-sm">
+                            <div class="card auth-form-card border-secondary shadow-sm">
                                 <div class="card-body p-4">
-                                    <form>
-                                        <!-- Email -->
+                                    <form @submit.prevent="handleLogin">
+                                       <!-- Email hoặc tên đăng nhập -->
                                         <div class="mb-3">
-                                            <label for="loginEmail" class="form-label fw-semibold">
-                                                <i class="bi bi-envelope me-1 text-primary"></i>Email
+                                            <label for="loginIdentifier" class="form-label fw-semibold text-white-50">
+                                                <i class="bi bi-person me-1 text-danger"></i>Email hoặc tên đăng nhập
                                             </label>
-                                            <input type="email" class="form-control" id="loginEmail"
-                                                placeholder="example@email.com" autocomplete="email" required>
+                                            <input type="text" class="form-control auth-input" id="loginIdentifier"
+                                                v-model="identifier"
+                                                placeholder="Email hoặc username" autocomplete="username" required>
                                         </div>
 
                                         <!-- Mật khẩu -->
                                         <div class="mb-3">
                                             <div class="d-flex justify-content-between align-items-center mb-1">
-                                                <label for="loginPassword" class="form-label fw-semibold mb-0">
-                                                    <i class="bi bi-lock me-1 text-primary"></i>Mật khẩu
+                                                <label for="loginPassword"
+                                                    class="form-label fw-semibold mb-0 text-white-50">
+                                                    <i class="bi bi-lock me-1 text-danger"></i>Mật khẩu
                                                 </label>
-                                                <a href="#" class="small text-primary text-decoration-none">Quên mật
+                                                <a href="#" class="small text-danger text-decoration-none">Quên mật
                                                     khẩu?</a>
                                             </div>
-                                            <div class="input-group">
-                                                <input type="password" class="form-control border-end-0"
-                                                    id="loginPassword" placeholder="Nhập mật khẩu"
-                                                    autocomplete="current-password" required>
-                                                <button class="btn btn-outline-secondary border-start-0" type="button"
-                                                    onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password'; this.querySelector('i').className = this.previousElementSibling.type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash'">
-                                                    <i class="bi bi-eye"></i>
-                                                </button>
-                                            </div>
+                                            <input type="password" class="form-control auth-input" id="loginPassword"
+                                                v-model="password"
+                                                placeholder="Nhập mật khẩu" autocomplete="current-password" required>
                                         </div>
-
-                                        <!-- Ghi nhớ đăng nhập -->
-                                        <div class="mb-4 d-flex justify-content-between align-items-center">
-                                            <div class="form-check mb-0">
-                                                <input class="form-check-input" type="checkbox" id="rememberMe">
-                                                <label class="form-check-label small" for="rememberMe">Ghi nhớ đăng
-                                                    nhập</label>
-                                            </div>
-                                        </div>
-
                                         <!-- Nút đăng nhập -->
                                         <div class="d-grid mb-3">
-                                            <button type="submit" class="btn btn-primary py-2 fw-semibold">
+                                            <button type="submit" class="btn btn-danger py-2 fw-semibold">
                                                 <i class="bi bi-box-arrow-in-right me-2"></i>Đăng nhập
                                             </button>
                                         </div>
@@ -126,10 +113,10 @@
                             </div>
 
                             <!-- Link đăng ký -->
-                            <p class="text-center text-muted small mt-4">
+                            <p class="text-center text-secondary small mt-4">
                                 Chưa có tài khoản?
-                                <a href="register.html" class="text-primary fw-semibold text-decoration-none">Đăng ký
-                                    ngay</a>
+                                <RouterLink to="/register" class="text-danger fw-semibold text-decoration-none">Đăng ký
+                                    ngay</RouterLink>
                             </p>
                         </div>
                     </div>
@@ -152,7 +139,110 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { Users } from '../../data/User'
 
+const router = useRouter()
+
+const identifier = ref('')
+const password = ref('')
+const showError = ref(false)
+
+function handleLogin() {
+    const matched = Users.find(u =>
+        (u.email === identifier.value || u.username === identifier.value) &&
+        u.password === password.value
+    )
+
+    if (!matched) {
+        showError.value = true
+        return
+    }
+
+    showError.value = false
+    if (matched.role === 'admin') {
+        router.push('/admin')
+    } else {
+        router.push('/')
+    }
+}
 </script>
 
-<style></style>
+<style scoped>
+/* ===== Wrapper tổng ===== */
+.auth-wrapper {
+    background-color: #181818;
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Brand panel (trái) ===== */
+.auth-brand-panel h1,
+.auth-brand-panel h2,
+.auth-brand-panel h3,
+.auth-brand-panel h4,
+.auth-brand-panel h5,
+.auth-brand-panel h6 {
+    color: #fff !important;
+    text-shadow: none !important;
+    font-family: inherit !important;
+}
+
+/* ===== Form panel (phải) ===== */
+.auth-form-panel {
+    background-color: #1f1f1f;
+}
+
+/* ===== Auth card max-width ===== */
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ===== Card tối ===== */
+.auth-form-card {
+    background-color: #2a2a2a !important;
+    color: #f5f5f5 !important;
+}
+
+/* ===== Input tối ===== */
+.auth-input {
+    background-color: #3a3a3a !important;
+    border-color: #555 !important;
+    color: #f5f5f5 !important;
+}
+
+.auth-input::placeholder {
+    color: #888 !important;
+}
+
+.auth-input:focus {
+    background-color: #3a3a3a !important;
+    border-color: #dc3545 !important;
+    color: #f5f5f5 !important;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* ===== Fix heading đỏ từ global style ===== */
+h3 {
+    text-shadow: none !important;
+    font-family: inherit !important;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #111 !important;
+    color: #adb5bd !important;
+}
+
+footer a {
+    color: #adb5bd !important;
+}
+
+footer a:hover {
+    color: #fff !important;
+}
+</style>

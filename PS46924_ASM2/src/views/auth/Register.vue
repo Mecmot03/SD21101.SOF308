@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="auth-wrapper">
         <nav class="navbar navbar-dark bg-dark shadow">
             <div class="container">
-                <a class="navbar-brand" href="../public/index.html">
+                <RouterLink class="navbar-brand" to="/">
                     <i class="bi bi-journal-richtext me-2"></i>
                     M1Entertainment
-                </a>
+                </RouterLink>
                 <div class="d-flex gap-2">
-                    <a href="../public/index.html" class="btn btn-sm btn-outline-light">
+                    <RouterLink to="/" class="btn btn-sm btn-outline-light">
                         <i class="bi bi-house me-1"></i>Trang chủ
-                    </a>
+                    </RouterLink>
                 </div>
             </div>
         </nav>
@@ -77,109 +77,82 @@
                     </div>
 
                     <!-- ===== PANEL PHẢI — Form đăng ký ===== -->
-                    <div class="col-lg-7 d-flex align-items-center justify-content-center bg-light py-5 px-3">
+                    <div class="col-lg-7 d-flex align-items-center justify-content-center py-5 px-3 auth-form-panel">
                         <div class="auth-card auth-card-wide">
 
                             <!-- Header -->
                             <div class="text-center mb-4">
                                 <div class="d-lg-none mb-3">
-                                    <i class="bi bi-journal-richtext text-primary" style="font-size:2.5rem;"></i>
+                                    <i class="bi bi-journal-richtext text-danger" style="font-size:2.5rem;"></i>
                                 </div>
-                                <h3 class="fw-bold mb-1">Tạo tài khoản mới</h3>
-                                <p class="text-muted">Miễn phí và chỉ mất vài phút.</p>
+                                <h3 class="fw-bold mb-1 text-white">Tạo tài khoản mới</h3>
+                                <p class="text-secondary">Miễn phí và chỉ mất vài phút.</p>
                             </div>
 
                             <!-- Form -->
-                            <div class="card border-0 shadow-sm">
+                            <div class="card auth-form-card border-secondary shadow-sm">
                                 <div class="card-body p-4">
                                     <form>
                                         <!-- Họ và Tên -->
                                         <div class="row g-3 mb-3">
                                             <div class="col-sm-6">
-                                                <label for="regFirstName" class="form-label fw-semibold">
-                                                    <i class="bi bi-person me-1 text-primary"></i>Họ
+                                                <label for="regFirstName" class="form-label fw-semibold text-white-50">
+                                                    <i class="bi bi-person me-1 text-danger"></i>Họ
                                                 </label>
-                                                <input type="text" class="form-control" id="regFirstName"
+                                                <input type="text" class="form-control auth-input" id="regFirstName"
                                                     placeholder="Nguyễn" autocomplete="given-name" required>
                                             </div>
                                             <div class="col-sm-6">
-                                                <label for="regLastName" class="form-label fw-semibold">Tên</label>
-                                                <input type="text" class="form-control" id="regLastName"
+                                                <label for="regLastName" class="form-label fw-semibold text-white-50">Tên</label>
+                                                <input type="text" class="form-control auth-input" id="regLastName"
                                                     placeholder="Văn A" autocomplete="family-name" required>
                                             </div>
                                         </div>
 
                                         <!-- Tên hiển thị -->
                                         <div class="mb-3">
-                                            <label for="regUsername" class="form-label fw-semibold">
-                                                <i class="bi bi-at me-1 text-primary"></i>Tên người dùng
+                                            <label for="regUsername" class="form-label fw-semibold text-white-50">
+                                                <i class="bi bi-at me-1 text-danger"></i>Tên người dùng
                                             </label>
                                             <div class="input-group">
-                                                <span class="input-group-text text-muted">@</span>
-                                                <input type="text" class="form-control" id="regUsername"
+                                                <span class="input-group-text auth-input-addon">@</span>
+                                                <input type="text" class="form-control auth-input" id="regUsername"
                                                     placeholder="ten_nguoi_dung" autocomplete="username" required>
                                             </div>
-                                            <div class="form-text">Tên này sẽ hiển thị công khai bên dưới bài viết của
-                                                bạn.</div>
+                                            <div class="form-text auth-hint">Tên này sẽ hiển thị công khai bên dưới bài viết của bạn.</div>
                                         </div>
 
                                         <!-- Email -->
                                         <div class="mb-3">
-                                            <label for="regEmail" class="form-label fw-semibold">
-                                                <i class="bi bi-envelope me-1 text-primary"></i>Email
+                                            <label for="regEmail" class="form-label fw-semibold text-white-50">
+                                                <i class="bi bi-envelope me-1 text-danger"></i>Email
                                             </label>
-                                            <input type="email" class="form-control" id="regEmail"
+                                            <input type="email" class="form-control auth-input" id="regEmail"
                                                 placeholder="example@email.com" autocomplete="email" required>
                                         </div>
 
                                         <!-- Mật khẩu -->
                                         <div class="mb-3">
-                                            <label for="regPassword" class="form-label fw-semibold">
-                                                <i class="bi bi-lock me-1 text-primary"></i>Mật khẩu
+                                            <label for="regPassword" class="form-label fw-semibold text-white-50">
+                                                <i class="bi bi-lock me-1 text-danger"></i>Mật khẩu
                                             </label>
-                                            <div class="input-group">
-                                                <input type="password" class="form-control border-end-0"
-                                                    id="regPassword" placeholder="Tối thiểu 8 ký tự"
-                                                    autocomplete="new-password" required>
-                                                <button class="btn btn-outline-secondary border-start-0" type="button"
-                                                    onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password'; this.querySelector('i').className = this.previousElementSibling.type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash'">
-                                                    <i class="bi bi-eye"></i>
-                                                </button>
-                                            </div>
-                                            <!-- Thanh độ mạnh mật khẩu -->
-                                            <div class="password-strength mt-2">
-                                                <div class="d-flex gap-1">
-                                                    <div class="strength-bar flex-fill bg-secondary"></div>
-                                                    <div class="strength-bar flex-fill bg-secondary"></div>
-                                                    <div class="strength-bar flex-fill bg-secondary"></div>
-                                                    <div class="strength-bar flex-fill bg-secondary"></div>
-                                                </div>
-                                                <div class="form-text mt-1">Mật khẩu phải có ít nhất 8 ký tự, bao gồm
-                                                    chữ hoa, chữ thường và số.</div>
-                                            </div>
+                                            <input type="password" class="form-control auth-input" id="regPassword"
+                                                placeholder="Tối thiểu 8 ký tự" autocomplete="new-password" required>
+                                            <div class="form-text auth-hint mt-1">Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường và số.</div>
                                         </div>
 
                                         <!-- Xác nhận mật khẩu -->
                                         <div class="mb-4">
-                                            <label for="regPasswordConfirm" class="form-label fw-semibold">
-                                                <i class="bi bi-lock-fill me-1 text-primary"></i>Xác nhận mật khẩu
+                                            <label for="regPasswordConfirm" class="form-label fw-semibold text-white-50">
+                                                <i class="bi bi-lock-fill me-1 text-danger"></i>Xác nhận mật khẩu
                                             </label>
-                                            <div class="input-group">
-                                                <input type="password" class="form-control border-end-0"
-                                                    id="regPasswordConfirm" placeholder="Nhập lại mật khẩu"
-                                                    autocomplete="new-password" required>
-                                                <button class="btn btn-outline-secondary border-start-0" type="button"
-                                                    onclick="this.previousElementSibling.type = this.previousElementSibling.type === 'password' ? 'text' : 'password'; this.querySelector('i').className = this.previousElementSibling.type === 'password' ? 'bi bi-eye' : 'bi bi-eye-slash'">
-                                                    <i class="bi bi-eye"></i>
-                                                </button>
-                                            </div>
+                                            <input type="password" class="form-control auth-input" id="regPasswordConfirm"
+                                                placeholder="Nhập lại mật khẩu" autocomplete="new-password" required>
                                         </div>
-
-
 
                                         <!-- Nút đăng ký -->
                                         <div class="d-grid mb-3">
-                                            <button type="submit" class="btn btn-success py-2 fw-semibold">
+                                            <button type="submit" class="btn btn-danger py-2 fw-semibold">
                                                 <i class="bi bi-person-check me-2"></i>Tạo tài khoản
                                             </button>
                                         </div>
@@ -188,10 +161,9 @@
                             </div>
 
                             <!-- Link đăng nhập -->
-                            <p class="text-center text-muted small mt-4">
+                            <p class="text-center text-secondary small mt-4">
                                 Đã có tài khoản?
-                                <a href="login.html" class="text-primary fw-semibold text-decoration-none">Đăng nhập
-                                    ngay</a>
+                                <RouterLink to="/login" class="text-danger fw-semibold text-decoration-none">Đăng nhập ngay</RouterLink>
                             </p>
                         </div>
                     </div>
@@ -214,7 +186,97 @@
 </template>
 
 <script setup>
-
+import { useRouter } from 'vue-router'
+const router = useRouter()
 </script>
 
-<style></style>
+<style scoped>
+/* ===== Wrapper tổng ===== */
+.auth-wrapper {
+    background-color: #181818;
+    color: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== Brand panel (trái) ===== */
+.auth-brand-panel h1,
+.auth-brand-panel h2,
+.auth-brand-panel h3,
+.auth-brand-panel h4,
+.auth-brand-panel h5,
+.auth-brand-panel h6 {
+    color: #fff !important;
+    text-shadow: none !important;
+    font-family: inherit !important;
+}
+
+/* ===== Form panel (phải) ===== */
+.auth-form-panel {
+    background-color: #1f1f1f;
+}
+
+/* ===== Auth card max-width ===== */
+.auth-card-wide {
+    width: 100%;
+    max-width: 560px;
+}
+
+/* ===== Card tối ===== */
+.auth-form-card {
+    background-color: #2a2a2a !important;
+    color: #f5f5f5 !important;
+}
+
+/* ===== Input tối ===== */
+.auth-input {
+    background-color: #3a3a3a !important;
+    border-color: #555 !important;
+    color: #f5f5f5 !important;
+}
+
+.auth-input::placeholder {
+    color: #888 !important;
+}
+
+.auth-input:focus {
+    background-color: #3a3a3a !important;
+    border-color: #dc3545 !important;
+    color: #f5f5f5 !important;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* ===== Input group addon ===== */
+.auth-input-addon {
+    background-color: #444 !important;
+    border-color: #555 !important;
+    color: #aaa !important;
+}
+
+/* ===== Form hint text ===== */
+.auth-hint {
+    color: #888 !important;
+    text-shadow: none !important;
+}
+
+/* ===== Fix heading đỏ từ global style ===== */
+h3 {
+    text-shadow: none !important;
+    font-family: inherit !important;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #111 !important;
+    color: #adb5bd !important;
+}
+
+footer a {
+    color: #adb5bd !important;
+}
+
+footer a:hover {
+    color: #fff !important;
+}
+</style>
