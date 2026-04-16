@@ -24,9 +24,25 @@
                         placeholder="Tìm kiếm..." aria-label="Search">
                     <button class="btn btn-outline-light btn-sm" type="submit">Tìm</button>
                 </form> -->
-                <div class="ms-3 d-flex gap-2">
-                    <RouterLink to="/login" class="btn btn-sm btn-outline-light">Đăng nhập</RouterLink>
-                    <RouterLink to="/register" class="btn btn-sm btn-primary">Đăng ký</RouterLink>
+                <div class="ms-3 d-flex gap-2 align-items-center">
+                    <template v-if="currentUser">
+                        <RouterLink v-if="currentUser.role === 'admin'" to="/admin" class="btn btn-sm btn-outline-warning">
+                            <i class="bi bi-speedometer2 me-1"></i>Quản lý
+                        </RouterLink>
+                        <RouterLink v-else to="/my-articles" class="btn btn-sm btn-outline-light">
+                            <i class="bi bi-pencil-square me-1"></i>Đăng bài
+                        </RouterLink>
+                        <RouterLink to="/profile" class="btn btn-sm btn-outline-light">
+                            <i class="bi bi-person-circle me-1"></i>{{ currentUser.username }}
+                        </RouterLink>
+                        <button class="btn btn-sm btn-danger" @click="logout">
+                            <i class="bi bi-box-arrow-right me-1"></i>Đăng xuất
+                        </button>
+                    </template>
+                    <template v-else>
+                        <RouterLink to="/login" class="btn btn-sm btn-outline-light">Đăng nhập</RouterLink>
+                        <RouterLink to="/register" class="btn btn-sm btn-primary">Đăng ký</RouterLink>
+                    </template>
                 </div>
             </div>
         </div>
@@ -34,13 +50,20 @@
 </template>
 
 <script setup>
-var currentPage = document.body.dataset.page;
-if (currentPage) {
-    var activeLink = document.querySelector('.nav-link[data-page="' + currentPage + '"]');
-    if (activeLink) {
-        activeLink.classList.add('active');
-        activeLink.setAttribute('aria-current', 'page');
-    }
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const currentUser = ref(null)
+
+onMounted(() => {
+    currentUser.value = JSON.parse(localStorage.getItem('currentUser') || 'null')
+})
+
+function logout() {
+    localStorage.removeItem('currentUser')
+    currentUser.value = null
+    router.push('/')
 }
 </script>
 

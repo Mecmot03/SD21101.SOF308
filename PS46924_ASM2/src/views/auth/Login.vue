@@ -25,7 +25,7 @@
                         class="col-lg-6 d-none d-lg-flex auth-brand-panel login-panel align-items-center justify-content-center text-white p-5">
                         <div class="text-center">
                             <i class="bi bi-journal-richtext" style="font-size:5rem"></i>
-                            <h2 class="fw-bold mt-4 mb-3 font-lol">M1 Entertainment</h2>
+                            <h2 class="mt-4 mb-3 font-lol">M1 Entertainment</h2>
                             <p class="text-white-75 mb-5" style="font-size:1.1rem; opacity:.85;">
                                 Nền tảng blog chia sẻ kiến thức công nghệ, lập trình và cuộc sống — dành cho cộng đồng
                                 Việt Nam.
@@ -68,7 +68,7 @@
 
 
                             <!-- Thông báo lỗi -->
-                            <div class="alert alert-danger d-flex align-items-center gap-2" role="alert"
+                            <div class="alert alert-danger align-items-center gap-2" role="alert"
                                 v-show="showError">
                                 <i class="bi bi-exclamation-triangle-fill flex-shrink-0"></i>
                                 <div>Email/tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.</div>
@@ -78,14 +78,14 @@
                             <div class="card auth-form-card border-secondary shadow-sm">
                                 <div class="card-body p-4">
                                     <form @submit.prevent="handleLogin">
-                                       <!-- Email hoặc tên đăng nhập -->
+                                        <!-- Email hoặc tên đăng nhập -->
                                         <div class="mb-3">
                                             <label for="loginIdentifier" class="form-label fw-semibold text-white-50">
                                                 <i class="bi bi-person me-1 text-danger"></i>Email hoặc tên đăng nhập
                                             </label>
                                             <input type="text" class="form-control auth-input" id="loginIdentifier"
-                                                v-model="identifier"
-                                                placeholder="Email hoặc username" autocomplete="username" required>
+                                                v-model="identifier" placeholder="Email hoặc username"
+                                                autocomplete="username" required>
                                         </div>
 
                                         <!-- Mật khẩu -->
@@ -99,8 +99,8 @@
                                                     khẩu?</a>
                                             </div>
                                             <input type="password" class="form-control auth-input" id="loginPassword"
-                                                v-model="password"
-                                                placeholder="Nhập mật khẩu" autocomplete="current-password" required>
+                                                v-model="password" placeholder="Nhập mật khẩu"
+                                                autocomplete="current-password" required>
                                         </div>
                                         <!-- Nút đăng nhập -->
                                         <div class="d-grid mb-3">
@@ -139,18 +139,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { Users } from '../../data/User'
+import axios from 'axios'
 
 const router = useRouter()
+const users = ref([]);
+
+const fetchUsers = async () => {
+    try {
+        const res = await axios.get('http://localhost:3001/users')
+        users.value = res.data
+    } catch (error) {
+        console.error('Lỗi khi lấy dữ liệu người dùng', error)
+    }
+}
+onMounted(fetchUsers);
 
 const identifier = ref('')
 const password = ref('')
 const showError = ref(false)
 
 function handleLogin() {
-    const matched = Users.find(u =>
+    const matched = users.value.find(u =>
         (u.email === identifier.value || u.username === identifier.value) &&
         u.password === password.value
     )
@@ -161,6 +172,9 @@ function handleLogin() {
     }
 
     showError.value = false
+    // Lưu thông tin đăng nhập vào localStorage
+    localStorage.setItem('currentUser', JSON.stringify(matched))
+
     if (matched.role === 'admin') {
         router.push('/admin')
     } else {

@@ -1,0 +1,198 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần liên tiếp",
+      "description": "Tại Chung Kết Thế Giới (CKTG) 2025, việc T1 vô địch một lần nữa khẳng định vị thế bất diệt của mình. Đội tuyển huyền thoại đến từ Hàn Quốc không chỉ bảo vệ thành công ngôi vương mà còn lập nên kỳ tích ba lần vô địch liên tiếp từ năm 2023 đến 2025.",
+      "image": "/src/assets/imgs/T13lllT.png",
+      "date": "11/10/2025",
+      "badge": "Hot",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "G2 sweeps Gen.G 3-0",
+      "description": "G2 Esports is back. They're more back than ever before.",
+      "image": "/src/assets/imgs/G23_0GenG.png",
+      "date": "21/03/2026",
+      "badge": "Shock",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Gumayusi rời T1, cú chuyển nhượng có thể làm rung chuyển LCK",
+      "description": "Sự chia tay của Gumayusi tương tự như việc Choi Zeus Woo-je ra đi năm ngoái.",
+      "image": "/src/assets/imgs/GumaLeaveT1.png",
+      "date": "18/11/2025",
+      "badge": "Hot",
+      "category": "news",
+      "userId": "1"
+    },
+    {
+      "id": "4",
+      "title": "Chung kết First Stand 2026: G2 gục ngã đầy cay đắng, BLG lần đầu xưng vương",
+      "description": "Sau những lần lỡ hẹn tại Worlds 2023 và MSI 2024, BLG đã vượt qua áp lực để giành danh hiệu lớn đầu tiên.",
+      "image": "/src/assets/imgs/VoDichFirstStand2026.png",
+      "date": "23/03/2026",
+      "badge": "News",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "5",
+      "title": "MSI 2026 khởi tranh: T1 và Gen.G tiếp tục là hai ứng viên nặng ký của LCK",
+      "description": "Bước vào MSI 2026, đại diện Hàn Quốc tiếp tục mang theo kỳ vọng rất lớn từ người hâm mộ.",
+      "image": "/src/assets/imgs/msi-2026-lck-preview.jpg",
+      "date": "02/05/2026",
+      "badge": "Hot",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "6",
+      "title": "Levi tái xuất ấn tượng, GAM mở màn VCS Mùa Hè bằng chiến thắng thuyết phục",
+      "description": "Trận ra quân của GAM Esports đã mang đến rất nhiều tín hiệu tích cực khi Levi kiểm soát hoàn toàn khu vực rừng.",
+      "image": "/src/assets/imgs/gam-vcs-summer-opening.jpg",
+      "date": "10/06/2026",
+      "badge": "VCS",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "7",
+      "title": "LPL dậy sóng sau thương vụ chuyển nhượng đường giữa trị giá kỷ lục trước mùa giải mới",
+      "description": "Một trong những đội tuyển hàng đầu LPL đã chi số tiền kỷ lục để chiêu mộ ngôi sao đường giữa.",
+      "image": "/src/assets/imgs/lpl-midlane-transfer.png",
+      "date": "28/04/2026",
+      "badge": "Transfer",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "8",
+      "title": "KT Rolster gây bất ngờ lớn khi đánh bại HLE trong loạt BO5 nghẹt thở",
+      "description": "Không được đánh giá cao trước giờ thi đấu, KT Rolster vẫn tạo nên cú sốc khi vượt qua Hanwha Life Esports.",
+      "image": "/src/assets/imgs/kt-vs-hle-bo5.png",
+      "date": "16/07/2026",
+      "badge": "Shock",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "9",
+      "title": "Faker cán mốc 1.000 điểm hạ gục quốc tế, tiếp tục nối dài huyền thoại của mình",
+      "description": "Dù đã thi đấu chuyên nghiệp hơn một thập kỷ, Faker vẫn duy trì phong độ đỉnh cao ở các giải đấu lớn.",
+      "image": "/src/assets/imgs/faker-1000-international-kills.png",
+      "date": "19/05/2026",
+      "badge": "Legend",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "id": "10",
+      "title": "Worlds 2026 công bố thể thức mới, tăng cơ hội đối đầu giữa các khu vực lớn ngay từ đầu",
+      "description": "Ban tổ chức Worlds 2026 đã giới thiệu thể thức thi đấu mới với mục tiêu tăng số trận hấp dẫn.",
+      "image": "/src/assets/imgs/worlds-2026-format.png",
+      "date": "30/06/2026",
+      "badge": "Update",
+      "category": "esports",
+      "userId": "1"
+    },
+    {
+      "title": "Một hai ba",
+      "description": "test",
+      "category": "esports",
+      "badge": "test",
+      "image": "",
+      "date": "16/4/2026",
+      "userId": "M_LLcXMIUB0",
+      "id": "w7wyysaxjC4"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "email": "admin@example.com",
+      "img": "",
+      "status": "active",
+      "createdAt": "01/01/2025"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "user123",
+      "role": "user",
+      "email": "user1@example.com",
+      "img": "",
+      "status": "active",
+      "createdAt": "15/03/2025"
+    },
+    {
+      "username": "HuNguyen",
+      "password": "12345678@gH",
+      "role": "user",
+      "email": "nguyenthaigiahu200803@gmail.com",
+      "img": "",
+      "status": "active",
+      "createdAt": "16/4/2026",
+      "fullName": "HuNguyen",
+      "id": "M_LLcXMIUB0"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "blogId": "1",
+      "userId": "2",
+      "content": "Bài viết rất hay và bổ ích! Cảm ơn tác giả đã chia sẻ.",
+      "date": "27/03/2026",
+      "status": "approved"
+    },
+    {
+      "id": "2",
+      "blogId": "2",
+      "userId": "M_LLcXMIUB0",
+      "content": "G2 quá mạnh, Gen.G không có cửa rồi!",
+      "date": "22/03/2026",
+      "status": "approved"
+    },
+    {
+      "id": "3",
+      "blogId": "1",
+      "userId": "M_LLcXMIUB0",
+      "content": "T1 vô địch 3 lần liên tiếp thật không thể tin được.",
+      "date": "20/03/2026",
+      "status": "approved"
+    },
+    {
+      "id": "4",
+      "blogId": "3",
+      "userId": "2",
+      "content": "Gumayusi rời T1 là một tổn thất rất lớn.",
+      "date": "19/03/2026",
+      "status": "pending"
+    },
+    {
+      "id": "5",
+      "blogId": "2",
+      "userId": "2",
+      "content": "Click vào đây để nhận ưu đãi!! http://spam.com",
+      "date": "18/03/2026",
+      "status": "spam"
+    },
+    {
+      "blogId": "6",
+      "userId": "M_LLcXMIUB0",
+      "content": "123",
+      "date": "16/4/2026",
+      "status": "pending",
+      "id": "bqLTFV6ZUtI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

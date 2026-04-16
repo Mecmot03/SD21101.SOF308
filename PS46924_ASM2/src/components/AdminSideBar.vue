@@ -11,9 +11,9 @@
         <RouterLink to="/admin/articles" class="nav-link" active-class="active">
             <i class="bi bi-file-earmark-text"></i>Quản lý bài viết
         </RouterLink>
-        <RouterLink to="/admin/categories" class="nav-link" active-class="active">
+        <!-- <RouterLink to="/admin/categories" class="nav-link" active-class="active">
             <i class="bi bi-tags"></i>Danh mục
-        </RouterLink>
+        </RouterLink> -->
         <RouterLink to="/admin/comments" class="nav-link" active-class="active">
             <i class="bi bi-chat-dots"></i>Bình luận
             <span class="badge bg-warning text-dark ms-auto">12</span>

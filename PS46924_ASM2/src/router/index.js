@@ -21,12 +21,25 @@ const router = createRouter({
     { path: '/login', component: Login },
     { path: '/register', component: Register },
     { path: '/profile', component: Profile },
-    { path: '/admin', component: DashBoard },
-    { path: '/admin/articles', component: ManageArticles },
-    { path: '/admin/categories', component: ManageCategories },
-    { path: '/admin/comments', component: ManageComments },
-    { path: '/admin/users', component: ManageUsers },
+    { path: '/admin', component: DashBoard, meta: { requiresAdmin: true } },
+    { path: '/admin/articles', component: ManageArticles, meta: { requiresAdmin: true } },
+    { path: '/my-articles', component: ManageArticles, meta: { requiresAuth: true } },
+    { path: '/admin/categories', component: ManageCategories, meta: { requiresAdmin: true } },
+    { path: '/admin/comments', component: ManageComments, meta: { requiresAdmin: true } },
+    { path: '/admin/users', component: ManageUsers, meta: { requiresAdmin: true } },
   ]
+})
+
+// Navigation guard
+router.beforeEach((to, from, next) => {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null')
+  if (to.meta.requiresAdmin && currentUser?.role !== 'admin') {
+    return next('/login')
+  }
+  if (to.meta.requiresAuth && !currentUser) {
+    return next('/login')
+  }
+  next()
 })
 
 export default router

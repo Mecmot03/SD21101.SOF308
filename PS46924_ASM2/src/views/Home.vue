@@ -4,37 +4,29 @@
         <!-- ===== CAROUSEL ===== -->
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button
+                    v-for="(blog, index) in blogs.slice(0, 3)"
+                    :key="blog.id"
+                    type="button"
+                    data-bs-target="#heroCarousel"
+                    :data-bs-slide-to="index"
+                    :class="{ active: index === 0 }"
+                    :aria-current="index === 0 ? 'true' : undefined"
+                    :aria-label="`Slide ${index + 1}`"
+                ></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="../assets/imgs/T13lllT.png" class="d-block w-100" alt="T1 nâng cúp tại CKTG 2025">
+                <div
+                    v-for="(blog, index) in blogs.slice(0, 3)"
+                    :key="blog.id"
+                    class="carousel-item"
+                    :class="{ active: index === 0 }"
+                >
+                    <img :src="blog.image" class="d-block w-100" :alt="blog.title">
                     <div class="carousel-caption d-none d-md-block pb-5 text-uppercase">
-                        <span class="badge bg-danger text-white mb-2">Hot</span>
-                        <h2 class="text-white">WORLDS 2025</h2>
-                        <p class="text-white">Đại chiến viễn thông' kết thúc, T1 vô địch 3 lần liên tiếp</p>
-                        <a href="#" class="btn btn-danger btn-sm px-4 text-white">Đọc ngay</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/imgs/G23_0GenG.png" class="d-block w-100" alt="G2 3 - 0 GEN">
-                    <div class="carousel-caption d-none d-md-block pb-5 text-uppercase">
-                        <span class="badge bg-danger text-white mb-2">Shock</span>
-                        <h2 class="text-white">G2 3 - 0 GEN</h2>
-                        <p class="text-white">ĐỊA CHẤN ĐÃ XẢY RA!!!</p>
-                        <a href="#" class="btn btn-danger btn-sm px-4 text-white">Đọc ngay</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/imgs/GumaLeaveT1.png" class="d-block w-100" alt="Guma rời T1">
-                    <div class="carousel-caption d-none d-md-block pb-5 text-uppercase">
-                        <span class="badge bg-danger text-white mb-2">Hot</span>
-                        <h2 class="text-white">Guma rời T1</h2>
-                        <p class="text-white">Đcú chuyển nhượng có thể làm rung chuyển LCK</p>
-                        <a href="#" class="btn btn-danger btn-sm px-4 text-white">Đọc ngay</a>
+                        <span class="badge bg-danger text-white mb-2">{{ blog.badge }}</span>
+                        <h2 class="text-white">{{ blog.title }}</h2>
+                        <router-link :to="`/articles/${blog.id}`" class="btn btn-danger btn-sm px-4 text-white">Đọc ngay</router-link>
                     </div>
                 </div>
             </div>
@@ -61,28 +53,28 @@
                     <div class="position-relative px-4">
                         <button
                             class="btn btn-outline-secondary btn-sm position-absolute top-50 translate-middle-y start-0 z-1"
-                            id="articleScrollPrev">
+                            id="articleScrollPrev"
+                            @click="prevPage"
+                            :disabled="currentPage === 0">
                             <i class="bi bi-chevron-left"></i>
                         </button>
 
                         <div class="row row-cols-1 row-cols-md-4 g-3" id="articleList">
-                            <div class="col" v-for="blog in blogs" :key="blog.id">
-                                <div class="card h-100 border-0 shadow-sm bg-dark text-white article-card">
+                            <div class="col rounded-5" v-for="blog in pagedBlogs" :key="blog.id">
+                                <div class="card border-0 shadow-sm bg-dark text-white article-card overflow-hidden" style="height: 320px;">
                                     <router-link :to="`/articles/${blog.id}`"
-                                        class="text-decoration-none article-title">
+                                        class="text-decoration-none article-title d-flex flex-column h-100">
                                         <div
-                                            class="article-thumb-sm bg-danger d-flex align-items-center justify-content-center">
+                                            class="article-thumb-sm bg-danger d-flex align-items-center justify-content-center flex-shrink-0">
                                             <img :src="blog.image" :alt="blog.title" class="img-fluid">
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body pb-1 flex-grow-1 overflow-hidden">
                                             <span class="badge bg-danger mb-2">{{ blog.badge }}</span>
                                             <h6 class="card-title font-lol">{{ blog.title }}</h6>
-                                            <p class="card-text small">{{ blog.description }}</p>
+                                            <p class="card-text small text-truncate-multiline">{{ blog.description }}</p>
                                         </div>
-                                        <div class="card-footer bg-transparent border-0 small text-white-50">
+                                        <div class="card-footer bg-transparent border-0 small text-white-50 flex-shrink-0">
                                             <i class="bi bi-calendar3 me-1 text-danger"></i>{{ blog.date }}
-                                            <span class="float-end"><i class="bi bi-heart me-1 text-danger"></i>{{
-                                                blog.likes }}</span>
                                         </div>
                                     </router-link>
                                 </div>
@@ -91,7 +83,9 @@
 
                         <button
                             class="btn btn-outline-secondary btn-sm position-absolute top-50 translate-middle-y end-0 z-1"
-                            id="articleScrollNext">
+                            id="articleScrollNext"
+                            @click="nextPage"
+                            :disabled="currentPage >= totalPages - 1">
                             <i class="bi bi-chevron-right"></i>
                         </button>
                     </div>
@@ -107,7 +101,40 @@
 <script setup>
 import PublicNavBar from '../components/PublicNavBar.vue'
 import PublicFooter from '../components/PublicFooter.vue'
-import { blogs } from '../data/Blog'
+import { ref, computed, onMounted } from 'vue'
+import axios from 'axios'
+
+const blogs = ref([])
+const currentPage = ref(0)
+const pageSize = 4
+
+const pagedBlogs = computed(() => blogs.value.slice(currentPage.value * pageSize, (currentPage.value + 1) * pageSize))
+const totalPages = computed(() => Math.ceil(blogs.value.length / pageSize))
+
+function prevPage() {
+    if (currentPage.value > 0) currentPage.value--
+}
+function nextPage() {
+    if (currentPage.value < totalPages.value - 1) currentPage.value++
+}
+
+const fetchBlogs = async () => {
+    try {
+        const res = await axios.get('http://localhost:3001/blogs')
+        blogs.value = res.data
+    } catch (error) {
+        console.error('Lỗi khi lấy dữ liệu', error)
+    }
+}
+onMounted(fetchBlogs)
 </script>
 
-<style></style>
+<style>
+.text-truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>

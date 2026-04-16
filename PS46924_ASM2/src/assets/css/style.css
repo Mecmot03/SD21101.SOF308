@@ -70,7 +70,6 @@ a:hover,
 }
 
 .carousel-caption h2 {
-    font-weight: 800;
     color: #ffffff;
     letter-spacing: 2px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -101,7 +100,7 @@ main {
 /* Footer */
 footer {
     color: #adb5bd;
-    background: #181818;
+    background: #2a2a2a;
 }
 
 footer a {

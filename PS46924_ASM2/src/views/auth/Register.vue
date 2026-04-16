@@ -89,26 +89,19 @@
                                 <p class="text-secondary">Miễn phí và chỉ mất vài phút.</p>
                             </div>
 
+                            <!-- Thông báo lỗi -->
+                            <div class="alert alert-danger mb-3" role="alert" v-if="errorMsg">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i>{{ errorMsg }}
+                            </div>
+                            <!-- Thông báo thành công -->
+                            <div class="alert alert-success mb-3" role="alert" v-if="successMsg">
+                                <i class="bi bi-check-circle-fill me-2"></i>{{ successMsg }}
+                            </div>
+
                             <!-- Form -->
                             <div class="card auth-form-card border-secondary shadow-sm">
                                 <div class="card-body p-4">
-                                    <form>
-                                        <!-- Họ và Tên -->
-                                        <div class="row g-3 mb-3">
-                                            <div class="col-sm-6">
-                                                <label for="regFirstName" class="form-label fw-semibold text-white-50">
-                                                    <i class="bi bi-person me-1 text-danger"></i>Họ
-                                                </label>
-                                                <input type="text" class="form-control auth-input" id="regFirstName"
-                                                    placeholder="Nguyễn" autocomplete="given-name" required>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <label for="regLastName" class="form-label fw-semibold text-white-50">Tên</label>
-                                                <input type="text" class="form-control auth-input" id="regLastName"
-                                                    placeholder="Văn A" autocomplete="family-name" required>
-                                            </div>
-                                        </div>
-
+                                    <form @submit.prevent="handleRegister">
                                         <!-- Tên hiển thị -->
                                         <div class="mb-3">
                                             <label for="regUsername" class="form-label fw-semibold text-white-50">
@@ -117,7 +110,7 @@
                                             <div class="input-group">
                                                 <span class="input-group-text auth-input-addon">@</span>
                                                 <input type="text" class="form-control auth-input" id="regUsername"
-                                                    placeholder="ten_nguoi_dung" autocomplete="username" required>
+                                                    v-model="username" placeholder="ten_nguoi_dung" autocomplete="username" required>
                                             </div>
                                             <div class="form-text auth-hint">Tên này sẽ hiển thị công khai bên dưới bài viết của bạn.</div>
                                         </div>
@@ -128,7 +121,7 @@
                                                 <i class="bi bi-envelope me-1 text-danger"></i>Email
                                             </label>
                                             <input type="email" class="form-control auth-input" id="regEmail"
-                                                placeholder="example@email.com" autocomplete="email" required>
+                                                v-model="email" placeholder="example@email.com" autocomplete="email" required>
                                         </div>
 
                                         <!-- Mật khẩu -->
@@ -137,23 +130,24 @@
                                                 <i class="bi bi-lock me-1 text-danger"></i>Mật khẩu
                                             </label>
                                             <input type="password" class="form-control auth-input" id="regPassword"
-                                                placeholder="Tối thiểu 8 ký tự" autocomplete="new-password" required>
+                                                v-model="password" placeholder="Tối thiểu 8 ký tự" autocomplete="new-password" required>
                                             <div class="form-text auth-hint mt-1">Mật khẩu phải có ít nhất 8 ký tự, bao gồm chữ hoa, chữ thường và số.</div>
                                         </div>
 
                                         <!-- Xác nhận mật khẩu -->
                                         <div class="mb-4">
                                             <label for="regPasswordConfirm" class="form-label fw-semibold text-white-50">
-                                                <i class="bi bi-lock-fill me-1 text-danger"></i>Xác nhận mật khẩu
+                                                <i class="bi bi-lock me-1 text-danger"></i>Xác nhận mật khẩu
                                             </label>
                                             <input type="password" class="form-control auth-input" id="regPasswordConfirm"
-                                                placeholder="Nhập lại mật khẩu" autocomplete="new-password" required>
+                                                v-model="confirmPassword" placeholder="Nhập lại mật khẩu" autocomplete="new-password" required>
                                         </div>
 
                                         <!-- Nút đăng ký -->
                                         <div class="d-grid mb-3">
-                                            <button type="submit" class="btn btn-danger py-2 fw-semibold">
-                                                <i class="bi bi-person-check me-2"></i>Tạo tài khoản
+                                            <button type="submit" class="btn btn-danger py-2 fw-semibold" :disabled="loading">
+                                                <span v-if="loading" class="spinner-border spinner-border-sm me-2"></span>
+                                                <i v-else class="bi bi-person-check me-2"></i>Tạo tài khoản
                                             </button>
                                         </div>
                                     </form>
@@ -186,8 +180,82 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import axios from 'axios'
+
 const router = useRouter()
+
+const username = ref('')
+const email = ref('')
+const password = ref('')
+const confirmPassword = ref('')
+const errorMsg = ref('')
+const successMsg = ref('')
+const loading = ref(false)
+
+async function handleRegister() {
+    errorMsg.value = ''
+    successMsg.value = ''
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email.value)) {
+        errorMsg.value = 'Email không hợp lệ.'
+        return
+    }
+
+    // Validate mật khẩu
+    if (password.value.length < 8) {
+        errorMsg.value = 'Mật khẩu phải có ít nhất 8 ký tự.'
+        return
+    }
+    if (!/[A-Z]/.test(password.value) || !/[a-z]/.test(password.value) || !/\d/.test(password.value)) {
+        errorMsg.value = 'Mật khẩu phải bao gồm chữ hoa, chữ thường và số.'
+        return
+    }
+    if (password.value !== confirmPassword.value) {
+        errorMsg.value = 'Mật khẩu xác nhận không khớp.'
+        return
+    }
+
+    loading.value = true
+    try {
+        const res = await axios.get('http://localhost:3001/users')
+        const users = res.data
+
+        // Kiểm tra trùng email hoặc username
+        if (users.some(u => u.email === email.value)) {
+            errorMsg.value = 'Email này đã được sử dụng.'
+            loading.value = false
+            return
+        }
+        if (users.some(u => u.username === username.value)) {
+            errorMsg.value = 'Tên người dùng này đã tồn tại.'
+            loading.value = false
+            return
+        }
+
+        const newUser = {
+            username: username.value,
+            password: password.value,
+            role: 'user',
+            email: email.value,
+            img: '',
+            status: 'active',
+            createdAt: new Date().toLocaleDateString('vi-VN'),
+            fullName: username.value
+        }
+
+        await axios.post('http://localhost:3001/users', newUser)
+        successMsg.value = 'Đăng ký thành công! Đang chuyển hướng đến trang đăng nhập...'
+        setTimeout(() => router.push('/login'), 1500)
+    } catch {
+        errorMsg.value = 'Đã xảy ra lỗi. Vui lòng thử lại.'
+    } finally {
+        loading.value = false
+    }
+}
 </script>
 
 <style scoped>
