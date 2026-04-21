@@ -21,7 +21,7 @@
                         <div class="avatar-circle mx-auto mb-3">
                             <span>{{ user.username?.charAt(0).toUpperCase() }}</span>
                         </div>
-                        <h5 class="fw-bold mb-0 text-white">{{ user.fullName || user.username }}</h5>
+                        <h5 class=" mb-0 text-white">{{ user.fullName || user.username }}</h5>
                         <p class="text-white-50 small mb-2">@{{ user.username }}</p>
                         <span class="badge" :class="user.role === 'admin' ? 'badge-admin' : 'badge-user'">
                             {{ user.role === 'admin' ? 'Quản trị viên' : 'Thành viên' }}
@@ -72,7 +72,7 @@
 
                             <!-- TAB THÔNG TIN -->
                             <div v-if="tab === 'info'">
-                                <h5 class="fw-bold mb-4 text-white">Chỉnh sửa thông tin</h5>
+                                <h5 class="mb-4 text-white">Chỉnh sửa thông tin</h5>
                                 <form @submit.prevent="saveInfo">
                                     <div class="row g-3">
                                         <div class="col-sm-6">
@@ -149,7 +149,7 @@
                                         <tbody>
                                             <tr v-for="a in myArticles" :key="a.id" class="border-secondary">
                                                 <td class="text-white border-secondary">{{ a.title }}</td>
-                                                <td class="border-secondary"><span class="badge bg-secondary">{{ a.category }}</span></td>
+                                                <td class="border-secondary"><span class="badge badge-category">{{ a.category }}</span></td>
                                                 <td class="text-white-50 small border-secondary">{{ a.date }}</td>
                                                 <td class="text-end border-secondary">
                                                     <RouterLink :to="'/articles/' + a.id" class="btn btn-sm btn-outline-light me-1">
@@ -298,12 +298,22 @@ function logout() {
 }
 
 .badge-user {
-    background: #ffffff15;
-    color: #adb5bd;
-    border: 1px solid #ffffff20;
+    background: #1a1a1a;
+    color: #fff;
+    border: 1px solid #333;
     padding: 4px 10px;
     border-radius: 20px;
     font-size: .75rem;
+}
+
+.badge-category {
+    background: #1a1a1a;
+    color: #dc3545;
+    border: 1px solid #dc354540;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: .75rem;
+    font-weight: 500;
 }
 
 .profile-link {
@@ -322,8 +332,8 @@ function logout() {
 }
 
 .profile-link:hover {
-    background: #222;
-    color: #fff;
+    background: #1a1a1a;
+    color: #dc3545;
 }
 
 .profile-tabs {

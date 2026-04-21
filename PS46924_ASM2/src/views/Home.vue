@@ -4,29 +4,19 @@
         <!-- ===== CAROUSEL ===== -->
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button
-                    v-for="(blog, index) in blogs.slice(0, 3)"
-                    :key="blog.id"
-                    type="button"
-                    data-bs-target="#heroCarousel"
-                    :data-bs-slide-to="index"
-                    :class="{ active: index === 0 }"
-                    :aria-current="index === 0 ? 'true' : undefined"
-                    :aria-label="`Slide ${index + 1}`"
-                ></button>
+                <button v-for="(blog, index) in blogs.slice(0, 3)" :key="blog.id" type="button"
+                    data-bs-target="#heroCarousel" :data-bs-slide-to="index" :class="{ active: index === 0 }"
+                    :aria-current="index === 0 ? 'true' : undefined" :aria-label="`Slide ${index + 1}`"></button>
             </div>
             <div class="carousel-inner">
-                <div
-                    v-for="(blog, index) in blogs.slice(0, 3)"
-                    :key="blog.id"
-                    class="carousel-item"
-                    :class="{ active: index === 0 }"
-                >
+                <div v-for="(blog, index) in blogs.slice(0, 3)" :key="blog.id" class="carousel-item"
+                    :class="{ active: index === 0 }">
                     <img :src="blog.image" class="d-block w-100" :alt="blog.title">
                     <div class="carousel-caption d-none d-md-block pb-5 text-uppercase">
                         <span class="badge bg-danger text-white mb-2">{{ blog.badge }}</span>
                         <h2 class="text-white">{{ blog.title }}</h2>
-                        <router-link :to="`/articles/${blog.id}`" class="btn btn-danger btn-sm px-4 text-white">Đọc ngay</router-link>
+                        <router-link :to="`/articles/${blog.id}`" class="btn btn-danger btn-sm px-4 text-white">Đọc
+                            ngay</router-link>
                     </div>
                 </div>
             </div>
@@ -34,6 +24,7 @@
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
+
             <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
@@ -53,15 +44,14 @@
                     <div class="position-relative px-4">
                         <button
                             class="btn btn-outline-secondary btn-sm position-absolute top-50 translate-middle-y start-0 z-1"
-                            id="articleScrollPrev"
-                            @click="prevPage"
-                            :disabled="currentPage === 0">
+                            id="articleScrollPrev" @click="prevPage" :disabled="currentPage === 0">
                             <i class="bi bi-chevron-left"></i>
                         </button>
 
                         <div class="row row-cols-1 row-cols-md-4 g-3" id="articleList">
                             <div class="col rounded-5" v-for="blog in pagedBlogs" :key="blog.id">
-                                <div class="card border-0 shadow-sm bg-dark text-white article-card overflow-hidden" style="height: 320px;">
+                                <div class="card border-0 shadow-sm bg-dark text-white article-card overflow-hidden"
+                                    style="height: 320px;">
                                     <router-link :to="`/articles/${blog.id}`"
                                         class="text-decoration-none article-title d-flex flex-column h-100">
                                         <div
@@ -71,9 +61,11 @@
                                         <div class="card-body pb-1 flex-grow-1 overflow-hidden">
                                             <span class="badge bg-danger mb-2">{{ blog.badge }}</span>
                                             <h6 class="card-title font-lol">{{ blog.title }}</h6>
-                                            <p class="card-text small text-truncate-multiline">{{ blog.description }}</p>
+                                            <p class="card-text small text-truncate-multiline">{{ blog.description }}
+                                            </p>
                                         </div>
-                                        <div class="card-footer bg-transparent border-0 small text-white-50 flex-shrink-0">
+                                        <div
+                                            class="card-footer bg-transparent border-0 small text-white-50 flex-shrink-0">
                                             <i class="bi bi-calendar3 me-1 text-danger"></i>{{ blog.date }}
                                         </div>
                                     </router-link>
@@ -83,9 +75,7 @@
 
                         <button
                             class="btn btn-outline-secondary btn-sm position-absolute top-50 translate-middle-y end-0 z-1"
-                            id="articleScrollNext"
-                            @click="nextPage"
-                            :disabled="currentPage >= totalPages - 1">
+                            id="articleScrollNext" @click="nextPage" :disabled="currentPage >= totalPages - 1">
                             <i class="bi bi-chevron-right"></i>
                         </button>
                     </div>

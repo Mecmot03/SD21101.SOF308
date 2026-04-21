@@ -17,8 +17,9 @@
                     <li class="nav-item">
                         <RouterLink to="/articles" class="nav-link" active-class="active" exact-active-class="active">
                             Bài viết</RouterLink>
-                    </li>
+                    </li>     
                 </ul>
+                {{ currentUser.fullName }}
                 <!-- <form class="d-flex" role="search">
                     <input class="form-control form-control-sm me-2 bg-secondary border-0 text-white" type="search"
                         placeholder="Tìm kiếm..." aria-label="Search">

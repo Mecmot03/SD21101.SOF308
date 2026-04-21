@@ -7,31 +7,29 @@ import Login from "../views/Login.vue";
 import UserProfile from "../views/UserProfile.vue";
 import UserProfileInfo from "../views/UserProfileInfo.vue";
 import UserProfileSettings from "../views/UserProfileSettings.vue";
-
-const isAuthenticated = false;
-
 const routes = [
-  { path: "/", name: "home", component: Home },
-  { path: "/blogs", name: "blog-list", component: BlogList },
-  { path: "/blogs/:id", name: "blog-post", component: BlogPost },
   {
-    path: "/dashboard",
-    name: "dashboard",
-    component: DashBoard,
-    meta: { requiredAuth: true },
-  },
-  { path: "/login", name: "login", component: Login },
-  {
-    path: "/profile/",
-    name: "userProfile",
-    component: UserProfile,
-    alias: "/me",
+    path: "/",
+    name: "home",
+    component: Home,
     children: [
-      { path: "info", name: "userProfileInfo", component: UserProfileInfo },
+      { path: "blogs", name: "blog-list", component: BlogList },
+      { path: "blogs/:id", name: "blog-post", component: BlogPost },
       {
-        path: "settings",
-        name: "userProfileSettings",
-        component: UserProfileSettings,
+        path: "dashboard",
+        name: "dashboard",
+        component: DashBoard,
+      },
+      { path: "login", name: "login", component: Login },
+      {
+        path: "profile",
+        name: "userProfile",
+        component: UserProfile,
+        children: [
+          { path: "info", name: "userProfileInfo", component: UserProfileInfo },
+          { path: "settings", name: "userProfileSettings", component: UserProfileSettings },
+        ],
+        meta: { requiresAuth: true },
       },
     ],
   },
@@ -49,10 +47,8 @@ const router = createRouter({
 
 // Route Guard for Authentication
 router.beforeEach((to, from, next) => {
-  if (
-    to.matched.some((record) => record.meta.requiresAuth) &&
-    !isAuthenticated
-  ) {
+  const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
+  if (to.matched.some((record) => record.meta.requiresAuth) && !isAuthenticated) {
     next({ name: "login" });
   } else {
     next();

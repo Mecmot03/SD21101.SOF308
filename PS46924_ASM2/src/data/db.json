@@ -64,7 +64,7 @@
       "id": "7",
       "title": "LPL dậy sóng sau thương vụ chuyển nhượng đường giữa trị giá kỷ lục trước mùa giải mới",
       "description": "Một trong những đội tuyển hàng đầu LPL đã chi số tiền kỷ lục để chiêu mộ ngôi sao đường giữa.",
-      "image": "/src/assets/imgs/lpl-midlane-transfer.png",
+      "image": "/src/assets/imgs/7.jpg",
       "date": "28/04/2026",
       "badge": "Transfer",
       "category": "esports",
@@ -74,7 +74,7 @@
       "id": "8",
       "title": "KT Rolster gây bất ngờ lớn khi đánh bại HLE trong loạt BO5 nghẹt thở",
       "description": "Không được đánh giá cao trước giờ thi đấu, KT Rolster vẫn tạo nên cú sốc khi vượt qua Hanwha Life Esports.",
-      "image": "/src/assets/imgs/kt-vs-hle-bo5.png",
+      "image": "/src/assets/imgs/8.jpg",
       "date": "16/07/2026",
       "badge": "Shock",
       "category": "esports",
@@ -84,7 +84,7 @@
       "id": "9",
       "title": "Faker cán mốc 1.000 điểm hạ gục quốc tế, tiếp tục nối dài huyền thoại của mình",
       "description": "Dù đã thi đấu chuyên nghiệp hơn một thập kỷ, Faker vẫn duy trì phong độ đỉnh cao ở các giải đấu lớn.",
-      "image": "/src/assets/imgs/faker-1000-international-kills.png",
+      "image": "/src/assets/imgs/9.jpg",
       "date": "19/05/2026",
       "badge": "Legend",
       "category": "esports",
@@ -94,7 +94,7 @@
       "id": "10",
       "title": "Worlds 2026 công bố thể thức mới, tăng cơ hội đối đầu giữa các khu vực lớn ngay từ đầu",
       "description": "Ban tổ chức Worlds 2026 đã giới thiệu thể thức thi đấu mới với mục tiêu tăng số trận hấp dẫn.",
-      "image": "/src/assets/imgs/worlds-2026-format.png",
+      "image": "/src/assets/imgs/10.jpg",
       "date": "30/06/2026",
       "badge": "Update",
       "category": "esports",
@@ -109,6 +109,15 @@
       "date": "16/4/2026",
       "userId": "M_LLcXMIUB0",
       "id": "w7wyysaxjC4"
+    },
+    {
+      "title": "Bài Viết mới",
+      "description": "Test json",
+      "category": "esports",
+      "badge": "test",
+      "image": "",
+      "date": "16/4/2026",
+      "id": "-12QL8agaW4"
     }
   ],
   "users": [
@@ -120,7 +129,8 @@
       "email": "admin@example.com",
       "img": "",
       "status": "active",
-      "createdAt": "01/01/2025"
+      "createdAt": "01/01/2025",
+      "fullName": "Hủ Nguyễn"
     },
     {
       "id": "2",
@@ -192,6 +202,14 @@
       "date": "16/4/2026",
       "status": "pending",
       "id": "bqLTFV6ZUtI"
+    },
+    {
+      "blogId": "2",
+      "userId": "1",
+      "content": "123132",
+      "date": "16/4/2026",
+      "status": "pending",
+      "id": "zCs_4Z9iWbk"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

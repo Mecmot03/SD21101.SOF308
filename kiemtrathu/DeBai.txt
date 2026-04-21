@@ -1,0 +1,34 @@
+Lĩnh vực Công nghệ thông tin
+Mô tả:
+Xây dựng ứng dụng Vue.js với các yêu cầu sau – sử dụng dữ liệu Json cho trước (trang 2):
+Yêu cầu:
+1. (2đ) Hiển thị danh sách dữ liệu gồm "id", "title" từ mảng dữ liệu JSON được cung cấp sẵn.
+2. (2đ) Khi người dùng nhấp vào một dòng dữ liệu, sử dụng Vue Router để điều hướng đến
+trang chi tiết, hiển thị đầy đủ thông tin trong trang chi tiết.
+3. (2đ) Tạo form CRUD với dữ liệu trên (có validate dữ liệu).
+4. (2đ) Dùng Bootstrap để tạo giao diện thân thiện, bố cục rõ ràng.
+5. (2đ) Thêm chức năng tìm kiếm và lọc theo "title" hoặc "salary" (phần nâng cao).
+
+Dữ liệu Json
+[
+{ "id": 1, "title": "Lập trình viên Java", "salary": 2000, "skills": "Java, Spring,
+Hibernate" },
+{ "id": 2, "title": "Lập trình viên Python", "salary": 2100, "skills": "Python, Django,
+Flask" },
+{ "id": 3, "title": "Kỹ sư DevOps", "salary": 2500, "skills": "AWS, Docker,
+Kubernetes" },
+{ "id": 4, "title": "Kỹ sư AI", "salary": 3000, "skills": "Machine Learning,
+TensorFlow, PyTorch" },
+{ "id": 5, "title": "Chuyên viên phân tích dữ liệu", "salary": 2200, "skills": "SQL,
+Power BI, Python" },
+{ "id": 6, "title": "Quản trị viên hệ thống", "salary": 1800, "skills": "Linux, Windows
+Server, Networking" },
+{ "id": 7, "title": "Tester phần mềm", "salary": 1500, "skills": "Manual Testing,
+Selenium" },
+{ "id": 8, "title": "Kỹ sư phần mềm nhúng", "salary": 2700, "skills": "C, C++, ARM"
+},
+{ "id": 9, "title": "Kỹ sư an ninh mạng", "salary": 2800, "skills": "Penetration Testing,
+SIEM, Firewalls" },
+{ "id": 10, "title": "Chuyên viên UI/UX", "salary": 2000, "skills": "Figma, Adobe XD,
+Sketch" }
+]
